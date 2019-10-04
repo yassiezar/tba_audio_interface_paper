@@ -1,9 +1,11 @@
 \documentclass{article}
 
-\usepackage{cleveref}
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[caption=false]{subfig}
 \usepackage{siunitx}
+\usepackage{cleveref}
+\usepackage{todonotes}
 
 \begin{document}
 
@@ -188,7 +190,7 @@ where $IP = \frac{1}{t}$ when $\sigma=0$.
 \subsection{Procedure}
 
 Two groups of participants were recruited for the experiments on a volunteer basis. 
-Group \textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 12 people with severe visual impairments (18-55 years old, 40 male, 14 female). 
+Group \textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 10 people with severe visual impairments (18-55 years old, 40 female, 16 female). 
 None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
 Each participant performed 3 sets of experiments each, with the 2 characterisation experiments preceding the final target-search experiment. 
 Both groups were given some time before the experiment target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
@@ -198,9 +200,116 @@ Furthermore, to minimise the speed/accuracy biases in the results for this exper
 
 \subsection{Sound Localisation}
 
+\cref{fig:sound-localisation} shows the results captured from the sound localisation experiment where the participants had to select the direction (left or right) that the tone was being played to them from. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/sound_localisation.png}
+  \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }
+  \label{fig:sound-localisation}
+\end{figure}
+
+From inspection of \cref{fig:sound-localisation}, it can be seen that the vast majority of guesses for both groups were correct.
+For Group \textit{G1}, the majority of erroneous guesses were made at the minimum distance from the centre, i.e.\ the most difficult to guess correctly, which is the expected behaviour and indicates that the participants consistently progressed through the distance intervals.
+We can therefore conclude that the participants from \textit{G1} had little difficulty determining sound direction.
+
+Group \textit{G2} also displays a concentration of erroneous guesses in the centre interval.
+However, it also has more incorrect guesses in other distance intervals and displays a more even progression through the distance intervals towards the centre.
+This could indicate that instead of terminating the experiment through bringing the 2 sequences within 1 interval of one another, there was more switching back and forth between the centre 3 intervals. 
+
+These results show that both participant groups are capable of determining a sound source's location with a reasonable level of consistency and accuracy
+These results are in line with what we expected and are supported by literature which indicates that humans are very adept at localising a sound source, particularly in the pan dimension. 
+
 \subsection{Pitch Discrimination}
 
+The results of the pitch discrimination experiment are shown in \cref{fig:pitch-discrimination} where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
+The latter is given in terms of semitone differences which is obtained with 
+
+\begin{equation*}
+\label{eq:semitone-difference}
+  \Delta f = 12\log_2\frac{f_0}{f_1}.
+\end{equation*}
+
+For Group \textit{G1}, we see that their guesses are normally spread around the 0 semitone difference interval and as expected, the highest proportion of incorrect guesses occur in the $[-0.25, 0.25]$ semitone difference interval. 
+The guesses from Group \textit{G2} is more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone difference interval.
+
+Assuming the differences are normally spread, we fitted a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
+We then used each CDF's parameters to determine a frequency threshold where the participant could not longer reliably tell the tones apart. 
+The threshold is set to contain 75\% of each participant's correct guesses and an example of one participant's threshold can be seen in \todo{put in figure}.
+The median of these threshold values can then be used to estimate the frequency difference at which the participant population could no longer tell the difference between two tones and can be used to improve the next interface iteration's frequency profile and increase performance. 
+\cref{fig:pitch-thresholds} shows a distribution of the thresholds values for each group, along with the median value. 
+The median is used here given the skewed plot and was found to be approximately 0.4 semitones for each group.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/pitch_discrimination.png}
+  \caption{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }
+  \label{fig:pitch-discrimination}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds.png}
+  \caption{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }
+  \label{fig:pitch-thresholds}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds_limits.png}
+  \caption{}
+\end{figure}
+
 \subsection{Target Search}
+
+The results from the target search experiment in the pan dimension are given on the abscissa of the 2D histograms in \cref{fig:target-errors}, where the angular errors in the pan and tilt directions are plotted against each other. 
+A set of box-plots of the pan errors are also given in \cref{fig:target-boxplot-error} for each audio setting.
+The results are summarised in \cref{tab:target-results}\todo{tabulate results}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/target_errors.png}
+  \caption{Distributions of the angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }
+  \label{fig:target-errors}
+\end{figure}
+
+The Shapiro-Wilkes test for normality reveals that none of these distributions are normally spread and accordingly, the Pearson test is used to investigate the correlation between the actual target location and participants' pointing location.
+These results are included in \cref{tab:target-results}.
+The Pearson correlation scores for Group \text{G1} indicate a moderate to strong positive correlation between the target and the selected locations ($r_{pan} \in [0.71, 0.76], p < 0.001; r_{elevation} \in [0.36, 0.48], p < 0.001$), showing that the both the pan and elevation cues roughly worked as expected.
+However, the correlation scores for Group \textit{G2} are significantly weaker, with a pan angle correlation of $r_{pan} \in [0.2, 0.48], p < 0.001$.
+The elevation correlation is somewhat stronger, with $r_{elevation} \in [0.46, 0.53], p < 0.001$.
+However, the correlation score for the elevation for the \textit{lo} setting is disregarded for having insufficient statistical relevance ($p > 0.05$). 
+
+The repeated-measures procedure that was used for these experiments required the data for each participant to be grouped together for each setting.
+The medians of these groupings of error data are then used as individual samples that represent an individual participant's performance for each setting.
+\cref{fig:target-boxplot-error} shows this median data collected from each participant as a set of boxplots, while \cref{fig:target-boxplot-absolute-error} shows the absolute error data for these groupings. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/boxplot_target_search_median_error.png}
+  \caption{Boxplots of the median pan and elevation errors for each setting. }
+  \label{fig:target-boxplot-error}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/boxplot_target_search_absolute_median_error.png}
+  \caption{Boxplots of the absolute median pan and elevation errors for each setting. }
+  \label{fig:target-boxplot-absolute-error}
+\end{figure}
+
+The boxplots in \cref{fig:target-boxplot-error} shows that the error in the pan dimensions is roughly centred around \SI{0}{\radian} for both groups, with some divergence between the groups and settings for the different settings.
+However, these divergences are determined to not be significant using the Friedman test for repeated measures ($p \gg 0.05$), showing that spatialisation perception and accuracy is not affected by changes in the tone's pitch.
+
+Analysis of the elevation data with the Friedman test reveals that the results for the different settings within each group are indeed significantly different from one another with a reasonable degree of confidence ($p_{G1} = 0.03, p_{G2} = 0.01$).
+A post-hoc analysis using the Wilcoxon signed rank test with a Holm-Bonferoni correction applied to the commonly used 0.05 statistical significance threshold was used to investigate the setting relationships more closely. 
+This analysis reveals that there is only 1 significant difference between the performances generated by the \textit{med} and \textit{hi} settings for Group \textit{G1} ($p_{med-hi} = 0.002$}, while Group \textot{G2} has 2 significantly different levels of performance between the \textit{lo} and \textit{med} settings, as well as for the \textit{med} and \textit{hi} settings ($p_{lo-med} = 0.011, p_{med-hi} = 0.001$).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/fitts_fit.png}
+  \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }
+\end{figure}
 
 \section{Conclusion}
 
