@@ -257,7 +257,8 @@ The median is used here given the skewed plot and was found to be approximately 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds_limits.png}
-  \caption{}
+  \caption{Histrogram distibutions of the participants' 75\% cut-off thresholds. }
+  \label{fig:pitch-thresholds-hist}
 \end{figure}
 
 \subsection{Target Search}
@@ -328,7 +329,7 @@ This is confirmed with strong Pearson correlation scores for each setting ($r_{l
 Regarding Group \textit{G2}¸ we observe larger spreads for each binned dataset, indicating less consistency int eh time to target results for participants with severe sight impairments.
 However, the results for the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88, p_{med} = 0.019; r_{hi} = 0.89, p_{med} = 0.03$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.23, p_{lo} = 0.65$).
 
-These results allows us to calculate and plot the index of performance, as given in \cref{eq:fitts-ip}, for each setting in \cref{fig:fitts-ips}.
+These results allows us to calculate and plot the index of performance, as given in \cref{eq:fitts-performance}, for each setting in \cref{fig:fitts-ips}.
 
 \begin{figure}
   \centering
@@ -342,6 +343,13 @@ This is supported by the results from the Friedman test ($p < 0.001$), as well a
 The results for Group \textit{G2} shows far lower indices of performance for each setting, which is expected given the increased indices of difficulty observed in \cref{fig:fitts-results}.
 Indeed, the distributions are shown to be similar according to the Friedman test ($p = 0.1$) and we cannot conclude which setting produces the best performance. 
 \todo{explain why bad}
+
+A possible reason why the \textit{hi} setting produces the highest level of performance is that the higher gradient makes it easier to perceive changes in the tone's pitch for each unit change in the device's pointing direction.
+The observed effect is that the \textit{hi} setting drives the user to the target location in in the least amount of time and with the highest level of accuracy. 
+
+This trend of progressive improvement between the \textit{lo}, \textit{med} and \textit{hi} settings respectively seems indicate that that simply increasing the frequency gradient will lead to increased performance.
+However, \cref{fig:pitch-thresholds-hist} indicates that the frequency difference between the on-target tone and the selected tone in the \textit{hi} setting is approaching the cut-off frequency for Group \textit{G1}, indicating the point at which increasing the gradient produces diminishing returns on performance. 
+Indeed, the participants from Group \textit{G2} seems to have passed this threshold and reached a saturation point where they could no longer reliably tell changes in the tone apart any longer. 
 
 \section{Conclusion}
 
