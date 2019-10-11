@@ -269,8 +269,7 @@ Furthermore, to minimise the speed/accuracy biases in the results for this exper
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/sound_localisation.png}
-  \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }
-  \label{fig:sound-localisation}
+  \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }\label{fig:sound-localisation}
 \end{figure}
 
 From inspection of \cref{fig:sound-localisation}, it can be seen that the vast majority of guesses for both groups were correct.
@@ -299,7 +298,7 @@ The guesses from Group \textit{G2} is more concentrated around the centre and th
 
 Assuming the differences are normally spread, we fitted a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
 We then used each CDF's parameters to determine a frequency threshold where the participant could not longer reliably tell the tones apart. 
-The threshold is set to contain 75\% of each participant's correct guesses and an example of one participant's threshold can be seen in \todo{put in figure}.
+The threshold is set to contain 75\% of each participant's correct guesses.% and an example of one participant's threshold can be seen in \todo{put in figure}.
 The median of these threshold values can then be used to estimate the frequency difference at which the participant population could no longer tell the difference between two tones and can be used to improve the next interface iteration's frequency profile and increase performance. 
 \cref{fig:pitch-thresholds} shows a distribution of the thresholds values for each group, along with the median value. 
 The median is used here given the skewed plot and was found to be approximately 0.4 semitones for each group.
@@ -326,7 +325,7 @@ The median is used here given the skewed plot and was found to be approximately 
 
 The results from the target search experiment in the pan dimension are given on the abscissa of the 2D histograms in \cref{fig:target-errors}, where the angular errors in the pan and tilt directions are plotted against each other. 
 A set of box-plots of the pan errors are also given in \cref{fig:target-boxplot-error} for each audio setting.
-The results are summarised in \cref{tab:target-results}\todo{tabulate results}.
+The results are summarised in \cref{tab:target-results}.
 
 \begin{figure}
   \centering
@@ -372,15 +371,13 @@ The medians of these groupings of error data are then used as individual samples
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/boxplot_target_search_median_error.png}
-  \caption{Boxplots of the median pan and elevation errors for each setting. }
-  \label{fig:target-boxplot-error}
+  \caption{Boxplots of the median pan and elevation errors for each setting. }\label{fig:target-boxplot-error}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/boxplot_target_search_absolute_median_error.png}
-  \caption{Boxplots of the absolute median pan and elevation errors for each setting. }
-  \label{fig:target-boxplot-absolute-error}
+  \caption{Boxplots of the absolute median pan and elevation errors for each setting. }\label{fig:target-boxplot-absolute-error}
 \end{figure}
 
 The boxplots in \cref{fig:target-boxplot-error} shows that the error in the pan dimensions is roughly centred around \SI{0}{\radian} for both groups, with some divergence between the groups and settings for the different settings.
@@ -404,8 +401,7 @@ A logarithmic line of best fit is fitted through the binned data's median values
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/fitts_fit.png}
-  \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }
-  \label{fig:fitts-results}
+  \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-results}
 \end{figure}
 
 For Group \textit{G1}, a Fitts relationship can be observed where the logarithmic line of best fit closely approximates the median values of the binned data for all 3 settings. 
@@ -418,8 +414,7 @@ These results allows us to calculate and plot the index of performance, as given
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{figures/fitts_ips.png}
-  \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }
-  \label{fig:fitts-ips}
+  \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-ips}
 \end{figure}
 
 For the results from Group\textit{G1}, there is a progressive improvement in performance between the \textit{lo}, \textit{med} and \textit{hi} settings respectively, with the \textit{hi} producing the highest level of performance between the 3 settings, i.e.\ the participants found the targets with the smallest error in the least about of time with the \textit{hi} setting.
