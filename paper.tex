@@ -11,6 +11,7 @@
 
 \section{Introduction}
 
+\todo{Change?}
 In recent years, governments have spearheaded numerous initiatives to support people with disabilities and enable them to play a more active role in modern society.
 The UK's Royal National Institute of Blind People (RNIB) for example has prioritised improving access to everyday services and products, such as public transport and mobile apps~\cite{rnib2016uk}.
 Improvements in modern computing have made it possible for new and innovative solutions to these problems to come to the fore.
@@ -45,6 +46,34 @@ This is followed by a description of the experiments that were conducted and a d
 Finally, the paper concludes with a summary and a short discussion on future research prospects in \cref{sec:conclusion}.
 
 \section{Previous Work}\label{sec:prev-work}
+
+Multiple mobile navigation and travel aids have been devised throughout the years, some as part of a commercial undertaking and many as part of academic research.
+The majority of these systems rely on one or a combination of vocal~\cite{mocanu2016when,chessa2016integrated,kanwal2015navigation}, audio~\cite{schwarze2015intuitive,rodriguez2012obstacle,katz2010navig} and haptic~\cite{rivera-rubio2015assistive,lee2015rgb,xiao2015assistive} feedback media to communicate guidance instructions to the user, each with their own sets of features and limitations.
+In general, participants with visual impairments report that they prefer haptic and vocal feedback out of the three options~\cite{arditi2013user}.
+However, haptic feedback systems typically have extra hardware requirements to transmit the guidance instructions.
+Furthermore, haptic and vocal feedback can become a cognitive burden, particularly where high resolution guidance, which can exceed the bandwidth of these particular senses, is required.
+Indeed, participants report that they would prefer control over the vocal feedback channel and trigger guidance instructions, instead of being given constant guidance instructions~\cite{arditi2013user}.
+Simple audio tones are less affected by these bandwidth and hardware limitations, but they can potentially fatigue the user's senses if too unpleasant.
+
+Simple audio tones and vocal feedback signals have been used in conjunction with cameras and object detectors to communicate their relative positions to the user with a reasonable level of accuracy~\cite{schauerte2012assistive,tian2013computer,fiannaca2014headlock,vazquez2012helping}.
+Following this, researchers have investigated using audio signals that are spatialised with a head-related transfer function (HRTF), simulating a sound source located at some arbitrary 3D position~\cite{geronazzo2016interactive,wilson2007swan,katz2010navig,blum2013spatialized}.
+The authors generally report favourable results for this guidance approach when used with standard over-ear headphones or speakers. 
+However, other authors have found that the choice of audio transmission medium can have a significant effect on performance.
+Cheaper headphones and bone-conduction headphones generally report unfavourable results when compared to over-ear or more expensive alternatives~\cite{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
+This seems to be limited to the elevation dimension, however, and can be improved with HRTFs adjusted for the bone-conduction pathway~\cite{stanley2006lateralization}.
+In~\cite{durette2008visuo}, they transmit a target's elevation angle by adjusting the signal's pitch and report favourable results. 
+We extended on the latter's work and investigated spatial audio for guidance mode closely in an initial study and found that it is indeed able to adequately guide a user towards a target area~\cite{lock2019bone}.
+In the following sections, we investigate this performance even further. 
+
+Researchers have previously used Fitts's Law~\cite{fitts1954information}, and more recently MacKenzie's modified version of it~\cite{mackenzie1992fitts}, as a metric to evaluate the performance of a spatial audio HMI\@.
+Fitts's Law was originally proposed for visual target search tasks, but has since been applied in non-visual target search tasks as well.
+For example, experiments with a haptic feedback pointing device have been performed to evaluate how effective it was at directing a user towards a target~\cite{ahmaniemi2009augmented} and the authors showed that the search time adheres to Fitts's Law.
+However, they also note that it is not a perfect fit, citing the fact that Fitts's Law does not take into account a user's search strategy.
+Another group of researchers conducted experiments using a spatial audio interface to describe the position of a target on the horizontal plane~\cite{marentakis2006effects}.
+Here, participants pointed to where they thought the targets were, on their left or right, as they traversed a path.
+Their results show a good relation between target difficulty and search time, providing a strong argument that Fitts's Law can be used to describe the performance of a spatial audio interface.
+These results have since been supported by other authors, who found that Fitts's Law provided a good explanation for the results from an experiment using visual, limited visual and non-visual feedback cues~\cite{wu2010fitts}.
+However, Fitts's Law has not yet been shown to apply to a spatial tone that uses varying pitch to convey the target's tilt angle, as demonstrated in this paper.
 
 \section{System Description}\label{sec:system-description}
 
@@ -290,7 +319,7 @@ The median is used here given the skewed plot and was found to be approximately 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds_limits.png}
-  \caption{Histrogram distibutions of the participants' 75\% cut-off thresholds. }
+  \caption{Histogram distributions of the participants' 75\% cut-off thresholds. }
   \label{fig:pitch-thresholds-hist}
 \end{figure}
 
