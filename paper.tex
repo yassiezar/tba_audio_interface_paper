@@ -11,9 +11,42 @@
 
 \section{Introduction}
 
-\section{Previous Work}
+In recent years, governments have spearheaded numerous initiatives to support people with disabilities and enable them to play a more active role in modern society.
+The UK's Royal National Institute of Blind People (RNIB) for example has prioritised improving access to everyday services and products, such as public transport and mobile apps~\cite{rnib2016uk}.
+Improvements in modern computing have made it possible for new and innovative solutions to these problems to come to the fore.
+In particular, researchers in the active vision field have have made much progress in enabling machines to autonomously manipulate cameras to gather information about an environment for mapping and object finding tasks~\cite{bajcsy2018revisiting,lock2019active}.
+There is, however, a significant research question about whether techniques from active machine vision can be applied to humans, i.e.\ can a machine identify a point of interest in a scene and direct a human, instead of an electronic servo, to focus on that point?
+If this can be done, it would be beneficial to people with visual impairments and will augment their ability to search for an arbitrary point or object of interest and identify an unknown scene. 
 
-\section{System Description}
+The ActiVis\footnote{https://lcas.github.io/ActiVis/} project aims to deliver a mobile guidance system that will ultimately be able to guide a user with vision impairments on the last leg of their journey, i.e.\ the so-called `last 10-yard problem'. 
+The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \cref{fig:tango} and \cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
+It also provides access to Android's full range of interface tools and I/O options. 
+Furthermore, a set of bone-conduction headphones (pictured in \cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
+
+\begin{figure}[t]
+  \centering
+  \subfloat[]{\label{fig:tango}\includegraphics[width=0.4\columnwidth]{figures/tango_asus.jpeg}}
+~
+  \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.3\columnwidth]{figures/tango_headphone.png}}
+~
+  \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
+  \caption{Pictures of the latest Tango mobile phone (left), the former Tango tablet and the bone-conduction headphones used in this work (centre), and a participant with visual impairments during an experiment (right).}
+\end{figure}
+
+Humans are able to determine the 3D position of a sound source and by exploiting this natural ability, the real-time guidance instructions can easily be interpreted without posing a significant cognitive load.
+A sound source can be spatialised by adjusting a tone's spectral make-up (elevation angle), time delay and level difference (pan angle), and intensity (distance).
+In our case, only the pan and elevation positions are transmitted to the user to point the camera towards a target object or visual feature.
+However, since bone-conduction headphones bypass the outer ear structure, their spectral signature cannot properly be interpreted and we therefore convey the target's elevation angle by adjusting the tone's pitch.
+A similar approach was used in~\cite{durette2008visuo} and further investigated in~\cite{lock2019bone}.
+However, in this work we expand the scope and investigate the perception limitations of the interface in order to find some design guidelines and we expand the pool of participants to more than 50 people.
+
+The rest of the paper starts by discussing previous relevant works and research in \cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \cref{sec:system-description}.
+This is followed by a description of the experiments that were conducted and a discussion of their results in \cref{sec:experiments} and \cref{sec:results}.
+Finally, the paper concludes with a summary and a short discussion on future research prospects in \cref{sec:conclusion}.
+
+\section{Previous Work}\label{sec:prev-work}
+
+\section{System Description}\label{sec:system-description}
 
 Existing electronic navigation aids have typically struggled to gain market traction and replace the traditional walking cane as the standard assistive tool for people with visual impairments.
 Current technological limitations include prohibitive costs, bulky hardware requirements and non-user-friendly interfaces~\cite{golledge2004stated,yusif2016older,arditi2013user}.
@@ -81,7 +114,7 @@ After practical tests with the interface, we set the neutral pitch to \SI{512}{\
 We set the pitch limits to 2 octaves away from the neutral pitch, giving frequency limits of [\SI{128}{\hertz}, \SI{2048}{\hertz}].
 The linear function is visualised in \cref{fig:pitch-gain}.
 
-\section{Experiments}
+\section{Experiments}\label{sec:experiments}
 
 \subsection{Implementation}
 
@@ -196,7 +229,7 @@ Each participant performed 3 sets of experiments each, with the 2 characterisati
 Both groups were given some time before the experiment target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
 Furthermore, to minimise the speed/accuracy biases in the results for this experiment, we asked the participants to focus on finding the targets, without worrying about the time it took. 
 
-\section{Results}
+\section{Results}\label{sec:results}
 
 \subsection{Sound Localisation}
 
@@ -351,7 +384,7 @@ This trend of progressive improvement between the \textit{lo}, \textit{med} and 
 However, \cref{fig:pitch-thresholds-hist} indicates that the frequency difference between the on-target tone and the selected tone in the \textit{hi} setting is approaching the cut-off frequency for Group \textit{G1}, indicating the point at which increasing the gradient produces diminishing returns on performance. 
 Indeed, the participants from Group \textit{G2} seems to have passed this threshold and reached a saturation point where they could no longer reliably tell changes in the tone apart any longer. 
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
 \bibliographystyle{plain}
 \bibliography{bib}
