@@ -5,6 +5,8 @@
 \usepackage[caption=false]{subfig}
 \usepackage{siunitx}
 \usepackage{cleveref}
+\usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{todonotes}
 
 \begin{document}
@@ -287,10 +289,10 @@ These results are in line with what we expected and are supported by literature 
 The results of the pitch discrimination experiment are shown in \cref{fig:pitch-discrimination} where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
 The latter is given in terms of semitone differences which is obtained with 
 
-\begin{equation*}
+\begin{equation}
 \label{eq:semitone-difference}
   \Delta f = 12\log_2\frac{f_0}{f_1}.
-\end{equation*}
+\end{equation}
 
 For Group \textit{G1}, we see that their guesses are normally spread around the 0 semitone difference interval and as expected, the highest proportion of incorrect guesses occur in the $[-0.25, 0.25]$ semitone difference interval. 
 The guesses from Group \textit{G2} is more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone difference interval.
@@ -305,22 +307,19 @@ The median is used here given the skewed plot and was found to be approximately 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/pitch_discrimination.png}
-  \caption{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }
-  \label{fig:pitch-discrimination}
+  \caption{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }\label{fig:pitch-discrimination}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds.png}
-  \caption{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }
-  \label{fig:pitch-thresholds}
+  \caption{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }\label{fig:pitch-thresholds}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/pitch_thresholds_limits.png}
-  \caption{Histogram distributions of the participants' 75\% cut-off thresholds. }
-  \label{fig:pitch-thresholds-hist}
+  \caption{Histogram distributions of the participants' 75\% cut-off thresholds. }\label{fig:pitch-thresholds-hist}
 \end{figure}
 
 \subsection{Target Search}
@@ -332,9 +331,32 @@ The results are summarised in \cref{tab:target-results}\todo{tabulate results}.
 \begin{figure}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/target_errors.png}
-  \caption{Distributions of the angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }
-  \label{fig:target-errors}
+  \caption{Distributions of the angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }\label{fig:target-errors}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{The average target acquisition error in the pan and elevation dimensions for each participant group. }\label{tab:target-results}
+  \begin{tabular}{p{0.5cm}p{0.7cm}p{1cm}p{2cm}p{2.25cm}}
+    \toprule
+    &           & Setting      & Mean Angle Error [rad] & Spearman Correlation \\ \midrule
+    \multirow{6}{*}{\textit{G1}}
+    &           & \textit{lo}  & $-0.02\pm0.37$ & $0.75, p < 0.001$ \\
+    & Pan       & \textit{med} & $-0.01\pm0.37$ & $0.77, p < 0.001$ \\
+    &           & \textit{hi}  & $-0.03\pm0.39$ & $0.72, p < 0.001$ \\ \cline{3-5}
+    &           & \textit{lo}  & $-0.12\pm0.51$ & $0.36, p < 0.001$ \\
+    & Elevation & \textit{med} & $-0.11\pm0.41$ & $0.49, p < 0.001$ \\
+    &           & \textit{hi}  & $-0.15\pm0.44$ & $0.48, p < 0.001$ \\ \midrule
+    \multirow{6}{*}{\textit{G2}}
+    &           & \textit{lo}  & $-0.01\pm0.37$ & $0.10, p = 0.03$  \\
+    & Pan       & \textit{med} & $ 0.04\pm0.53$ & $0.13, p = 0.01$  \\
+    &           & \textit{hi}  & $ 0.03\pm0.48$ & $0.21, p < 0.001$ \\\cline{3-5}
+    &           & \textit{lo}  & $-0.30\pm0.59$ & $0.03, p = 0.48$  \\
+    & Elevation & \textit{med} & $-0.42\pm0.45$ & $0.31, p < 0.001$ \\
+    &           & \textit{hi}  & $-0.37\pm0.43$ & $0.40, p < 0.001$ \\ 
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 The Shapiro-Wilkes test for normality reveals that none of these distributions are normally spread and accordingly, the Pearson test is used to investigate the correlation between the actual target location and participants' pointing location.
 These results are included in \cref{tab:target-results}.
