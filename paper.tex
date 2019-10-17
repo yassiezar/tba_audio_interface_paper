@@ -13,15 +13,12 @@
 
 \section{Introduction}
 
-\todo{Change?}
-In recent years, governments have spearheaded numerous initiatives to support people with disabilities and enable them to play a more active role in modern society.
-The UK's Royal National Institute of Blind People (RNIB) for example has prioritised improving access to everyday services and products, such as public transport and mobile apps~\cite{rnib2016uk}.
-Improvements in modern computing have made it possible for new and innovative solutions to these problems to come to the fore.
-In particular, researchers in the active vision field have have made much progress in enabling machines to autonomously manipulate cameras to gather information about an environment for mapping and object finding tasks~\cite{bajcsy2018revisiting,lock2019active}.
-There is, however, a significant research question about whether techniques from active machine vision can be applied to humans, i.e.\ can a machine identify a point of interest in a scene and direct a human, instead of an electronic servo, to focus on that point?
-If this can be done, it would be beneficial to people with visual impairments and will augment their ability to search for an arbitrary point or object of interest and identify an unknown scene. 
+The ActiVis\footnote{https://lcas.github.io/ActiVis/} project is working towards building an indoor mobile navigation aid for people with vision impairments that can guide them to their destination in the last leg of their journey (the so-called `last 10-yard problem').
+Improvements to computer vision and machine learning techniques, as well as mobile commuting hardware improvements are exploited to make this system possible.
+In particular, techniques from the active vision field are being used to enable a mobile device to gather information on the surrounding environment and use it to generate guidance instructions for a user with limited or no vision.
+However, in literature, these techniques are typically limited to electro-mechanical servos~\cite{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
+In previous work we implemented a prototype system that uses active vision and machine learning models to gather information and help a person find objects in an unknown environment, showing that these techniques can indeed successfully be applied to humans as well~\cite{lock2019active}.
 
-The ActiVis\footnote{https://lcas.github.io/ActiVis/} project aims to deliver a mobile guidance system that will ultimately be able to guide a user with vision impairments on the last leg of their journey, i.e.\ the so-called `last 10-yard problem'. 
 The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \cref{fig:tango} and \cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
 It also provides access to Android's full range of interface tools and I/O options. 
 Furthermore, a set of bone-conduction headphones (pictured in \cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
@@ -40,8 +37,9 @@ Humans are able to determine the 3D position of a sound source and by exploiting
 A sound source can be spatialised by adjusting a tone's spectral make-up (elevation angle), time delay and level difference (pan angle), and intensity (distance).
 In our case, only the pan and elevation positions are transmitted to the user to point the camera towards a target object or visual feature.
 However, since bone-conduction headphones bypass the outer ear structure, their spectral signature cannot properly be interpreted and we therefore convey the target's elevation angle by adjusting the tone's pitch.
-A similar approach was used in~\cite{durette2008visuo} and further investigated in~\cite{lock2019bone}.
-However, in this work we expand the scope and investigate the perception limitations of the interface in order to find some design guidelines and we expand the pool of participants to 50 people.
+In~\cite{lock2019bone}, we showed that this audio signal transmission scheme can direct users to a target position with a degree of accuracy comparable to fully spatialised signals sued with expensive closed-cup headphones~\cite{macdonald2006spatial}.
+We expand upon the initial investigation in~\cite{lock2019bone} with a larger dataset and look at if, and how, changing the behaviour of the pitch affects target acquisition performance in terms of time and angular error. 
+The participants' hearing characteristics are also measured to determine if there are limitations to how well they can determine audio pitch or direction. 
 
 The rest of the paper starts by discussing previous relevant works and research in \cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \cref{sec:system-description}.
 This is followed by a description of the experiments that were conducted and a discussion of their results in \cref{sec:experiments} and \cref{sec:results}.
