@@ -85,8 +85,7 @@ This system has the benefit of minimal hardware requirements and a compact, fami
 A set of bone-conduction headphones is used as the audio transmission medium.
 These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
 This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still relies on sound to detect, for example, oncoming vehicles and people~\cite{lichtenstein2012headphone}.
-Alternative solutions, such as open-back headphones, were also considered.
-These allow ambient noise through, but they still filter the incoming sound.
+Alternative solutions, such as open-back headphones which allow ambient noise through, were also considered, but they still filter the incoming sound and were disregarded.
 The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected since they do not interfere on other sounds and are also more discreet than the larger over-ear headphones. 
 
 \subsection{Audio Interface}
@@ -294,7 +293,7 @@ For Group \textit{G1}, we see that their guesses seem normally spread around the
 The guesses from Group \textit{G2} are more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone difference interval.
 
 Assuming these differences are normally spread, we fit a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
-We then used each CDF's parameters to determine a frequency cut-off threshold where the participant could not longer reliably tell tones apart and is set to contain 75\% of each participant's correct guesses.% and an example of one participant's threshold can be seen in \todo{put in figure}.
+We then used each CDF's parameters to determine a frequency cut-off threshold where the participant could not longer reliably tell tones apart and is set to contain 75\% of each participant's correct guesses.
 The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones and can be used to improve the interface's frequency profile and performance. 
 \cref{fig:pitch-thresholds} shows the threshold distribution for each group, along with the median value. 
 The median is used for each grouping given the skewed plot and was found to be approximately 0.4 semitones for each group.
@@ -332,20 +331,20 @@ The results are summarised in \cref{tab:target-results}.
 \begin{table}
   \centering
   \caption{The average target acquisition error in the pan and elevation dimensions for each participant group. }\label{tab:target-results}
-  \begin{tabular}{p{0.5cm}p{0.7cm}p{0.7cm}p{1cm}p{2cm}p{2.25cm}}
+  \begin{tabular}{p{0.5cm}p{1.3cm}p{0.9cm}p{2cm}p{2cm}p{2.25cm}}
     \toprule
     &           & Setting      & Mean Angle Error [rad] & Mean Absolute Angle Error [rad] &  Pearson Correlation \\ \midrule
     \multirow{6}{*}{\textit{G1}}
     &           & \textit{lo}  & $-0.02\pm0.37$ & $0.25\pm0.27$ & $0.75, p < 0.001$ \\
     & Pan       & \textit{med} & $-0.01\pm0.37$ & $0.26\pm0.27$ & $0.77, p < 0.001$ \\
-    &           & \textit{hi}  & $-0.03\pm0.39$ & $0.26\pm0.29$ & $0.72, p < 0.001$ \\ \cline{3-5}
+    &           & \textit{hi}  & $-0.03\pm0.39$ & $0.26\pm0.29$ & $0.72, p < 0.001$ \\ \cline{2-6}
     &           & \textit{lo}  & $-0.12\pm0.51$ & $0.42\pm0.31$ & $0.36, p < 0.001$ \\
     & Elevation & \textit{med} & $-0.11\pm0.41$ & $0.44\pm0.24$ & $0.49, p < 0.001$ \\
     &           & \textit{hi}  & $-0.15\pm0.44$ & $0.36\pm0.29$ & $0.48, p < 0.001$ \\ \midrule
     \multirow{6}{*}{\textit{G2}}
     &           & \textit{lo}  & $-0.01\pm0.37$ & $0.48\pm0.31$ & $0.10, p = 0.03$  \\
     & Pan       & \textit{med} & $ 0.04\pm0.53$ & $0.45\pm0.27$ & $0.13, p = 0.01$  \\
-    &           & \textit{hi}  & $ 0.03\pm0.48$ & $0.36\pm0.22$ & $0.21, p < 0.001$ \\\cline{3-5}
+    &           & \textit{hi}  & $ 0.03\pm0.48$ & $0.36\pm0.22$ & $0.21, p < 0.001$ \\\cline{2-6}
     &           & \textit{lo}  & $-0.30\pm0.59$ & $0.49\pm0.39$ & $0.03, p = 0.48$  \\
     & Elevation & \textit{med} & $-0.42\pm0.45$ & $0.42\pm0.33$ & $0.31, p < 0.001$ \\
     &           & \textit{hi}  & $-0.37\pm0.43$ & $0.36\pm0.32$ & $0.40, p < 0.001$ \\ 
@@ -376,16 +375,17 @@ The medians of these data groupings are then used as individual samples that rep
 \end{figure}
 
 The box-plots in \cref{fig:target-boxplot-error} show that the error in the pan dimension is roughly centred around \SI{0}{\radian} for both groups, with some divergence between the groups for the different settings.
-However, using the Friedman test for repeated measures, these divergences are found to not be significant ($p \gg 0.05$), showing that spatial perception and accuracy is not affected by changes in the tone's pitch.
+However, using the Friedman test for repeated measures on the medians of absolute errors, these divergences are found to not be significant ($p_{G1} = 0.17, p_{G2} = 0.09$), showing that spatial perception and accuracy is not affected by changes in the tone's pitch.
 This is further demonstrated in the box-plots in \cref{fig:target-boxplot-absolute-errors}, which demonstrates relatively consistent error levels in the pan dimension for both groups and across all 3 settings. 
 
 Regarding the errors in the elevation dimension in \cref{fig:target-boxplot-error}, we observe in Group \textit{G1} a narrowing distribution between the \textit{lo}, \textit{med} and \textit{hi} settings respectively and a median gradually approaching \SI{0}{\radian}.
-A similar pattern is observed for Group \textit{G2}, but the improvement across the settings is more subtle and not as linear as for Group \textit{G1}.
-\cref{fig:target-boxplot-absolute-errors} shows a clearer improvement, i.e.\ approaching \SI{0}{\radian}, for the elevation data between the 3 settings in both groups.
-Further analysis of the elevation data with the Friedman test reveals that the results for the different settings within each group are indeed significantly different from one another with a reasonable degree of confidence ($p_{G1} = 0.03, p_{G2} = 0.01$).
-\todo{discuss post-hoc in more detail}
-A post-hoc analysis using the Wilcoxon signed rank test, with a Holm-Bonferroni correction applied to the commonly used 0.05 significance threshold, was used to investigate the setting relationships more closely. 
-This analysis reveals that there is only 1 significant difference between the performances generated by the \textit{med} and \textit{hi} settings for Group \textit{G1} ($p_{med-hi} = 0.002$), while Group \textit{G2} has 2 significantly different levels of performance between the \textit{lo} and \textit{med} settings, as well as for the \textit{med} and \textit{hi} settings ($p_{lo-med} = 0.011, p_{med-hi} = 0.001$).
+A similar trent is observed for Group \textit{G2}, but the improvement across the settings is more subtle and not as linear as for Group \textit{G1}.
+\cref{fig:target-boxplot-absolute-errors} shows a clearer improvement, i.e.\ approaching \SI{0}{\radian}, for the elevation data between the 3 settings in both groups, with the \textit{hi} setting producing the smallest error in both cases.
+Further analysis of the medians of the absolute elevation error data with the Friedman test reveals that the results for the different settings only Group \textit{G1} are significantly different from one another ($p_{G1} = 0.002, p_{G2} = 0.32$).
+A post-hoc analysis using the Wilcoxon signed rank test, with a Holm-Bonferroni correction applied to the commonly used 0.05 threshold, was used to investigate the setting relationships more closely. 
+This analysis reveals that there is a significant difference between the errors generated by the \textit{lo} and \textit{med} settings, as well as the \textit{lo} and \textit{hi} settings, for Group \textit{G1} ($p_{lo-med} = 0.003, p_{lo-hi} < 0.001$), showing that the \textit{lo} setting clearly produces the highest error, while it is not clear which of the \textit{med} and \textit{hi} settings are better for Group \textit{G1}. 
+Based on the current data, it is impossible to conclude which setting produces the smallest angular error for Group \textit{G2}, but this may be caused by the relatively small sample size for each setting. 
+%while Group \textit{G2} has 2 significantly different levels of performance between the \textit{lo} and \textit{med} settings, as well as for the \textit{med} and \textit{hi} settings ($p_{lo-med} = 0.011, p_{med-hi} = 0.001$).
 It is also noted that there is a significant negative error bias in all of the settings in both groups which is possibly caused by a cognitive constraint introduced by the floor where the participants believed that the targets could not appear below the ground.
 Since this bias seems constant in nature, it can be addressed in the future by adjusting the frequency parameters of the interface and shifting it by a constant offset. 
 
@@ -399,16 +399,16 @@ Consequently, with the significantly smallest median elevation error, we can con
   \begin{tabular}{lll}
     \toprule
                    & Pan      & Elevation \\ \midrule
-      \textit{lo}  & $p=0.77$ & $p=0.95$ \\
-      \textit{med} & $p=0.98$ & $p=0.07$ \\
-      \textit{hi}  & $p=0.72$ & $p=0.41$ \\
+      \textit{lo}  & $p=0.18$ & $p=0.90$  \\
+      \textit{med} & $p=0.86$ & $p=0.34$  \\
+      \textit{hi}  & $p=0.28$ & $p=0.38$  \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \subsection{Time to Target}
 
-To investigate if the interface generates a Fitts-like responce from the participants, we plot the time to find the target as a function of the targets' indices of difficulty as defined by \cref{eq:fitts-base}.
+To investigate if the interface generates a Fitts-like response from the participants, we plot the time to find the target as a function of the targets' indices of difficulty as defined by \cref{eq:fitts-base}.
 The data is binned in intervals of the effective target width ($w_e$) as given by \cref{eq:fitts-we} and are plotted for each gradient setting. 
 A logarithmic line of best fit is also fitted through the binned data's median values through means of regression and all the results are presented in \cref{fig:fitts-results}.
 
@@ -419,12 +419,13 @@ A logarithmic line of best fit is also fitted through the binned data's median v
 \end{figure}
 
 For Group \textit{G1}, a Fitts relationship can be observed and the logarithmic line of best fit closely approximates the median values of the binned data for all 3 settings. 
-This is confirmed with strong Pearson correlation scores for each setting ($r_{lo} = 0.0.76, p_{lo} = 0.045; r_{med} = 0.96, p_{med}<0.001; r_{hi} = 0.86, p_{hi} = 0.013$).
+This is confirmed with strong Pearson correlation scores for each setting ($r_{lo} = 0.76, p_{lo} = 0.045; r_{med} = 0.96, p_{med}<0.001; r_{hi} = 0.86, p_{hi} = 0.013$).
 Regarding Group \textit{G2}¸ we observe larger spreads for each binned dataset, indicating less consistency in the time to target results for participants with severe sight impairments.
 This could be a result of taking each participant's result as a single datum and the smaller population in Group \textit{G2}.
 Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88, p_{med} = 0.008; r_{hi} = 0.84, p_{med} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08, p_{lo} = 0.85$).
 
 These results allows us to calculate and plot an index of performance, as given in \cref{eq:fitts-performance}, for each setting in \cref{fig:fitts-ips}.
+Their results are summarised in \cref{tab:fitts-results}.
 
 \begin{figure}
   \centering
@@ -432,14 +433,32 @@ These results allows us to calculate and plot an index of performance, as given 
   \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-ips}
 \end{figure}
 
-For the results from Group\textit{G1}, there is a progressive improvement in performance between the 3 settings, with the \textit{lo} producing the highest indices of performance overall, i.e.\ the participants found the targets with the smallest error in the least about of time with the \textit{lo} setting.
-This is supported by the results from the Friedman test that shows that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections that show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001, p_{lo-hi} < 0.001$), while the \textit{med} and \textit{hi} are not different to one another ($p_{med-hi} = 0.14$).
-The results for Group \textit{G2} shows generally lower indices of performance for each setting, which is expected given the increased times to target observed in \cref{fig:fitts-results}.
-Again, the \textit{lo} setting produces the highest performance by a large margin compared to the \textit{med} setting with the Wilcoxon test with Holm-Bonferronni corrections ($p_{lo-med}=0.01$). 
-However, the same test indicates that there is not a statistical difference between the \textit{lo} and \textit{hi} or the \textit{med} and \textit{hi} settings ($p_{lo-hi} = 0.1, p_{med-hi} = 0.038$).
+\begin{table}
+  \centering
+  \caption{The average target acquisition error in the pan and elevation dimensions for each participant group. }\label{tab:fitts-results}
+  \begin{tabular}{p{0.5cm}p{1.2cm}p{2.3cm}}
+    \toprule
+    & Setting      & Mean Index of Performance \\ \midrule
+    & \textit{lo}  & $0.056\pm0.005$ \\
+    \textit{G1} & \textit{med} & $0.053\pm0.008$ \\
+		& \textit{hi}  & $0.051\pm0.007$ \\ \cline{2-3}
+    & \textit{lo}  & $0.034\pm0.009$ \\
+    \textit{G2} & \textit{med} & $0.014\pm0.002$ \\
+    & \textit{hi}  & $0.022\pm0.006$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+For the results from Group \textit{G1}, there is a fairly consistent level of performance between the 3 settings, with the \textit{lo} producing the highest indices of performance overall, i.e.\ the participants found the targets with the smallest error in the least about of time with the \textit{lo} setting.
+This is supported by the results from the Friedman test that shows that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections that show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001, p_{lo-hi} < 0.001$), while the \textit{med} and \textit{hi} are not different to one another ($p_{med-hi} = 0.85$).
+The results for Group \textit{G2} shows generally lower and inconsistent indices of performance for each setting, which is expected given the increased times to target observed in \cref{fig:fitts-results}.
+Again, following results from the Friedman test ($p < 0.001$), the \textit{lo} setting produces the highest performance by a large margin compared to the \textit{med} setting with the Wilcoxon test with Holm-Bonferronni corrections ($p_{lo-med}=0.01$), followed by the \textit{hi} and \textit{med} settings' results respectively.
 These results seem to indicate that for both groups, the \textit{lo} produces the highest level of performance followed, by the \textit{hi} setting.
 
-\todo{compare inter-group results}
+From \cref{fig:fitts-ips}, there is significant difference between the IPs for each group's respective settings, with \textit{G2} producing significantly lower indices of performance.
+This is further supported by the Kruskal-Wallis test that reveals that each setting's distribution is indeed significantly different from its counterpart in the other group ($p_{lo} < 0.001, p_{med} < 0.001, p_{hi} < 0.001$).
+The significant difference between the blindfolded group and the group with severely sight impaired participants seems to indicate that the latter group take significantly longer to find the target. 
+However, it is unclear whether this is a systematic cause or a difference in search strategy between the 2 groups, e.g.\ \textit{G2} preferring, on average, a slower more methodical approach.
 
 \subsection{Discussion}
 
