@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[]{interact}
 
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -7,9 +7,31 @@
 \usepackage{cleveref}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{todonotes}
+\usepackage[natbibapa,nodoi]{apacite}
+
+\setlength\bibhang{12pt}
+\renewcommand\bibliographytypesize{\fontsize{10}{12}\selectfont}
 
 \begin{document}
+
+\articletype{Review Draft}
+
+\title{NEW TITLE}
+
+\author{%
+  \name{Jacobus C. Lock\textsuperscript{a}\thanks{Contact Author}, Iain D. Gilchirst\textsuperscript{b}, Grzegorz Cielniak\textsuperscript{a} and Nicola Bellotto\textsuperscript{a}}%
+  \affil{\textsuperscript{a}University of Lincoln, Lincoln, LN6 7TS, UK; \textsuperscript{b}University of Bristol, Bristol, BS8 1TH, UK}%
+}
+
+\maketitle
+
+\begin{abstract}
+  Cool and informative abstract
+\end{abstract}
+
+\begin{keywords}
+  Visual impairment; active vision; guidance system; audio interface; Fitts Law
+\end{keywords}
 
 \section{Introduction}
 
@@ -486,11 +508,11 @@ This, along with the Fitts-like relationship that was found, can be used to impr
 The next steps for the project is to implement this interface into a guidance system and test the complete system's performance. 
 Implementing an auto-adaptive interface scheme can also now be considered.
 
-\section{Acknowledgements}
+\section*{Acknowledgements}
 
 This project is partly funded and supported by the Google Winter Award (2016).
 
-\bibliographystyle{plain}
+\bibliographystyle{apacite}
 \bibliography{bib}
 
 \end{document}
