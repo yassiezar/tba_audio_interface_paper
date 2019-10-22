@@ -9,6 +9,10 @@
 \usepackage{multirow}
 \usepackage{todonotes}
 
+\usepackage{soul}
+\DeclareRobustCommand{\tofix}[1]{{\sethlcolor{yellow}\hl{[#1]}}}
+
+
 \begin{document}
 
 \section{Introduction}
@@ -33,13 +37,15 @@ Furthermore, a set of bone-conduction headphones (pictured in \cref{fig:tango-he
   \caption{Pictures of the latest Tango mobile phone (left), the former Tango tablet and the bone-conduction headphones used in this work (centre), and a participant with visual impairments during an experiment (right).}
 \end{figure}
 
-Humans are able to determine the 3D position of a sound source and by exploiting this natural ability, the real-time guidance instructions can easily be interpreted without posing a significant cognitive load.
+Humans are able to determine the 3D position of a sound source and by exploiting this natural ability, the real-time guidance instructions can be interpreted without posing a significant cognitive load.
 A sound source can be spatialised by adjusting a tone's spectral make-up (elevation angle), time delay and level difference (pan angle), and intensity (distance).
 In our case, only the pan and elevation positions are transmitted to the user to point the camera towards a target object or visual feature.
 However, since bone-conduction headphones bypass the outer ear structure, their spectral signature cannot properly be interpreted and we therefore convey the target's elevation angle by adjusting the tone's pitch.
-In~\cite{lock2019bone}, we showed that this audio signal transmission scheme can direct users to a target position with a degree of accuracy comparable to fully spatialised signals sued with expensive closed-cup headphones~\cite{macdonald2006spatial}.
+In~\cite{lock2019bone}\tofix{fix this citation in bibtex}, we showed that this audio signal transmission scheme can direct users to a target position with a degree of accuracy comparable to fully spatialised signals sued with expensive closed-cup headphones~\cite{macdonald2006spatial}.
 We expand upon the initial investigation in~\cite{lock2019bone} with a larger dataset and look at if, and how, changing the behaviour of the pitch affects target acquisition performance in terms of time and angular error. 
 The participants' hearing characteristics are also measured to determine if there are limitations to how well they can determine audio pitch or direction. 
+
+\tofix{spell out here the research contributions of this paper with a bullet-points list}
 
 The rest of the paper starts by discussing previous relevant works and research in \cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \cref{sec:system-description}.
 This is followed by a description of the experiments that were conducted and a discussion of their results in \cref{sec:experiments} and \cref{sec:results}.
@@ -63,7 +69,8 @@ Cheaper headphones and bone-conduction headphones generally report unfavourable 
 This seems to be limited to the elevation dimension, however, and can be improved with HRTFs adjusted for the bone-conduction pathway~\cite{stanley2006lateralization}.
 In~\cite{durette2008visuo}, they transmit a target's elevation angle by adjusting the signal's pitch and report favourable results. 
 We extended on the latter's work and investigated spatial audio for guidance mode closely in an initial study and found that it is indeed able to adequately guide a user towards a target area~\cite{lock2019bone}.
-In the following sections, we investigate this performance even further. 
+In the following sections, we investigate this performance even further.
+\tofix{downplay the workshop paper (i.e. ``preliminary study'') and emphasize the importance of this new ``throughout investigation''}
 
 Researchers have previously used Fitts's Law~\cite{fitts1954information}, and more recently MacKenzie's modified version of it~\cite{mackenzie1992fitts}, as a metric to evaluate the performance of a spatial audio HMI\@.
 Fitts's Law was originally proposed for visual target search tasks, but has since been applied in non-visual target search tasks as well.
