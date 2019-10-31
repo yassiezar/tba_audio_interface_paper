@@ -89,24 +89,24 @@ However, Fitts's Law has not yet been shown to apply to a spatial tone that uses
 
 Existing electronic navigation aids have typically struggled to gain market traction and replace the traditional walking cane as the standard assistive tool for people with visual impairments.
 Current technological limitations include prohibitive costs, bulky hardware requirements and non-user-friendly interfaces~\cite{golledge2004stated,yusif2016older,arditi2013user}.
-To address these issues, we implemented a handheld mobile system that is based on a concept proposed in~\cite{lock2017portable,lock2019active} and tested in~\cite{lock2019bone} that uses a Google Tango device that is able to localise itself in real-time.
+To address these issues, we implemented a handheld mobile system that is based on a concept proposed in~\cite{lock2017portable,lock2019active} and tested in~\cite{lock2019bone} using a Google Tango device that is able to localise itself in real-time.
 This system has the benefit of minimal hardware requirements and a compact, familiar form-factor, which will help to overcome the hurdle of user-acceptance and usability.
 
 A set of bone-conduction headphones is used as the audio transmission medium.
 These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
 This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still relies on sound to detect, for example, oncoming vehicles and people~\cite{lichtenstein2012headphone}.
-Alternative solutions, such as open-back headphones which allow ambient noise through, were also considered, but they still filter the incoming sound and were disregarded.
+Alternative solutions that allow ambient noise through, such as open-back headphones, were also considered, but they still filter the incoming sound and were therefore disregarded.
 The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected since they do not interfere on other sounds and are also more discreet than the larger over-ear headphones. 
 
 \subsection{Audio Interface}
 
-Humans localise a sound source in 3 dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\cite{blauert1997spatial,blauert1969sound}.
+Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\cite{blauert1997spatial,blauert1969sound}.
 The binaural cues include inter-aural time and level differences (ITD and ILD respectively) that help to determine a source's location on the horizontal plane.
 Monaural cues are taken from the interaction of the sound with the human anatomy, e.g.\ head, shoulders, outer ear, before it enters the ear canal.
 When the modified audio signal enters the inner ear canal, the human brain is able to analyse the frequency response and accurately determine the position of the sound source on the median plane. 
 The distance to the source is simply derived as the intensity, or volume, of the source, i.e.\ a louder sound would appear closer to the user than a softer one. 
 
-When an audio signal is transmitted via a set of speakers or headphones, it can be transformed with an HRTF to mimic the characteristics of a natural sound source before it is transmitted, tricking the brain into believing a sound is located at some arbitrary position.
+When an audio signal is transmitted via a set of speakers or headphones, it can be transformed with an HRTF to mimic the characteristics of a natural sound source before it is transmitted, making the brain believe a sound is located at some arbitrary position.
 An HRTF is a mathematical function that simulates the response signal of a human head and is derived by capturing key characteristics that affect the monaural and binaural responses, such as the user's hearing levels and head size.
 Since hearing responses are unique amongst different users, the best results would be observed if each user had their own customised HRTF.\
 However, given the complicated process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\cite{gardner1995hrtf}.
@@ -114,7 +114,7 @@ However, given the complicated process involved to capture the required user cha
 The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \cref{fig:cam-coords}.
 Spatialised audio signals are well-suited to the task, displaying similar levels of performance to vocal feedback, but with less cognitive load and higher resolution~\cite{klatzky2006cognitive}.
 However, given the previously discussed limitations of bone-conduction and spatialised audio, we propose a simple linear adjustment to the signal's pitch as a function of the elevation angle. 
-The pan angle, instead, can be conveyed by transforming the audio signal with an HRTF, and indeed it has been found that this dimension is unaffected by using bone-conduction headphones\cite{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
+The pan angle, instead, can be conveyed by transforming the audio signal with an HRTF, and indeed it has been found that this dimension is unaffected by using bone-conduction headphones~\cite{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
 
 \begin{figure}[t]
   \centering
