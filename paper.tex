@@ -182,7 +182,11 @@ The linear function is visualised in \cref{fig:pitch-gain}.
 
 \section{Experiments}\label{sec:experiments}
 
-\tofix{Add a short intro for this section, similar to what you had in the original paper.}
+We performed a set of experiments with the audio interface to determine how effective it is at directing a user to adjust the pan and elevation angles of a camera for point it to a target.
+Furthermore, we also carried out a set of pre-screening experiments to determine each participant's hearing characteristics.
+The participants were given time before the experiments commenced to familiarise themselves with the device and the tones it emits, as well as what the `on-target' tone sounds like.
+We also tested the system with a group of severely sight impaired participants and compared their data to the blindfolded dataset.
+The results from the experiments we performed allow us to better understand how the users respond to different settings for the spatial audio feedback stimulus and use them to improve and optimise the behaviour of the feedback modes in our portable navigation aid.
 
 \subsection{System Setup}
 
@@ -194,12 +198,12 @@ A WiFi recording module is constantly monitoring the different values of the dev
 \begin{figure}[t]
   \centering
   \includegraphics[clip=true, trim=0 120 80 50, width=\columnwidth]{figures/pipeline.pdf}
-  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal. \tofix{Remove ``Vibration, Voice Output'' from top box.} }\label{fig:pipeline}
+  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal.}\label{fig:pipeline}
 \end{figure}
 
-\subsection{Participant Characterisation} \label{sec:participant_characterisation}
+\subsection{Participant Characterisation}\label{sec:participant_characterisation}
 
-In addition to the target searching experiment, another set of experiments \tofix{You haven't talked about target search yet, maybe start with ``A preliminary set of experiments''} were conducted to characterise the participants' hearing characteristics.
+A preliminary set of experiments were conducted to characterise the participants' hearing characteristics.
 The measured characteristics were each participant's audio localisation ability on the lateral plane, as well as the participants' ability to discriminate between tones with different frequencies. 
 These results will be used to provide context to the following target search experiment and provide additional insight on any possible biases or limitations. 
 
@@ -213,7 +217,8 @@ The longer the experiment lasts and the more correct guesses the participant mak
 For this progressive increase in difficulty, a ``2-up, 1-down'' step process is used~\citep{wetherill1965sequential,levitt1971transformed}, meaning that for every two correct answers, the distance to the centre halves.
 Conversely, the task becomes easier for each incorrect answer by doubling the sound source's distance from the centre.
 We also use two different step sequences, one starting at a large angular distance (\SI{45}{\degree}) from the user and the other at the minimum distance (approximately \SI{1}{\degree}), giving an `easy' and a `hard' progression respectively.
-The terminating condition for the experiment is when the two sequences converge to within two intervals of one another \tofix{Not clear, can you rephrase it?} for three consecutive guesses.
+The terminating condition for the experiment is when the two sequences converge to within two intervals of one another for three consecutive guesses.
+For example, the experiment will terminate when one sequence is set to \SI{11.25}{\degree} and the other is between \SI{2.8}{\degree} or \SI{45}{\degree} for three consecutive guesses.
 This gives a distance band where the participant is capable of localising the sound source.
 Each participant performed this experiment three times. 
 
@@ -228,6 +233,7 @@ The tone difference depends on how well the participant can tell the tones apart
 Like the sound localisation experiment, a ``2-up, 1-down'' step process is used: for every two consecutive correct answers, the pitch difference between the tones is halved, while it is doubled for every incorrect answer.
 Two-step sequences are again used here, one starting with a large pitch difference ($f_h=2^9=$ \SI{512}{\hertz}) between the tones and the other with a small difference ($f_l=2^1=$ \SI{2}{\hertz}).
 The termination condition is when the two-step sequences are within one octave of each other (i.e.\ $\log_2\frac{f_h}{f_l}=2$) for three consecutive answers.
+For example, the experiment will terminate when one sequence is set to \SI{64}{\hertz} and the other is between \SI{32}{\hertz} or \SI{128}{\hertz} for three consecutive guesses.
 Each participant performed this experiment twice. 
 
 \subsection{Target Search} \label{sec:target_search}
@@ -244,9 +250,7 @@ A total of 28 targets were generated per participant.
 As part of this experiment, we wanted to see how changing the gradient of the pitch function, visualised in~\cref{fig:pitch-gain}, affected target acquisition performance, e.g.\ does a steeper pitch gain function as a function of the elevation angle improve accuracy or decrease the search time?
 Pitch limits of one, two and three octaves above and below the neutral tone were then set for the so-called \textit{lo}, \textit{med} and \textit{hi} pitch gradient settings, respectively.
 
-\subsection{Metrics} \tofix{If this is for the Target Search experiments only, it should be a \textbackslash subsubsection}
-
-We use two different metrics to compare the three different pitch gradient settings \tofix{Which three settings? Clarify}: acquisition accuracy and search time.
+We use two different metrics to compare the three different pitch gradient settings: acquisition accuracy and search time.
 The accuracy is given as the difference between the Tango's orientation at the time the participant confirmed they were on target, and the target's actual orientation.
 We separate the results of the tilt and pan dimensions in order to see how the different pitch gradients affect a participant's pointing accuracy. 
 
@@ -290,12 +294,12 @@ Fitts's index of performance, $IP$, can then be calculated using
 \end{equation}
 
 \noindent
-where $IP = \frac{1}{t}$ when $\sigma=0$ \tofix{Why? Also from [38]?}.
+where $IP = \frac{1}{t}$ when $\sigma=0$.% When sigma=0, then ID=log2(0/we + 1) = log2(1) = 0
 
 \subsection{Procedure}
 
 Two groups of participants were recruited for the experiments on a volunteer basis. 
-Group \textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 8 people with severe visual impairments (18--55 years old; 40 female, 16 female \tofix{Males? Numbers don't match...}). 
+Group \textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 8 people with severe visual impairments (18--55 years old; 36 female, 14 male). 
 None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
 Each participant performed three sets of experiments each, with the two characterisation experiments in Sec.~\ref{sec:participant_characterisation} preceding the final target-search experiment in Sec.~\ref{sec:target_search}. 
 Both groups were given some time before the target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
