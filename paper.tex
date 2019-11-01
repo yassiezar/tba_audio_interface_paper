@@ -119,7 +119,6 @@ This system has the benefit of minimal hardware requirements and a compact, fami
 
 A set of bone-conduction headphones is used as the audio transmission medium.
 These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
-=======
 This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still relies on sound to detect, for example, oncoming vehicles and people~\cite{lichtenstein2012headphone}.
 Alternative solutions that allow ambient noise through, such as open-back headphones, were also considered, but they still filter the incoming sound and were therefore disregarded.
 The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected since they do not interfere on other sounds and are also more discreet than the larger over-ear headphones. 
@@ -173,10 +172,8 @@ The pitch is updated at a rate of \SI{10}{\hertz} and changes as the user moves 
 
 The pitch is changed as a linear function of the elevation angle and the gradient is determined by setting the angle and pitch limits.
 For this work, we only consider a \SI{180}{\degree} field of view in front of the user and limit the elevation angle to a range of \SI{\pm90}{\degree}, or $[-\frac{\pi}{2}, \frac{\pi}{2}]$.
+After practical tests with the interface, we set the neutral, on-target pitch the HMI emits to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
 The pitch limits are set at some integer number of octaves above and below the neutral, on-elevation pitch.
-After practical tests with the interface, we set the neutral pitch to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
-We set the pitch limits to 2 octaves away from the neutral pitch, giving frequency limits of [\SI{128}{\hertz}, \SI{2048}{\hertz}].
-The linear function is visualised in \cref{fig:pitch-gain}.
 
 \section{Experiments}\label{sec:experiments}
 
@@ -235,6 +232,10 @@ Each target's angular position is communicated to the participant through the au
 When a participant was confident that the device was on-target, i.e.~hearing the audio front-on at \SI{512}{\hertz}, they tapped the screen, marking the location and generating the next target.
 The targets' positions are all set relative to the device's coordinate system, which is tracked using the Tango hardware and localisation API.\
 A total of 28 targets were generated per participant. 
+
+As part of this experiment, we wanted to see how changing the gradient of the pitch function affected target acquisition performance, e.g.\ does a steeper pitch gain function as a function of the elevation angle improve accuracy or decrease the search time?
+Pitch limits of 1, 2 and 3 octaves above and below the neutral tone was then set of the so-called \textit{lo}, \textit{med} and \textit{hi} pitch gradient settings respectively.
+These linear gain functions are visualised in \cref{fig:pitch-gain}.
 
 \subsection{Metrics}
 
