@@ -50,9 +50,9 @@ In particular, techniques from the active vision field are being used to enable 
 However, in literature, these techniques are typically limited to electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
 In previous work we implemented a prototype system that uses active vision and machine learning models to gather information and help a person find objects in an unknown environment, showing that these techniques can indeed successfully be applied to humans as well~\citep{lock2019active}.
 
-The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \cref{fig:tango} and \cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
+The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \Cref{fig:tango} and \Cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
 It also provides access to Android's full range of interface tools and I/O options. 
-Furthermore, a set of bone-conduction headphones (pictured in \cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
+Furthermore, a set of bone-conduction headphones (pictured in \Cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
 
 \begin{figure}[t]
   \centering
@@ -78,9 +78,9 @@ The main contributions of this paper are two-fold:
   \item we show that this sound-based human-machine interface conforms to Fitts's Law and can provide a useful metric of performance for similar mobile user interfaces.
 \end{itemize}
 
-The rest of the paper starts by discussing previous relevant works and research in \cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \cref{sec:system-description}.
-This is followed by a description of the experiments that were conducted and a discussion of their results in \cref{sec:experiments} and \cref{sec:results}.
-Finally, the paper concludes with a summary and a short discussion on future research prospects in \cref{sec:conclusion}.
+The rest of the paper starts by discussing previous relevant works and research in \Cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \Cref{sec:system-description}.
+This is followed by a description of the experiments that were conducted and a discussion of their results in \Cref{sec:experiments} and \Cref{sec:results}.
+Finally, the paper concludes with a summary and a short discussion on future research prospects in \Cref{sec:conclusion}.
 
 \section{Previous Work}\label{sec:prev-work}
 
@@ -123,7 +123,7 @@ A set of bone-conduction headphones is used as the audio transmission medium.
 These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
 This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still relies on sound to detect, for example, oncoming vehicles and people~\cite{lichtenstein2012headphone}.
 Alternative solutions that allow ambient noise through, such as open-back headphones, were also considered, but they still filter the incoming sound and were therefore disregarded.
-The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected since they do not interfere on other sounds and are also more discreet than the larger over-ear headphones. 
+The AfterShockz headphones (\Cref{fig:tango-headphone}) were ultimately selected since they do not interfere on other sounds and are also more discreet than the larger over-ear headphones. 
 
 \subsection{Audio Interface}
 
@@ -138,7 +138,7 @@ An HRTF is a mathematical function that simulates the response signal of a human
 Since hearing responses are unique amongst different users, the best results would be observed if each user had their own customised HRTF.\
 However, given the complicated process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\citep{gardner1995hrtf}.
 
-The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \cref{fig:cam-coords}.
+The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \Cref{fig:cam-coords}.
 Spatialised audio signals are well-suited to the task, displaying similar levels of performance to vocal feedback, but with less cognitive load and higher resolution~\citep{klatzky2006cognitive}.
 However, given the previously discussed limitations of bone-conduction and spatialised audio, we propose a simple linear adjustment to the signal's pitch as a function of the elevation angle. 
 The pan angle, instead, can be conveyed by transforming the audio signal with an HRTF, and indeed it has been found that this dimension is unaffected by using bone-conduction headphones~\cite{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
@@ -178,7 +178,7 @@ After practical tests with the interface, we set the neutral, on-target pitch th
 The pitch limits are set at some integer number of octaves above and below the neutral, on-elevation pitch.
 After practical tests with the interface, we set the neutral pitch to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
 We set the pitch limits to two octaves away from the neutral pitch, giving frequency limits of [\SI{128}{\hertz}, \SI{2048}{\hertz}].
-The linear function is visualised in \cref{fig:pitch-gain}.
+The linear function is visualised in \Cref{fig:pitch-gain}.
 
 \section{Experiments}\label{sec:experiments}
 
@@ -190,7 +190,7 @@ The results from the experiments we performed allow us to better understand how 
 
 \subsection{System Setup}
 
-A diagram of the experimental system pipeline is shown in~\cref{fig:pipeline}, where the arrows indicate the direction of the information flow.
+A diagram of the experimental system pipeline is shown in~\Cref{fig:pipeline}, where the arrows indicate the direction of the information flow.
 When the user taps the Tango's screen, a new virtual target is generated and its coordinates are sent to the audio generation module, along with the device's current position and orientation.
 The audio generator then produces a tone based on the difference between the device and the target's positions. The tone is sent to the audio output channel, which plays it back to the user.
 A WiFi recording module is constantly monitoring the different values of the device's parameters and of the target's position, as well as the system's output, recording everything in a remotely stored datafile. 
@@ -207,7 +207,7 @@ A preliminary set of experiments were conducted to characterise the participants
 The measured characteristics were each participant's audio localisation ability on the lateral plane, as well as the participants' ability to discriminate between tones with different frequencies. 
 These results will be used to provide context to the following target search experiment and provide additional insight on any possible biases or limitations. 
 
-\subsubsection{Sound Localisation}
+\subsubsection{Sound Localisation} \label{sec:sound_localisation}
 
 In this experiment, we evaluated a participant's ability to determine the lateral direction a sound is coming from.
 To do this, we played a continuous \SI{512}{\hertz} sinusoidal tone to the participant through the headphones and applied an HRTF to spatialise and place its source to the participant's left or right.
@@ -222,7 +222,7 @@ For example, the experiment will terminate when one sequence is set to \SI{11.25
 This gives a distance band where the participant is capable of localising the sound source.
 Each participant performed this experiment three times. 
 
-\subsubsection{Pitch Discrimination}
+\subsubsection{Pitch Discrimination} \label{sec:pitch_discrimination}
 
 Here we determined a participant's ability to differentiate the pitches of two different tones, i.e.\ how well they can tell if a tone is high or low pitched.
 We played two tones to the participants, in succession, with the second tone being higher or lower-pitched than the first.
@@ -240,14 +240,14 @@ Each participant performed this experiment twice.
 
 To test the interface's effectiveness at guiding the user in a pointing task, a set of experiments were conducted to capture the difference between the targets' actual direction and the directions the participants' perceived them to be.
 
-The participants were given a Tango device running an app that implements the experimental setup in~\cref{fig:pipeline}. The app generates a set of virtual targets and presents them to each participants through the audio interface, one at a time. 
+The participants were given a Tango device running an app that implements the experimental setup in~\Cref{fig:pipeline}. The app generates a set of virtual targets and presents them to each participants through the audio interface, one at a time. 
 The targets are generated at a constant distance from the participant and their pan and elevation angles are uniformly generated across the four quadrants of the pan-elevation plane to avoid clustering.
 Each target's angular position is adjusted and communicated in real-time as the participant points the device around. 
 When the participants were confident that the device was on-target, i.e.~hearing the audio front-on at \SI{512}{\hertz}, they tapped the screen, marking the location and generating the next target.
 The targets' positions are all set relative to the device's coordinate system, which is tracked using the Tango hardware and localisation API.\
 A total of 28 targets were generated per participant. 
 
-As part of this experiment, we wanted to see how changing the gradient of the pitch function, visualised in~\cref{fig:pitch-gain}, affected target acquisition performance, e.g.\ does a steeper pitch gain function as a function of the elevation angle improve accuracy or decrease the search time?
+As part of this experiment, we wanted to see how changing the gradient of the pitch function, visualised in~\Cref{fig:pitch-gain}, affected target acquisition performance, e.g.\ does a steeper pitch gain function as a function of the elevation angle improve accuracy or decrease the search time?
 Pitch limits of one, two and three octaves above and below the neutral tone were then set for the so-called \textit{lo}, \textit{med} and \textit{hi} pitch gradient settings, respectively.
 
 We use two different metrics to compare the three different pitch gradient settings: acquisition accuracy and search time.
@@ -290,11 +290,11 @@ Fitts's index of performance, $IP$, can then be calculated using
 
 \begin{equation}
   \label{eq:fitts-performance}
-  IP = \frac{ID}{t},
+  IP = \frac{ID}{t}.
 \end{equation}
 
-\noindent
-where $IP = \frac{1}{t}$ when $\sigma=0$.% When sigma=0, then ID=log2(0/we + 1) = log2(1) = 0
+% \noindent
+% where $IP = \frac{1}{t}$ when $\sigma=0$.% When sigma=0, then ID=log2(0/we + 1) = log2(1) = 0
 
 \subsection{Procedure}
 
@@ -307,9 +307,13 @@ Furthermore, to minimise any potential speed/accuracy biases, we asked the parti
 
 \section{Results}\label{sec:results}
 
-\subsection{Sound Localisation}
+\subsection{Characterisation of Sound Localisation}
 
-\cref{fig:sound-localisation} shows the results captured from the sound localisation experiment where the participants had to select the direction (left or right) that the tone was being played from. 
+\Cref{fig:sound-localisation} shows the results captured from the sound localisation experiment where the participants had to select the direction (left or right) that the tone was being played from. 
+%
+It can be seen that the vast majority of guesses for both groups were correct.
+For Group \textit{G1}, most of the errors were made at the minimum distance from the centre, i.e.\ the most difficult to guess correctly, which is the expected behaviour.
+This indicates that the participants in \textit{G1} consistently progressed through the distance intervals and we can therefore conclude they had little difficulty determining sound direction.
 
 \begin{figure}
   \centering
@@ -317,34 +321,33 @@ Furthermore, to minimise any potential speed/accuracy biases, we asked the parti
   \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }\label{fig:sound-localisation}
 \end{figure}
 
-From inspection of \cref{fig:sound-localisation}, it can be seen that the vast majority of guesses for both groups were correct.
-For Group \textit{G1}, the majority of erroneous guesses were made at the minimum distance from the centre, i.e.\ the most difficult to guess correctly, which is the expected behaviour and indicates that the participants consistently progressed through the distance intervals.
-We can therefore conclude that the participants from \textit{G1} had little difficulty determining sound direction.
+Group \textit{G2} also displays a concentration of erroneous guesses in the central interval.
+However, it also shows more errors in other distance intervals and a more even progression towards the centre.
+This could indicate that, instead of terminating the experiment by bringing the two sequences within one interval of one another \tofix{I would just say ``terminating the experiment as explained in Sec.~\ref{sec:sound_localisation}'', but then there you said within two intervals, not one...}, there was more switching back and forth between the three central intervals. 
 
-Group \textit{G2} also displays a concentration of erroneous guesses in the centre interval.
-However, it also has more incorrect guesses in other distance intervals and exhibits a more even progression through the distance intervals towards the centre.
-This could indicate that instead of terminating the experiment through bringing the 2 sequences within 1 interval of one another, there was more switching back and forth between the centre 3 intervals. 
+These results show that both participant groups are capable of determining a sound source's location with a reasonable level of consistency and accuracy.
+These results are in line previous literature, confirming that humans are very adept at localising a sound source, particularly in the pan dimension. 
 
-These results show that both participant groups are capable of determining a sound source's location with a reasonable level of consistency and accuracy and are in line with what we expected based on literature that indicate that humans are very adept at localising a sound source, particularly in the pan dimension. 
+\subsection{Characterisation of Pitch Discrimination}
 
-\subsection{Pitch Discrimination}
-
-The results of the pitch discrimination experiment are shown in \cref{fig:pitch-discrimination} where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
-The latter is given in terms of semitone differences which is obtained with 
+The results of the pitch discrimination experiment are shown in \Cref{fig:pitch-discrimination}, where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
+\tofix{The $\Delta f$ explanation should be moved to Sec.~\ref{sec:pitch_discrimination}}
+The latter is given in terms of semitone-differences which is obtained with 
 
 \begin{equation}
 \label{eq:semitone-difference}
   \Delta f = 12\log_2\frac{f_0}{f_1}.
 \end{equation}
 
-For Group \textit{G1}, we see that their guesses seem normally spread around the 0 semitone difference interval and, as expected, the highest proportion of incorrect guesses occur in the $[-0.25, 0.25]$ semitone difference interval. 
-The guesses from Group \textit{G2} are more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone difference interval.
+For Group \textit{G1}, we see that their guesses are normally spread around the 0 semitone-difference interval and, as expected, the highest proportion of incorrect guesses occurs in the $[-0.25, 0.25]$ semitone-difference interval. 
+The guesses from Group \textit{G2} are more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone-difference interval.
 
-Assuming these differences are normally spread, we fit a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
-We then used each CDF's parameters to determine a frequency cut-off threshold where the participant could not longer reliably tell tones apart and is set to contain 75\% of each participant's correct guesses.
-The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones and can be used to improve the interface's frequency profile and performance. 
-\cref{fig:pitch-thresholds} shows the threshold distribution for each group, along with the median value. 
-The median is used for each grouping given the skewed plot and was found to be approximately 0.4 semitones for each group.
+Assuming these differences are normally distributed, we fit a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
+We then used each CDF's parameters to determine a frequency cut-off threshold, where the participant could not longer reliably tell tones apart, which is set to contain 75\% of each participant's correct guesses.
+The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones. It can also be used to improve the interface's frequency profile and performance. 
+\Cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value,
+%The median is used for each grouping given the skewed plot and
+which was found to be approximately 0.4 semitones for each group.
 
 \begin{figure}
   \centering
@@ -366,9 +369,9 @@ The median is used for each grouping given the skewed plot and was found to be a
 
 \subsection{Target Search}
 
-The results from the target search experiment in the pan dimension are given on the abscissa of the 2D histograms in \cref{fig:target-errors}, where the angular errors in the pan and elevation dimensions are plotted against each other. 
-A set of box-plots of the angle errors are also given in \cref{fig:target-boxplot-error} for each audio setting.
-The results are summarised in \cref{tab:target-results}.
+The results from the target search experiment in the pan dimension are given on the abscissa of the 2D histograms in \Cref{fig:target-errors}, where the angular errors in the pan and elevation dimensions are plotted against each other. 
+A set of box-plots of the angle errors are also given in \Cref{fig:target-boxplot-error} for each audio setting.
+The results are summarised in \Cref{tab:target-results}.
 
 \begin{figure}
   \centering
@@ -401,14 +404,14 @@ The results are summarised in \cref{tab:target-results}.
 \end{table}
 
 The Shapiro-Wilkes test for normality reveals that none of these distributions are normally spread and accordingly, the Pearson test is used to investigate the correlation between the actual target location and participants' pointing location.
-These results are included in \cref{tab:target-results}.
+These results are included in \Cref{tab:target-results}.
 The Pearson correlation scores for Group \text{G1} indicate a moderate to strong positive correlation between the target and the selected locations ($r_{pan} \in [0.72, 0.77], p < 0.001; r_{elevation} \in [0.36, 0.49], p < 0.001$), showing that the both the pan and elevation cues roughly worked as expected.
 However, the correlation scores for Group \textit{G2} are significantly weaker, with a pan angle correlation of $r_{pan} \in [0.1, 0.21], p < 0.03$.
 With the exception of the \textit{lo} setting ($p_{lo} = 0.48$), the elevation correlation is somewhat stronger, with $r_{elevation} \in [0.31, 0.40], p < 0.001$.
 
 The repeated-measures procedure that was used for these experiments requires the data for each participant to be grouped together for each setting.
 The medians of these data groupings are then used as individual samples that represent an individual participant's performance for each setting.
-\cref{fig:target-boxplot-error} shows these median data collected from each participant as a set of box-plots, while \cref{fig:target-boxplot-absolute-errors} shows the collection of absolute errors.
+\Cref{fig:target-boxplot-error} shows these median data collected from each participant as a set of box-plots, while \Cref{fig:target-boxplot-absolute-errors} shows the collection of absolute errors.
 
 \begin{figure}
   \centering
@@ -422,13 +425,13 @@ The medians of these data groupings are then used as individual samples that rep
   \caption{Distributions of the absolute angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }\label{fig:target-boxplot-absolute-errors}
 \end{figure}
 
-The box-plots in \cref{fig:target-boxplot-error} show that the error in the pan dimension is roughly centred around \SI{0}{\radian} for both groups, with some divergence between the groups for the different settings.
+The box-plots in \Cref{fig:target-boxplot-error} show that the error in the pan dimension is roughly centred around \SI{0}{\radian} for both groups, with some divergence between the groups for the different settings.
 However, using the Friedman test for repeated measures on the medians of absolute errors, these divergences are found to not be significant ($p_{G1} = 0.17, p_{G2} = 0.09$), showing that spatial perception and accuracy is not affected by changes in the tone's pitch.
-This is further demonstrated in the box-plots in \cref{fig:target-boxplot-absolute-errors}, which demonstrates relatively consistent error levels in the pan dimension for both groups and across all 3 settings. 
+This is further demonstrated in the box-plots in \Cref{fig:target-boxplot-absolute-errors}, which demonstrates relatively consistent error levels in the pan dimension for both groups and across all 3 settings. 
 
-Regarding the errors in the elevation dimension in \cref{fig:target-boxplot-error}, we observe in Group \textit{G1} a narrowing distribution between the \textit{lo}, \textit{med} and \textit{hi} settings respectively and a median gradually approaching \SI{0}{\radian}.
+Regarding the errors in the elevation dimension in \Cref{fig:target-boxplot-error}, we observe in Group \textit{G1} a narrowing distribution between the \textit{lo}, \textit{med} and \textit{hi} settings respectively and a median gradually approaching \SI{0}{\radian}.
 A similar trent is observed for Group \textit{G2}, but the improvement across the settings is more subtle and not as linear as for Group \textit{G1}.
-\cref{fig:target-boxplot-absolute-errors} shows a clearer improvement, i.e.\ approaching \SI{0}{\radian}, for the elevation data between the 3 settings in both groups, with the \textit{hi} setting producing the smallest error in both cases.
+\Cref{fig:target-boxplot-absolute-errors} shows a clearer improvement, i.e.\ approaching \SI{0}{\radian}, for the elevation data between the 3 settings in both groups, with the \textit{hi} setting producing the smallest error in both cases.
 Further analysis of the medians of the absolute elevation error data with the Friedman test reveals that the results for the different settings only Group \textit{G1} are significantly different from one another ($p_{G1} = 0.002, p_{G2} = 0.32$).
 A post-hoc analysis using the Wilcoxon signed rank test, with a Holm-Bonferroni correction applied to the commonly used 0.05 threshold, was used to investigate the setting relationships more closely. 
 This analysis reveals that there is a significant difference between the errors generated by the \textit{lo} and \textit{med} settings, as well as the \textit{lo} and \textit{hi} settings, for Group \textit{G1} ($p_{lo-med} = 0.003, p_{lo-hi} < 0.001$), showing that the \textit{lo} setting clearly produces the highest error, while it is not clear which of the \textit{med} and \textit{hi} settings are better for Group \textit{G1}. 
@@ -437,7 +440,7 @@ Based on the current data, it is impossible to conclude which setting produces t
 It is also noted that there is a significant negative error bias in all of the settings in both groups which is possibly caused by a cognitive constraint introduced by the floor where the participants believed that the targets could not appear below the ground.
 Since this bias seems constant in nature, it can be addressed in the future by adjusting the frequency parameters of the interface and shifting it by a constant offset. 
 
-Comparing the distributions for each setting between the 2 groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all 3 settings are not significantly different from one another for both groups in both the pan and elevation dimensions (the $p$-values are summarised in \cref{tab:inter-group-results}).
+Comparing the distributions for each setting between the 2 groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all 3 settings are not significantly different from one another for both groups in both the pan and elevation dimensions (the $p$-values are summarised in \Cref{tab:inter-group-results}).
 This results confirms that the errors produced between the blindfolded and participants with severe sight impairments are statistically similar in nature and both groups can reasonably be expected to produce similar error levels should the experiments be repeated with a different population. 
 Consequently, with the significantly smallest median elevation error, we can conclude that the \textit{hi} setting is the best setting to use to minimise the elevation angle error and that the pan error is completely independent of the setting in use. 
 
@@ -456,9 +459,9 @@ Consequently, with the significantly smallest median elevation error, we can con
 
 \subsection{Time to Target}
 
-To investigate if the interface generates a Fitts-like response from the participants, we plot the time to find the target as a function of the targets' indices of difficulty as defined by \cref{eq:fitts-base}.
-The data is binned in intervals of the effective target width ($w_e$) as given by \cref{eq:fitts-we} and are plotted for each gradient setting. 
-A logarithmic line of best fit is also fitted through the binned data's median values through means of regression and all the results are presented in \cref{fig:fitts-results}.
+To investigate if the interface generates a Fitts-like response from the participants, we plot the time to find the target as a function of the targets' indices of difficulty as defined by \Cref{eq:fitts-base}.
+The data is binned in intervals of the effective target width ($w_e$) as given by \Cref{eq:fitts-we} and are plotted for each gradient setting. 
+A logarithmic line of best fit is also fitted through the binned data's median values through means of regression and all the results are presented in \Cref{fig:fitts-results}.
 
 \begin{figure}
   \centering
@@ -472,8 +475,8 @@ Regarding Group \textit{G2}¸ we observe larger spreads for each binned dataset,
 This could be a result of taking each participant's result as a single datum and the smaller population in Group \textit{G2}.
 Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88, p_{med} = 0.008; r_{hi} = 0.84, p_{med} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08, p_{lo} = 0.85$).
 
-These results allows us to calculate and plot an index of performance, as given in \cref{eq:fitts-performance}, for each setting in \cref{fig:fitts-ips}.
-Their results are summarised in \cref{tab:fitts-results}.
+These results allows us to calculate and plot an index of performance, as given in \Cref{eq:fitts-performance}, for each setting in \Cref{fig:fitts-ips}.
+Their results are summarised in \Cref{tab:fitts-results}.
 
 \begin{figure}
   \centering
@@ -499,11 +502,11 @@ Their results are summarised in \cref{tab:fitts-results}.
 
 For the results from Group \textit{G1}, there is a fairly consistent level of performance between the 3 settings, with the \textit{lo} producing the highest indices of performance overall, i.e.\ the participants found the targets with the smallest error in the least about of time with the \textit{lo} setting.
 This is supported by the results from the Friedman test that shows that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections that show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001, p_{lo-hi} < 0.001$), while the \textit{med} and \textit{hi} are not different to one another ($p_{med-hi} = 0.85$).
-The results for Group \textit{G2} shows generally lower and inconsistent indices of performance for each setting, which is expected given the increased times to target observed in \cref{fig:fitts-results}.
+The results for Group \textit{G2} shows generally lower and inconsistent indices of performance for each setting, which is expected given the increased times to target observed in \Cref{fig:fitts-results}.
 Again, following results from the Friedman test ($p < 0.001$), the \textit{lo} setting produces the highest performance by a large margin compared to the \textit{med} setting with the Wilcoxon test with Holm-Bonferronni corrections ($p_{lo-med}=0.01$), followed by the \textit{hi} and \textit{med} settings' results respectively.
 These results seem to indicate that for both groups, the \textit{lo} produces the highest level of performance followed, by the \textit{hi} setting.
 
-From \cref{fig:fitts-ips}, there is significant difference between the IPs for each group's respective settings, with \textit{G2} producing significantly lower indices of performance.
+From \Cref{fig:fitts-ips}, there is significant difference between the IPs for each group's respective settings, with \textit{G2} producing significantly lower indices of performance.
 This is further supported by the Kruskal-Wallis test that reveals that each setting's distribution is indeed significantly different from its counterpart in the other group ($p_{lo} < 0.001, p_{med} < 0.001, p_{hi} < 0.001$).
 The significant difference between the blindfolded group and the group with severely sight impaired participants seems to indicate that the latter group take significantly longer to find the target. 
 However, it is unclear whether this is a systematic cause or a difference in search strategy between the 2 groups, e.g.\ \textit{G2} preferring, on average, a slower more methodical approach.
@@ -517,8 +520,8 @@ Since Fitts's model takes the angular error into account, once might reasonably 
 However, Fitts's relationship does not model for different stimuli and we therefore hypothesise that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting that allows for finer adjustments to be made to the device's orientation and get it closer to pointing to the target, but at the cost of a higher average time to find the target. 
 This seems to indicate a speed-accuracy trade-off in finding the targets and with the Fitts relationship obtained here, we can modify the interface to prioritise different metrics and produce the correct output.
 
-With respect to the target acquisition results, the progressive improvement from the \textit{lo}, \textit{med} and \textit{hi} settings respectively, (see \cref{tab:target-results}) seems indicate that that simply increasing the frequency gradient will lead to increased performance.
-However, \cref{fig:pitch-thresholds-hist} indicates that the frequency difference between the on-target tone and the selected tone in the \textit{hi} setting is approaching the cut-off frequency for Group \textit{G1}, indicating the point at which increasing the gradient produces diminishing returns on performance. 
+With respect to the target acquisition results, the progressive improvement from the \textit{lo}, \textit{med} and \textit{hi} settings respectively, (see \Cref{tab:target-results}) seems indicate that that simply increasing the frequency gradient will lead to increased performance.
+However, \Cref{fig:pitch-thresholds-hist} indicates that the frequency difference between the on-target tone and the selected tone in the \textit{hi} setting is approaching the cut-off frequency for Group \textit{G1}, indicating the point at which increasing the gradient produces diminishing returns on performance. 
 Indeed, the participants from Group \textit{G2} seems to have passed this threshold and reached a saturation point where they could no longer reliably tell changes in the tone apart any longer. 
 
 \section{Conclusion}\label{sec:conclusion}
