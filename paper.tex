@@ -222,7 +222,7 @@ For example, the experiment will terminate when one sequence is set to \SI{11.25
 This gives a distance band where the participant is capable of localising the sound source.
 Each participant performed this experiment three times. 
 
-\subsubsection{Pitch Discrimination} \label{sec:pitch_discrimination}
+\subsubsection{Pitch Discrimination}\label{sec:pitch_discrimination}
 
 Here we determined a participant's ability to differentiate the pitches of two different tones, i.e.\ how well they can tell if a tone is high or low pitched.
 We played two tones to the participants, in succession, with the second tone being higher or lower-pitched than the first.
@@ -234,9 +234,17 @@ Like the sound localisation experiment, a ``2-up, 1-down'' step process is used:
 Two-step sequences are again used here, one starting with a large pitch difference ($f_h=2^9=$ \SI{512}{\hertz}) between the tones and the other with a small difference ($f_l=2^1=$ \SI{2}{\hertz}).
 The termination condition is when the two-step sequences are within one octave of each other (i.e.\ $\log_2\frac{f_h}{f_l}=2$) for three consecutive answers.
 For example, the experiment will terminate when one sequence is set to \SI{64}{\hertz} and the other is between \SI{32}{\hertz} or \SI{128}{\hertz} for three consecutive guesses.
+Pitch differences are measured in semitones, which can be obtained with
+
+\begin{equation}
+\label{eq:semitone-difference}
+  \Delta f = 12\log_2\frac{f_0}{f_1}, 
+\end{equation}
+
+\noindent where $f_0$ and $f_1$ are the frequencies of the first and second tone respectively.
 Each participant performed this experiment twice. 
 
-\subsection{Target Search} \label{sec:target_search}
+\subsection{Target Search}\label{sec:target_search}
 
 To test the interface's effectiveness at guiding the user in a pointing task, a set of experiments were conducted to capture the difference between the targets' actual direction and the directions the participants' perceived them to be.
 
@@ -323,7 +331,7 @@ This indicates that the participants in \textit{G1} consistently progressed thro
 
 Group \textit{G2} also displays a concentration of erroneous guesses in the central interval.
 However, it also shows more errors in other distance intervals and a more even progression towards the centre.
-This could indicate that, instead of terminating the experiment by bringing the two sequences within one interval of one another \tofix{I would just say ``terminating the experiment as explained in Sec.~\ref{sec:sound_localisation}'', but then there you said within two intervals, not one...}, there was more switching back and forth between the three central intervals. 
+This could indicate that, instead of terminating the experiment as described in \cref{sec:sound_localisation}, there was more switching back and forth between the three central intervals. 
 
 These results show that both participant groups are capable of determining a sound source's location with a reasonable level of consistency and accuracy.
 These results are in line previous literature, confirming that humans are very adept at localising a sound source, particularly in the pan dimension. 
@@ -331,14 +339,6 @@ These results are in line previous literature, confirming that humans are very a
 \subsection{Characterisation of Pitch Discrimination}
 
 The results of the pitch discrimination experiment are shown in \Cref{fig:pitch-discrimination}, where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
-\tofix{The $\Delta f$ explanation should be moved to Sec.~\ref{sec:pitch_discrimination}}
-The latter is given in terms of semitone-differences which is obtained with 
-
-\begin{equation}
-\label{eq:semitone-difference}
-  \Delta f = 12\log_2\frac{f_0}{f_1}.
-\end{equation}
-
 For Group \textit{G1}, we see that their guesses are normally spread around the 0 semitone-difference interval and, as expected, the highest proportion of incorrect guesses occurs in the $[-0.25, 0.25]$ semitone-difference interval. 
 The guesses from Group \textit{G2} are more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone-difference interval.
 
