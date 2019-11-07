@@ -94,11 +94,11 @@ Simple audio tones are less affected by these bandwidth and hardware limitations
 
 Simple audio tones and vocal feedback signals have been used in conjunction with cameras and object detectors to communicate their relative positions to the user with a reasonable level of accuracy~\citep{schauerte2012assistive,tian2013computer,fiannaca2014headlock,vazquez2012helping}.
 Following this, researchers have investigated using audio signals that are spatialised with a head-related transfer function (HRTF), simulating a sound source located at some arbitrary 3D position~\citep{geronazzo2016interactive,wilson2007swan,katz2010navig,blum2013spatialized}.
-The authors generally report favorable results for this guidance approach when used with standard over-ear headphones or speakers. 
+The authors generally report favourable results for this guidance approach when used with standard over-ear headphones or speakers. 
 However, other authors have found that the choice of audio transmission medium can have a significant effect on performance.
 Cheaper headphones and bone-conduction headphones generally report unfavourable results when compared to over-ear or more expensive alternatives~\citep{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
 This seems to be limited to the elevation dimension, however, and can be improved with HRTFs adjusted for the bone-conduction pathway~\citep{stanley2006lateralization}.
-\cite{durette2008visuo} transmit a target's elevation angle by adjusting the signal's pitch and report favourable results. 
+~\cite{durette2008visuo} transmit a target's elevation angle by adjusting the signal's pitch and report favourable results. 
 We extended on the latter's work and investigated spatial audio for guidance mode closely in an initial study and found that it is indeed able to adequately guide a user towards a target area~\citep{lock2019bone}.
 We expand upon this preliminary study with a more thorough investigation into the participants' performance and how changes to the audio signal's behaviour can impact that performance.
 
@@ -127,7 +127,7 @@ The AfterShockz headphones (\Cref{fig:tango-headphone}) were ultimately selected
 
 \subsection{Audio Interface}
 
-Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\cite{blauert1997spatial,blauert1969sound}.
+Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\citep{blauert1997spatial,blauert1969sound}.
 The binaural cues include inter-aural time and level differences (ITD and ILD respectively) that help to determine a source's location on the horizontal plane.
 Monaural cues are taken from the interaction of the sound with the human anatomy, e.g.\ head, shoulders, outer ear, before it enters the ear canal.
 When the modified audio signal enters the inner ear canal, the human brain is able to analyse the frequency response and accurately determine the position of the sound source on the median plane. 
@@ -344,10 +344,11 @@ The guesses from Group~\textit{G2} are more concentrated around the centre and t
 
 Assuming these differences are normally distributed, we fit a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
 We then used each CDF's parameters to determine a frequency cut-off threshold, where the participant could not longer reliably tell tones apart, which is set to contain 75\% of each participant's correct guesses.
-The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones. It can also be used to improve the interface's frequency profile and performance. 
-\Cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value,
+The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones. 
+It can also be used to improve the interface's frequency profile and performance. 
+\Cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value, which was found to be approximately 0.4 semitones for each group. 
+\Cref{fig:pitch-thresholds-hist} contains histograms of the cut-off frequency thresholds for each setting, which show that the settings can be grouped together.
 %The median is used for each grouping given the skewed plot and
-which was found to be approximately 0.4 semitones for each group. \tofix{And \Cref{fig:pitch-thresholds-hist}?}
 
 \begin{figure}
   \centering
@@ -461,7 +462,7 @@ Consequently, we can conclude that the \textit{hi} setting, which generates the 
 \subsection{Time-to-Target}
 
 To investigate if the interface generates a Fitts-like response from the participants, we plot the time to find the target as a function of the targets' indices of difficulty, as defined by \Cref{eq:fitts-base}.
-The data is binned in intervals of the effective target width~($w_e$), given by \Cref{eq:fitts-we}, and are plotted for each pitch gradient setting. \tofix{The word 'low' is missing in the figure} 
+The data is binned in intervals of the effective target width~($w_e$), given by \Cref{eq:fitts-we}, and are plotted for each pitch gradient setting. 
 A logarithmic line is fitted through the bins' median values by regression and all the results are presented in \Cref{fig:fitts-results}.
 
 \begin{figure}
@@ -472,8 +473,8 @@ A logarithmic line is fitted through the bins' median values by regression and a
 
 For Group~\textit{G1}, a Fitts relationship can be observed and the logarithmic line of best fit closely approximates the median values of the binned data for all three settings. 
 This is confirmed by strong Pearson correlation scores for each setting ($r_{lo} = 0.76,~p_{lo} = 0.045;~r_{med} = 0.96,~p_{med}<0.001;~r_{hi} = 0.86,~p_{hi} = 0.013$).
-Regarding Group~\textit{G2}¸ we observe larger spreads for each binned data plots, indicating less consistency in the time-to-target results for participants with severe sight impairments.
-This could be due to each participant's result taken as a single datum and to the smaller population in Group~\textit{G2}.
+Regarding Group~\textit{G2}¸ we observe larger spreads for each binned data plot, indicating less consistency in the time-to-target results for participants with severe sight impairments.
+This could be due to each participant's result being taken as a single datum and to the smaller population size in Group~\textit{G2}.
 Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88,~p_{med} = 0.008;~r_{hi} = 0.84,~p_{med} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08,~p_{lo} = 0.85$).
 
 \begin{figure}[t]
@@ -516,14 +517,16 @@ However, it is unclear whether this is a systematic cause or a difference in sea
 
 The results for the accuracy and time performance with the proposed audio interface shows an interesting contrast.
 That is, the \textit{hi} pitch setting produces the lowest target acquisition error, followed by the \textit{med} and \textit{lo} settings, respectively. 
-However, this trend is almost reversed in the time-to-target Fitts's model, where the \textit{lo} setting gives the highest level of performance, followed by the \textit{hi} and \textit{med} settings, respectively. 
+However, this trend is almost wholly reversed in the time-to-target results from the Fitts's model, where the \textit{lo} setting gives the highest level of performance, followed by the \textit{hi} and \textit{med} settings respectively. 
 Since the Fitts's model takes the angular error into account, one might reasonably expect that the results for both experiments follow a similar trend. 
-However, the Fitts's model does not account for different stimuli. We therefore hypothesise that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
-This seems to indicate a speed/accuracy trade-off in finding the targets. With the Fitts's model discussed here, we can modify the interface to prioritise different metrics and produce the correct output. \tofix{I reworded a few bits, check if still correct}
+However, the Fitts's model does not account for different stimuli.
+We therefore hypothesise that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
+This seems to indicate a speed/accuracy trade-off in finding the targets.
+With the Fitts's model discussed here, we can modify the interface to prioritise different metrics and produce the correct output. 
 
-Regarding the target acquisition, the progressive improvement from the \textit{lo}, \textit{med} and \textit{hi} settings (see \Cref{tab:target-results}) seems to indicate that simply increasing the pitch gradient leads to better target-pointing performance.
-However, \Cref{fig:pitch-thresholds-hist} shows that the frequency difference between the ``on-target'' tone and the selected one with the \textit{hi} setting approaches the cut-off frequency of Group~\textit{G1}, indicating the point at which increasing a gradient increase reduces the final performance. 
-Indeed, the participants from Group~\textit{G2} seems to go beyond this threshold and reach a saturation point where they can no longer distinguish different tones.  \tofix{I reworded a few bits, check if still correct}
+Regarding target acquisition, the progressive improvement from the \textit{lo}, \textit{med} and \textit{hi} settings (see \Cref{tab:target-results}) seems to indicate that simply increasing the pitch gradient leads to better target-pointing performance.
+However, \Cref{fig:pitch-thresholds-hist} shows that the frequency difference between the ``on-target'' tone and the selected one with the \textit{hi} setting approaches the cut-off frequency of Group~\textit{G1}, indicating an inflection point where increasing the gradient reduces the final performance. 
+Indeed, the participants from Group~\textit{G2} seem to go beyond this threshold and reach a saturation point where they can no longer reliably distinguish different tones.  
 
 \section{Conclusion}\label{sec:conclusion}
 
