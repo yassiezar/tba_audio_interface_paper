@@ -31,10 +31,12 @@
 \maketitle
 
 \begin{abstract}
-  Sound perception is a fundamentally important skill for many people with severe sight impairments. The research presented in this paper is part of the ActiVis project, the aim of which is to build a mobile guidance aid to help people with limited vision find objects in an unknown environment.
-  This system requires an effective non-visual interface and therefore uses bone-conduction headphones to transmit audio instructions to the user.
+  Sound perception is a fundamental skill for many people with severe sight impairments.
+  The research presented in this paper is part of the ActiVis project, the aim of which is to build a mobile guidance aid to help people with limited vision find objects in an unknown environment.
+  This system requires an effective non-visual interface and uses bone-conduction headphones to transmit audio instructions to the user.
   It has been implemented and tested with spatialised audio cues, which convey the direction of a predefined target in 3D space.
-  We present an in-depth evaluation of the audio interface with several experiments that involve a large number of participants, both blindfolded and with actual visual impairments. We analyse pros and cons of our design choices, and found that a Fitts's Law metric can be used to improve and refine the quality of the audio interface in future mobile navigation aids. \tofix{Reworded, check if OK}
+  We present an in-depth evaluation of the audio interface with several experiments that involve a large number of participants, both blindfolded and with actual visual impairments, and analyse the pros and cons of our design choices.
+  In addition to producing state-of-the-art results, we found that Fitts's Law can be used to form a metric that can be used to improve and refine the quality of the audio interface in future mobile navigation aids. 
 \end{abstract}
 
 \begin{keywords}
@@ -60,7 +62,7 @@ Furthermore, a set of bone-conduction headphones (pictured in \Cref{fig:tango-he
   \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.3\columnwidth]{figures/tango_headphone.png}}
 ~
   \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
-  \caption{Pictures of the latest Tango mobile phone (left), the former Tango tablet and the bone-conduction headphones used in this work (centre), and a participant with visual impairments during an experiment (right). \tofix{Update this figures to differ from AEIT)}}
+  \caption{Pictures of the latest Tango mobile phone (left), the former Tango tablet and the bone-conduction headphones used in this work (centre), and a participant with visual impairments during an experiment (right)~\citep{lock2019bone}.}
 \end{figure}
 
 Humans are able to determine the 3D position of a sound source and by exploiting this natural ability, the real-time guidance instructions can be interpreted without posing a significant cognitive load.
@@ -147,7 +149,7 @@ The pan angle, instead, can be conveyed by transforming the audio signal with an
   \subfloat[]{\label{fig:cam-coords}\includegraphics[width=0.3\columnwidth]{figures/camera_coordinate.pdf}}
 \hfil
   \subfloat[]{\label{fig:pitch-gain}\includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}}
-  \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis. \tofix{Update this figure (e.g. use colors) to differ from AEIT)}}
+  \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis~\citep{lock2019bone}.}
 \end{figure}
 
 \subsubsection{Pan Dimension}
@@ -197,7 +199,7 @@ A WiFi recording module is constantly monitoring the different values of the dev
 \begin{figure}[t]
   \centering
   \includegraphics[clip=true, trim=0 120 80 50, width=\columnwidth]{figures/pipeline.pdf}
-  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal. \tofix{Update this figure (e.g. use colors) to differ from AEIT)}}\label{fig:pipeline}
+  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal~\citep{lock2019bone}.}\label{fig:pipeline}
 \end{figure}
 
 \subsection{Participant Characterisation}\label{sec:participant_characterisation}
@@ -506,7 +508,6 @@ This seems to indicate that, for both groups, the \textit{lo} setting produces t
   \end{tabular}
 \end{table}
 
-
 \Cref{fig:fitts-ips} shows a significant difference between the IPs for each group's respective settings, with \textit{G2} producing significantly lower indices of performance.
 This is further supported by the Kruskal-Wallis test, revealing that each setting's distribution is indeed significantly different from its counterpart in the other group ($p_{lo} < 0.001,~p_{med} < 0.001,~p_{hi} < 0.001$).
 The significant difference between the blindfolded group and the group of participants with visual impairments seems to indicate that the latter require significantly more time to find the target. 
@@ -531,16 +532,19 @@ Indeed, the participants from Group~\textit{G2} seem to go beyond this threshold
 
 In this paper we investigated the use of spatialised audio interface with varying pitch to guide a visually impaired user in a target pointing task.
 We found that the blindfolded participants and those with severe sight impairments performed similarly in localising sound sources and differentiating between tones. 
-We also found that both groups were able to find a set of randomly distribute set of direction targets with similar levels of accuracy.
+We also found that both groups were able to find a randomly distributed set of virtual targets with similar levels of accuracy.
 However, the blindfolded group outperformed the one with severe sight impairments in terms of time-to-target. 
 We further tested different pitch settings and found that the user performance in the pan dimension, based on spatialised cues, is independent of such settings.
-Moreover, we noticed a speed/accuracy trade-off between the settings, where a higher pitch setting produces a smaller angular error, but at the cost of reducing the time performance (i.e. higher time-to-target). 
-These results, together with a a Fitts's Law analysis that confirms its applicability to this type of audio interface, provide a useful baseline to improve and refine the latter in future applications, prioritising speed or accuracy to produce the desired output.
-\tofix{I reworded a few bits, check if still correct}
+Moreover, we noticed a speed/accuracy trade-off between the settings, where a higher pitch setting produces a smaller angular error, but at the cost of reducing the time performance (i.e.\ more time to reach the target). 
+These results, together with an analysis done with Fitts's Law confirms its applicability to this type of audio interface, provide a useful baseline to improve and refine the latter in future applications, prioritising speed or accuracy to produce the desired output.
 
-% The next steps for the project is to implement this interface into a guidance system and test the complete system's performance. 
-% Implementing an auto-adaptive interface scheme can also now be considered.
-\tofix{A little more effort in your (hypothetical) plans for future work. You could expand more the user-adaptation concept -- e.g. adapt to different users, or to the performance variations of the same user over time (like the ``progressive co-adaptation'' of~\cite{gallina2015progressive}). Also, what about adding extra modalities, like voice instructions or device vibrations?}
+This work identified a number of uncertainties that can be the focus of future work.
+These include questions such as what caused the observed difference in time performance between the groups and whether the constant negative bias observed in \Cref{fig:target-boxplot-error} is indeed caused by a cognitive bias within the participants' minds, or whether there is a more complex underlying reason for the behaviour.
+Furthermore, casual post-experiment conversations with the participants revealed that some felt that one setting was easier to understand than the others and it can therefore be beneficial to investigate the possibility of adding an auto-adaptation component to the audio signal.
+For example, the pitch gradient can be automatically adjusted over time by the device to provide a better match between the human and computer and increase overall target-finding performance.
+Indeed, the work by~\cite{gallina2015progressive} may serve as a good guideline for such a system.
+Additional feedback modes may also be added to allow for clearer guidance experience for the user, e.g.\ vibration signals to inform them when they point to the target or adjusting the volume to expand the system to three dimensions.
+With this kind of audio interface now better understood, it is ready to be implemented into a fully packaged guidance system for people with visual impairments.
 
 \section*{Acknowledgements}
 
