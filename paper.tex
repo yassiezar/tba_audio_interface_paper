@@ -51,18 +51,16 @@ In particular, techniques from the active vision field are being used to enable 
 However, in literature, these techniques are typically limited to electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
 In previous work we implemented a prototype system that uses active vision and machine learning models to gather information and help a person find objects in an unknown environment, showing that these techniques can indeed successfully be applied to humans as well~\citep{lock2019active}.
 
-The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \Cref{fig:tango} and \Cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
+The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \Cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
 It also provides access to Android's full range of interface tools and I/O options. 
 Furthermore, a set of bone-conduction headphones (pictured in \Cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
 
 \begin{figure}[t]
   \centering
-  \subfloat[]{\label{fig:tango}\includegraphics[width=0.4\columnwidth]{figures/tango_asus.jpeg}}
+  \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.6\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
 ~
-  \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.3\columnwidth]{figures/tango_headphone.png}}
-~
-  \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
-  \caption{Pictures of the latest Tango mobile phone (left), the former Tango tablet and the bone-conduction headphones used in this work (centre), and a participant with visual impairments during an experiment (right)~\citep{lock2019bone}.}
+  \subfloat[]{\label{fig:participant}\includegraphics[width=0.3\columnwidth]{figures/vi_participant.pdf}}
+  \caption{Pictures of the former Tango tablet and the bone-conduction headphones used in this work (left), and a participant with visual impairments during an experiment (right)~\citep{lock2019bone}.}
 \end{figure}
 
 Humans are able to determine the 3D position of a sound source and by exploiting this natural ability, the real-time guidance instructions can be interpreted without posing a significant cognitive load.
@@ -147,9 +145,9 @@ The pan angle, instead, can be conveyed by transforming the audio signal with an
 \begin{figure}[t]
   \centering
   \subfloat[]{\label{fig:cam-coords}\includegraphics[width=0.3\columnwidth]{figures/camera_coordinate.pdf}}
-\hfil
+~
   \subfloat[]{\label{fig:pitch-gain}\includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}}
-  \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis~\citep{lock2019bone}.}
+  \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis. }
 \end{figure}
 
 \subsubsection{Pan Dimension}
@@ -199,7 +197,7 @@ A WiFi recording module is constantly monitoring the different values of the dev
 \begin{figure}[t]
   \centering
   \includegraphics[clip=true, trim=0 120 80 50, width=\columnwidth]{figures/pipeline.pdf}
-  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal~\citep{lock2019bone}.}\label{fig:pipeline}
+  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal.}\label{fig:pipeline}
 \end{figure}
 
 \subsection{Participant Characterisation}\label{sec:participant_characterisation}
