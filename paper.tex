@@ -1,4 +1,4 @@
-\documentclass[]{interact}
+\documentclass{hcij_article}
 
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -7,75 +7,72 @@
 \usepackage{cleveref}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage[natbibapa,nodoi]{apacite}
-\usepackage{todonotes}
-
-\setlength\bibhang{12pt}
-\renewcommand\bibliographytypesize{\fontsize{10}{12}\selectfont}
+\usepackage{array}
+\usepackage{natbib}
 
 \begin{document}
 
-\articletype{Review Draft}
+\articletitle{Experimental Analysis of a Spatialised Audio Interface for People with Visual Impairments}
 
-\title{Experimental Analysis of a Spatialised Audio Interface for People with Visual Impairments}
-
-\author{%
-  \name{Jacobus C. Lock\textsuperscript{a}\thanks{Contact Author}, Iain D. Gilchrist\textsuperscript{b}, Grzegorz Cielniak\textsuperscript{a} and Nicola Bellotto\textsuperscript{a}}%
-  \affil{\textsuperscript{a}University of Lincoln, Lincoln, LN6 7TS, UK; \textsuperscript{b}University of Bristol, Bristol, BS8 1TH, UK}%
-}
-
-\maketitle
-
-\begin{abstract}
+\articleabstract{
   Sound perception is a fundamental skill for many people with severe sight impairments.
   The research presented in this paper is part of the ActiVis project, the aim of which is to build a mobile guidance aid to help people with limited vision find objects in an unknown environment.
   This system requires an effective non-visual interface and uses bone-conduction headphones to transmit audio instructions to the user.
   It has been implemented and tested with spatialised audio cues, which convey the direction of a predefined target in 3D space.
   We present an in-depth evaluation of the audio interface with several experiments that involve a large number of participants, both blindfolded and with actual visual impairments, and analyse the pros and cons of our design choices.
-  In addition to producing results comparable to the state-of-the-art, we found that Fitts's Law can be used to form a metric that can be used to improve and refine the quality of the audio interface in future mobile navigation aids. 
-\end{abstract}
+  In addition to producing results comparable to the state-of-the-art, we found that Fitts's Law for predicting human movement can be used to form a metric that can be used to improve and refine the quality of the audio interface in future mobile navigation aids. 
+}
 
-\begin{keywords}
-  Visual impairment; active vision; guidance system; audio interface; Fitts Law
-\end{keywords}
+\newpage
+
+\thickhrrule
+
+\tableofcontents
+
+\thickhrrule
+
+%\begin{keywords}
+%  Visual impairment; active vision; guidance system; audio interface; Fitts Law
+%\end{keywords}
+
+\articlebodystart
 
 \section{Introduction}
 
 The ActiVis\footnote{https://lcas.github.io/ActiVis/} project aims to build an indoor mobile navigation aid for people with vision impairments that can guide them to their destination in the last leg of their journey (the so-called `last 10-yard problem').
-Improvements to computer vision and machine learning techniques, as well as mobile computing hardware improvements are exploited to make this system possible.
+Improvements to computer vision and machine learning techniques, as well as mobile computing hardware performance increases are exploited to make this system possible.
 In particular, techniques from the active vision field are being used to enable a mobile device to gather information on the surrounding environment and use it to generate guidance instructions for a user with limited or no vision.
-However, in literature, these techniques are typically limited to electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
-In previous work we implemented a prototype system that uses active vision and machine learning models to gather information and help a person find objects in an unknown environment, showing that these techniques can indeed successfully be applied to humans as well~\citep{lock2019active}.
+However, in literature, these techniques are typically limited to directing electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
+In previous work we developed a prototype system that uses active vision and machine learning models to gather information and help a person find objects in an unknown environment, showing that these techniques can indeed successfully be applied to direct humans' attention as well.%~\citep{lock2019active}.
 
 The prototype platform is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \Cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
 It also provides access to Android's full range of interface tools and I/O options. 
-Furthermore, a set of bone-conduction headphones (pictured in \Cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
+Furthermore, a set of bone-conduction headphones (see \Cref{fig:tango-headphone}), which are placed on a user's cheekbones instead of their ears and do not interfere with normal hearing, are used to transmit the audio signals to the user.
 
 \begin{figure}
   \centering
   \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.5\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
 ~
   \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
-  \caption{Pictures of the former Tango tablet and the bone-conduction headphones used in this work (left), and a participant with visual impairments during an experiment (right).}
+  \caption{A Tango tablet and the bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right).}
 \end{figure}
 
 Humans are naturally able to determine the 3D position of a sound source and by exploiting this ability, the real-time guidance instructions can be interpreted without posing a significant cognitive load.
 A sound source can be spatialised by adjusting a tone's spectral make-up (elevation angle), time delay and level difference (pan angle), and intensity (distance).
 In our case, only the pan and elevation positions are transmitted to the user to point the camera towards a target object or visual feature.
 However, since bone-conduction headphones bypass the outer ear structure, their spectral signature cannot properly be interpreted and we therefore convey the target's elevation angle by adjusting the tone's pitch.
-In previous work, we showed that this audio signal transmission scheme can direct users to a target position with a degree of accuracy comparable to fully spatialised signals used with expensive closed-cup headphones~\citep{lock2019bone,macdonald2006spatial} and we expand upon this initial investigation with a larger dataset and look at if, and how, changing the behaviour of the pitch affects target acquisition performance in terms of time and angular error. 
+In previous work, we showed that this audio signal transmission scheme can direct users to a target position with a degree of accuracy comparable to fully spatialised signals used with expensive closed-cup headphones and we expand upon this initial investigation with a larger dataset and look at if, and how, changing the behaviour of the pitch affects target acquisition performance in terms of time and angular error.% ~\citep{lock2019bone,macdonald2006spatial}
 The participants' hearing characteristics are also measured to determine if there are limitations to how well they can determine audio pitch or direction. 
 
 The main contributions of this paper are two-fold: 
-
 \begin{itemize}
-  \item we provide more comprehensive experimental results on how well a tone with varying pitch can convey a target's tilt angle when using a mobile device with bone-conducting headsets; 
+  \item we provide comprehensive experimental results, with two groups of participants with healthy and limited eyesight, on how well a tone with varying pitch can convey a target's tilt angle when using a mobile device with a bone-conducting headset; 
   \item we show that this sound-based human-machine interface conforms to Fitts's Law and can provide a useful metric of performance for similar mobile user interfaces.
 \end{itemize}
 
-The rest of the paper starts by discussing previous relevant works and research in \Cref{sec:prev-work}, followed by a discussion on the design and implementation of our interface in \Cref{sec:system-description}.
+The rest of the paper starts by discussing previous relevant works and research in \Cref{sec:prev-work}, followed by a presentation of the design and implementation of our interface in \Cref{sec:system-description}.
 This is followed by a description of the experiments that were conducted and a discussion of their results in \Cref{sec:experiments} and \Cref{sec:results}.
-Finally, the paper concludes with a summary and a short discussion on future research prospects in \Cref{sec:conclusion}.
+Finally, the paper concludes with a summary and discussions on future research prospects in \Cref{sec:conclusion}.
 
 \section{Previous Work}\label{sec:prev-work}
 
@@ -94,10 +91,11 @@ However, other authors have found that the choice of audio transmission medium c
 Cheaper headphones and bone-conduction headphones generally report unfavourable results when compared to over-ear or more expensive alternatives~\citep{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization}. 
 This seems to be limited to the elevation dimension, however, and can be improved with HRTFs adjusted for the bone-conduction pathway~\citep{stanley2006lateralization}.
 ~\cite{durette2008visuo} transmit a target's elevation angle by adjusting the signal's pitch and report favourable results. 
-We extended on the latter's work and investigated spatial audio for guidance mode closely in an initial study and found that it is indeed able to adequately guide a user towards a target area~\citep{lock2019bone}.
+We extended on the latter's work and investigated spatial audio for guidance mode closely in an initial study and found that it is indeed able to adequately guide a user towards a target area.%~\citep{lock2019bone}.
 We expand upon this preliminary study with a more thorough investigation into the participants' performance and how changes to the audio signal's behaviour can impact that performance.
 
-Researchers have previously used Fitts's Law~\citep{fitts1954information}, and more recently MacKenzie's modified version of it~\citep{mackenzie1992fitts}, as a metric to evaluate the performance of a spatial audio HMI\@.
+Fitts's Law~\citep{fitts1954information} is a predictive model of human movement and is particularly useful to evaluate human-computer interactions.
+Indeed, researchers have previously used Fitts's Law, and more recently MacKenzie's modified version of it~\citep{mackenzie1992fitts}, as a metric to evaluate the performance of a spatial audio HMI\@.
 Fitts's Law was originally proposed for visual target search tasks, but has since been applied in non-visual target search tasks as well.
 For example, experiments with a haptic feedback pointing device have been performed to evaluate how effective it was at directing a user towards a target~\citep{ahmaniemi2009augmented} and the authors showed that the search time adheres to Fitts's Law.
 However, they also note that it is not a perfect fit, citing the fact that Fitts's Law does not take into account a user's search strategy.
@@ -111,12 +109,13 @@ However, Fitts's Law has not yet been shown to apply to a spatial tone that uses
 
 Existing electronic navigation aids have typically struggled to gain market traction and replace the traditional walking cane as the standard assistive tool for people with visual impairments.
 Current technological limitations include prohibitive costs, bulky hardware requirements and non-user-friendly interfaces~\citep{golledge2004stated,yusif2016older,arditi2013user}.
-To address these issues, we implemented a handheld mobile system that is based on a concept proposed by~\cite{lock2019active} and tested by~\cite{lock2019bone} using a Google Tango device that is able to localise itself in real-time.
+To address these issues, we implemented a handheld mobile system using a Google Tango device that is able to localise itself in real-time.
+%To address these issues, we implemented a handheld mobile system that is based on a concept proposed by~\cite{lock2019active} and tested by~\cite{lock2019bone} using a Google Tango device that is able to localise itself in real-time.
 This system has the benefit of minimal hardware requirements and a compact, familiar form-factor, which will help to overcome the hurdle of user-acceptance and usability.
 
 A set of bone-conduction headphones is used as the audio transmission medium.
 These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
-This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still rely on sound to detect oncoming vehicles and people, for example~\citep{lichtenstein2012headphone}.
+This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still rely on sound to detect oncoming vehicles and people, for example~\cite{lichtenstein2012headphone}.
 Alternative solutions that allow ambient noise through, such as open-back headphones, were also considered, but they still filter the incoming sound and were therefore disregarded.
 The AfterShockz headphones (\Cref{fig:tango-headphone}) were ultimately selected for the aforementioned reasons of non-interference and increased discretion when compared to larger over-ear headphones. 
 
@@ -131,7 +130,7 @@ The distance to the source is simply derived as the intensity, or volume, of the
 When an audio signal is transmitted via a set of speakers or headphones, it can be transformed with an HRTF to mimic the characteristics of a natural sound source before it is transmitted, making the brain believe a sound is located at some arbitrary position.
 An HRTF is a mathematical function that simulates the response signal of a human head and is derived by capturing key characteristics that affect the monaural and binaural responses, such as the user's hearing levels and head size.
 Since hearing responses are unique amongst different users, the best results would be observed if each user had their own customised HRTF.\
-However, given the complicated process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\citep{gardner1995hrtf}.
+However, given the complex process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\citep{gardner1995hrtf}.
 
 The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \Cref{fig:cam-coords}.
 Spatialised audio signals are well-suited to the task, displaying similar levels of performance to vocal feedback, but with less cognitive load and higher resolution~\citep{klatzky2006cognitive}.
@@ -150,7 +149,7 @@ The pan angle, instead, can be conveyed by transforming the audio signal with an
 
 The human audition system uses binaural comparison cues, such as ITD and ILD, to localise a sound source on the horizontal plane~\citep{blauert1969sound}.
 The ITD is the perceived time delay between the signal reaching both ears, while the ILD is the perceived volume difference in the signal.
-For example, a sound that comes from the individual's right will hit the right ear first with a slightly higher volume.
+For example, a sound that comes from the individual's right will hit the right ear first with a slightly higher volume compared to the left ear.
 
 In this work, a pure sinusoidal wave was used. 
 People typically have trouble localising a pure tone without a sufficiently rich spectral signature.
@@ -171,13 +170,11 @@ The pitch is changed as a linear function of the elevation angle (see \Cref{fig:
 For this work, we only consider a \SI{180}{\degree} field of view in front of the user and limit the elevation angle to a range of \SI{\pm90}{\degree}, or $[-\frac{\pi}{2}, \frac{\pi}{2}]$.
 After practical tests with the interface, we set the neutral, on-target pitch the HMI emits to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
 The pitch limits are set at some integer number of octaves above and below the neutral, on-elevation pitch.
-After practical tests with the interface, we set the neutral pitch to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
-%We set the pitch limits to two octaves away from the neutral pitch, giving frequency limits of [\SI{128}{\hertz}, \SI{2048}{\hertz}].
 
 \section{Experiments}\label{sec:experiments}
 
 We performed a set of experiments with the audio interface to determine how effective it is at directing a user to adjust the pan and elevation angles of a camera for point it to a target.
-Furthermore, we also carried out a set of pre-screening experiments to determine each participant's hearing characteristics.
+Furthermore, we also carried out a set of pre-screening experiments to determine each participant's hearing characteristics in order to determine their perception limits in the respective audio dimensions.
 The participants were given time before the experiments commenced to familiarise themselves with the device and the tones it emits, as well as what the `on-target' tone sounds like.
 We also tested the system with a group of severely sight impaired participants and compared their data to the blindfolded dataset.
 The results from the experiments we performed allow us to better understand how the users respond to different settings for the spatial audio feedback stimulus and use them to improve and optimise the behaviour of the feedback modes in our portable navigation aid.
@@ -191,7 +188,7 @@ A WiFi recording module is constantly monitoring the different values of the dev
 
 \begin{figure}
   \centering
-  \includegraphics[clip=true, trim=0 120 80 50, width=\columnwidth]{figures/pipeline.pdf}
+  \includegraphics[clip=true, trim=0 120 80 50, width=0.8\columnwidth]{figures/pipeline.pdf}
   \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal.}\label{fig:pipeline}
 \end{figure}
 
@@ -324,7 +321,7 @@ This indicates that the participants in \textit{G1} consistently progressed thro
 
 \begin{figure}
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/sound_localisation.png}
+  \includegraphics[width=0.8\columnwidth]{figures/sound_localisation.png}
   \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }\label{fig:sound-localisation}
 \end{figure}
 
@@ -351,19 +348,19 @@ It can also be used to improve the interface's frequency profile and performance
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/pitch_discrimination.png}
+  \includegraphics[width=0.8\columnwidth]{figures/pitch_discrimination.png}
   \caption{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }\label{fig:pitch-discrimination}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/pitch_thresholds.png}
+  \includegraphics[width=0.8\columnwidth]{figures/pitch_thresholds.png}
   \caption{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }\label{fig:pitch-thresholds}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/pitch_thresholds_limits.png}
+  \includegraphics[width=0.8\columnwidth]{figures/pitch_thresholds_limits.png}
   \caption{Histogram distributions of the participants' 75\% cut-off thresholds. }\label{fig:pitch-thresholds-hist}
 \end{figure}
 
@@ -381,14 +378,20 @@ The results are summarised in \Cref{tab:target-results}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/boxplot_target_search_median_error.png}
+  \includegraphics[width=0.6\textwidth]{figures/boxplot_target_search_median_error.png}
   \caption{Box-plots of the median pan and elevation errors for each audio setting. }\label{fig:target-boxplot-error}
 \end{figure}
 
 \begin{table}
   \centering
   \caption{The average target acquisition error in the pan and elevation dimensions for each participant group. }\label{tab:target-results}
-  \begin{tabular}{p{0.5cm}p{1.5cm}p{1.5cm}p{3.0cm}p{3.0cm}p{3.0cm}}
+	\begin{tabular}%
+	{>{\centering\arraybackslash}p{0.5cm}%
+	 >{\centering\arraybackslash}p{1.5cm}%
+	 >{\centering\arraybackslash}p{1.1cm}%
+ 	 >{\raggedleft\arraybackslash}p{2.6cm}%
+ 	 >{\raggedleft\arraybackslash}p{3.0cm}%
+	 >{\raggedleft\arraybackslash}p{3.0cm}}
     \toprule
     &           & Setting      & Mean Angle Error [rad] & Mean Absolute Angle Error [rad] &  Pearson Correlation \\ \midrule
     \multirow{6}{*}{\textit{G1}}
@@ -421,7 +424,7 @@ The medians of these data groupings are then used as individual samples that rep
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/boxplot_target_search_absolute_median_error.png}
+  \includegraphics[width=0.6\textwidth]{figures/boxplot_target_search_absolute_median_error.png}
   \caption{Distributions of the absolute angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }\label{fig:target-boxplot-absolute-errors}
 \end{figure}
 
@@ -478,7 +481,7 @@ Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson c
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/fitts_ips.png}
+  \includegraphics[width=0.6\textwidth]{figures/fitts_ips.png}
   \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-ips}
 \end{figure}
 
@@ -516,7 +519,7 @@ However, it is unclear whether this is a systematic cause or a difference in sea
 The results for the accuracy and time performance with the proposed audio interface shows an interesting contrast.
 That is, the \textit{hi} pitch setting produces the lowest target acquisition error, followed by the \textit{med} and \textit{lo} settings, respectively. 
 However, this trend is almost wholly reversed in the time-to-target results from the Fitts model, where the \textit{lo} setting gives the highest level of performance, followed by the \textit{hi} and \textit{med} settings respectively. 
-Since Fitts's' model takes the angular error into account, one might reasonably expect that the results for both experiments follow a similar trend. 
+Since Fitts's model takes the angular error into account, one might reasonably expect that the results for both experiments follow a similar trend. 
 However, the Fitts model does not account for changing stimuli and different strategies.
 We therefore hypothesise that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
 This seems to indicate a speed/accuracy trade-off in finding the targets.
@@ -544,11 +547,13 @@ Indeed, the work by~\cite{gallina2015progressive} may serve as a good guideline 
 Additional feedback modes may also be added to allow for clearer guidance experience for the user, e.g.\ vibration signals to inform them when they point to the target or adjusting the volume to expand the system to three dimensions.
 With this kind of audio interface now better understood, it is ready to be implemented into a fully packaged guidance system for people with visual impairments.
 
-\section*{Acknowledgements}
+\articlebodyend
 
-This project is partly funded and supported by the Google Winter Award (2016).
-
+\begingroup
+\raggedright
+\titleformat*{\section}{\bfseries\Large\centering\MakeUppercase}
 \bibliographystyle{apacite}
 \bibliography{bib}
+\endgroup
 
 \end{document}
