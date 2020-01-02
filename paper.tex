@@ -153,7 +153,8 @@ For example, a sound that comes from the individual's right will hit the right e
 
 In this work, a pure sinusoidal wave was used. 
 People typically have trouble localizing a pure tone without a sufficiently rich spectral signature.
-However, the ITD and ILD are independent of the tone's spectral make-up, while the elevation angle is given through a different mechanism. Therefore, a pure sine wave is suitable to convey the target's pan angle.
+However, the ITD and ILD are independent of the tone's spectral make-up, while the elevation angle is given through a different mechanism.
+Therefore, a pure sine wave is suitable to convey the target's pan angle.
 To transform and spatialize the audio signal, we used OpenAL's default HRTF, based on the MIT's KEMAR dataset~\citep{hiebert2005openal}, which uses the person and targets' positions as input, and outputs a transformed audio signal.
 
 \subsubsection{Elevation Dimension}
@@ -183,7 +184,8 @@ The results from the experiments we performed allow us to better understand how 
 
 A diagram of the experimental system pipeline is shown in~\Cref{fig:pipeline}, where the arrows indicate the direction of the information flow.
 When the user taps the Tango's screen, a new virtual target is generated and its coordinates are sent to the audio generation module, along with the device's current position and orientation.
-The audio generator then produces a tone based on the difference between the device and the target's positions. The tone is sent to the audio output channel, which plays it back to the user.
+The audio generator then produces a tone based on the difference between the device and the target's positions.
+The tone is sent to the audio output channel, which plays it back to the user.
 A WiFi recording module is constantly monitoring the different values of the device's parameters and of the target's position, as well as the system's output, recording everything in a remotely stored datafile. 
 
 \begin{figure}
