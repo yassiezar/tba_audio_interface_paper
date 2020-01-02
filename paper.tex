@@ -105,6 +105,7 @@ Furthermore, a set of bone-conduction headphones (see \Cref{fig:tango-headphone}
 ~
   \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
   \caption{A Tango tablet and the bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right).}
+  \Description{The Tango tablet and the bone-conduction headphones, the primary hardware components used in this work, and a participant with visual impairments using the system during an experiment.}
 \end{figure}
 
 Humans are naturally able to determine the 3D position of a sound source and by exploiting this ability, the real-time guidance instructions can be interpreted without posing a significant cognitive load.
@@ -193,6 +194,7 @@ The pan angle, instead, can be conveyed by transforming the audio signal with an
 ~
   \subfloat[]{\label{fig:pitch-gain}\includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}}
   \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis. }
+  \Description{The reference system used by the guidance interface showing the camera vector and pan and elevation angles and the pitch gain function used to convey the target's elevation angle. Note the logarithmic scale of the frequency axis. }
 \end{figure}
 
 \subsubsection{Pan Dimension}
@@ -241,7 +243,7 @@ A WiFi recording module is constantly monitoring the different values of the dev
 \begin{figure}
   \centering
   \includegraphics[clip=true, trim=0 120 80 50, width=0.8\columnwidth]{figures/pipeline.pdf}
-  \caption{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal.}\label{fig:pipeline}
+  \Description{A diagram of the individual system components and their communication pipelines. $F$ indicates a feedback signal and $P$ a pose signal.}\label{fig:pipeline}
 \end{figure}
 
 \subsection{Participant Characterization}\label{sec:participant_characterisation}
@@ -371,6 +373,7 @@ This indicates that the participants in \textit{G1} consistently progressed thro
   \centering
   \includegraphics[width=0.8\columnwidth]{figures/sound_localisation.png}
   \caption{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }\label{fig:sound-localisation}
+  \Description{Histograms of the participants' guesses of the tone locations that show the correct and incorrect guesses for each bin. }
 \end{figure}
 
 Group~\textit{G2} also displays a concentration of erroneous guesses in the central interval.
@@ -398,18 +401,21 @@ It can also be used to improve the interface's frequency profile and performance
   \centering
   \includegraphics[width=0.8\columnwidth]{figures/pitch_discrimination.png}
   \caption{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }\label{fig:pitch-discrimination}
+  \Description{Histograms of the participants' guesses of which tone was higher pitched that show the correct and incorrect guesses for each bin. }
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\columnwidth]{figures/pitch_thresholds.png}
   \caption{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }\label{fig:pitch-thresholds}
+  \Description{Distributions of the median cut-off frequency thresholds along with the median 75\% cut-off thresholds. }
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.8\columnwidth]{figures/pitch_thresholds_limits.png}
   \caption{Histogram distributions of the participants' 75\% cut-off thresholds. }\label{fig:pitch-thresholds-hist}
+  \Description{Histogram distributions of the participants' 75\% cut-off thresholds. }
 \end{figure}
 
 \subsection{Target Search}
@@ -422,12 +428,14 @@ The results are summarized in \Cref{tab:target-results}.
   \centering
   \includegraphics[width=0.8\textwidth]{figures/target_errors.png}
   \caption{Distributions of the angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }\label{fig:target-errors}
+  \Description{Distributions of the angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.6\textwidth]{figures/boxplot_target_search_median_error.png}
   \caption{Box-plots of the median pan and elevation errors for each audio setting. }\label{fig:target-boxplot-error}
+  \Description{Box-plots of the median pan and elevation errors for each audio setting. }
 \end{figure}
 
 \begin{table}
@@ -474,6 +482,7 @@ The medians of these data groupings are then used as individual samples that rep
   \centering
   \includegraphics[width=0.6\textwidth]{figures/boxplot_target_search_absolute_median_error.png}
   \caption{Distributions of the absolute angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }\label{fig:target-boxplot-absolute-errors}
+  \Description{Distributions of the absolute angular errors in the pan and elevation dimensions for the 3 different pitch gradient settings. }
 \end{figure}
 
 The box-plots in \Cref{fig:target-boxplot-error} show that the error in the pan dimension is approximately centred around \SI{0}{\radian} for both groups, with some divergence between the groups for the different settings.
@@ -519,6 +528,7 @@ A logarithmic line is fitted through the bins' median values by regression and a
   \centering
   \includegraphics[width=0.8\textwidth]{figures/fitts_fit.png}
   \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-results}
+  \Description{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }
 \end{figure}
 
 For Group~\textit{G1}, a Fitts relationship can be observed and the logarithmic line of best fit closely approximates the median values of the binned data for all three settings. 
@@ -531,6 +541,7 @@ Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson c
   \centering
   \includegraphics[width=0.6\textwidth]{figures/fitts_ips.png}
   \caption{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }\label{fig:fitts-ips}
+  \Description{Plots showing the Fitts relationship between the time it took the participants to find a target and the target's index of difficulty. }
 \end{figure}
 
 These results allows us to calculate and plot in \Cref{fig:fitts-ips} an index of performance, as given by \Cref{eq:fitts-performance}, for each audio setting.
