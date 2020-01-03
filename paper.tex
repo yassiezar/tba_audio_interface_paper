@@ -60,26 +60,38 @@
 \begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10003120.10011738.10011773</concept_id>
-<concept_desc>Human-centered computing~Empirical studies in accessibility</concept_desc>
-<concept_significance>500</concept_significance>
-</concept>
-<concept>
 <concept_id>10003120.10003121.10003126</concept_id>
 <concept_desc>Human-centered computing~HCI theory, concepts and models</concept_desc>
 <concept_significance>300</concept_significance>
 </concept>
 <concept>
-<concept_id>10003120.10011738.10011775</concept_id>
-<concept_desc>Human-centered computing~Accessibility technologies</concept_desc>
+<concept_id>10003120.10003121.10003122.10011749</concept_id>
+<concept_desc>Human-centered computing~Laboratory experiments</concept_desc>
 <concept_significance>300</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003125.10010597</concept_id>
+<concept_desc>Human-centered computing~Sound-based input / output</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003121.10003125.10010873</concept_id>
+<concept_desc>Human-centered computing~Pointing devices</concept_desc>
+<concept_significance>100</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10011738.10011773</concept_id>
+<concept_desc>Human-centered computing~Empirical studies in accessibility</concept_desc>
+<concept_significance>500</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
+\ccsdesc[100]{Human-centered computing~HCI theory, concepts and models}
+\ccsdesc[300]{Human-centered computing~Laboratory experiments}
+\ccsdesc[500]{Human-centered computing~Sound-based input / output}
+\ccsdesc[100]{Human-centered computing~Pointing devices}
 \ccsdesc[500]{Human-centered computing~Empirical studies in accessibility}
-\ccsdesc[300]{Human-centered computing~HCI theory, concepts and models}
-\ccsdesc[300]{Human-centered computing~Accessibility technologies}
 
 \keywords{%
   Visual impairment; active vision; guidance system; audio interface; Fitts Law
@@ -103,7 +115,7 @@ Furthermore, a set of bone-conduction headphones (see \Cref{fig:tango-headphone}
   \centering
   \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.5\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
 ~
-  \subfloat[]{\label{fig:participant}\includegraphics[width=0.2\columnwidth]{figures/vi_participant.pdf}}
+  \subfloat[]{\label{fig:participant}\includegraphics[width=0.25\columnwidth]{figures/vi_participant.pdf}}
   \caption{A Tango tablet and the bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right).}
   \Description{The Tango tablet and the bone-conduction headphones, the primary hardware components used in this work, and a participant with visual impairments using the system during an experiment.}
 \end{figure}
@@ -172,7 +184,7 @@ The AfterShockz headphones (\Cref{fig:tango-headphone}) were ultimately selected
 
 \subsection{Audio Interface}
 
-Humans localize a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\citep{blauert1997spatial,blauert1969sound}.
+Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\citep{blauert1997spatial,blauert1969sound}.
 The binaural cues include inter-aural time and level differences (ITD and ILD respectively) that help to determine a source's location on the horizontal plane.
 Monaural cues are taken from the interaction of the sound with the human anatomy, e.g.\ head, shoulders, outer ear, before it enters the ear canal.
 When the modified audio signal enters the inner ear canal, the human brain is able to analyse the frequency response and accurately determine the position of the sound source on the median plane. 
@@ -199,7 +211,7 @@ The pan angle, instead, can be conveyed by transforming the audio signal with an
 
 \subsubsection{Pan Dimension}
 
-The human audition system uses binaural comparison cues, such as ITD and ILD, to localize a sound source on the horizontal plane~\citep{blauert1969sound}.
+The human audition system uses binaural comparison cues, such as ITD and ILD, to localise a sound source on the horizontal plane~\citep{blauert1969sound}.
 The ITD is the perceived time delay between the signal reaching both ears, while the ILD is the perceived volume difference in the signal.
 For example, a sound that comes from the individual's right will hit the right ear first with a slightly higher volume compared to the left ear.
 
@@ -228,9 +240,9 @@ The pitch limits are set at some integer number of octaves above and below the n
 
 We performed a set of experiments with the audio interface to determine how effective it is at directing a user to adjust the pan and elevation angles of a camera for point it to a target.
 Furthermore, we also carried out a set of pre-screening experiments to determine each participant's hearing characteristics in order to determine their perception limits in the respective audio dimensions.
-The participants were given time before the experiments commenced to familiarize themselves with the device and the tones it emits, as well as what the `on-target' tone sounds like.
+The participants were given time before the experiments commenced to familiarise themselves with the device and the tones it emits, as well as what the `on-target' tone sounds like.
 We also tested the system with a group of participants with severe sight impairments and compared their data to the blindfolded participant dataset.
-The results from the experiments we performed allow us to better understand how the users respond to different settings for the spatial audio feedback stimulus and use them to improve and optimize the behaviour of the feedback modes in our portable navigation aid.
+The results from the experiments we performed allow us to better understand how the users respond to different settings for the spatial audio feedback stimulus and use them to improve and optimise the behaviour of the feedback modes in our portable navigation aid.
 
 \subsection{System Setup}
 
@@ -248,7 +260,7 @@ A WiFi recording module is constantly monitoring the different values of the dev
 
 \subsection{Participant Characterization}\label{sec:participant_characterisation}
 
-A preliminary set of experiments were conducted to characterize the participants' hearing characteristics.
+A preliminary set of experiments were conducted to characterise the participants' hearing characteristics.
 The measured characteristics were each participant's audio localization ability on the lateral plane, as well as the participants' ability to discriminate between tones with different frequencies. 
 These results will be used to provide context to the following target search experiment and provide additional insight on any possible biases or limitations. 
 
@@ -257,7 +269,7 @@ These results will be used to provide context to the following target search exp
 In this experiment, we evaluated a participant's ability to determine the lateral direction a sound is coming from.
 To do this, we played a continuous \SI{512}{\hertz} sinusoidal tone to the participant through the headphones and applied an HRTF to spatialise and place its source to the participant's left or right.
 The participant then had to select the direction the sound came from.
-The longer the experiment lasts and the more correct guesses the participant makes, the closer the source moves to the centre-front of the participant, making it increasingly harder to localize. 
+The longer the experiment lasts and the more correct guesses the participant makes, the closer the source moves to the centre-front of the participant, making it increasingly harder to localise. 
 
 For this progressive increase in difficulty, a ``2-up, 1-down'' step process is used~\citep{wetherill1965sequential,levitt1971transformed}, meaning that for every two correct answers, the distance to the centre halves.
 Conversely, the task becomes easier for each incorrect answer by doubling the sound source's distance from the centre.
@@ -299,7 +311,7 @@ When the participants were confident that the device was on-target, i.e.~hearing
 The targets' positions are all set relative to the device's coordinate system, which is tracked using the Tango hardware and localization API.\
 A total of 28 targets were generated per participant. 
 
-As part of this experiment, we wanted to see how changing the gradient of the pitch function, visualized in~\Cref{fig:pitch-gain}, affects target acquisition performance, e.g.\ does a steeper pitch gain as a function of the elevation angle improve accuracy or decrease the search time?
+As part of this experiment, we wanted to see how changing the gradient of the pitch function, visualised in~\Cref{fig:pitch-gain}, affects target acquisition performance, e.g.\ does a steeper pitch gain as a function of the elevation angle improve accuracy or decrease the search time?
 Pitch limits of one, two and three octaves above and below the neutral tone were then set for the so-called \textit{lo}, \textit{med} and \textit{hi} pitch gradient settings respectively, giving pitch intervals of
 
 \begin{gather*}
@@ -317,7 +329,7 @@ However, since each participant was presented with a different, randomly generat
 Instead, we use Fitts's Law~\citep{fitts1954information}, modified by MacKenzie for uncertain target sizes and noisy data~\citep{mackenzie1992fitts}, which states that there is a relation between the time it takes to find a target and its index of difficulty (the ratio between the distance to the target and its width).
 It also provides a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. 
 
-Here we briefly summarize the equations and quantities involved in our metric.
+Here we briefly summarise the equations and quantities involved in our metric.
 Fitts's Law is given by  
 
 \begin{equation}
@@ -357,8 +369,8 @@ Two groups of participants were recruited for the experiments on a volunteer bas
 Group~\textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 10 people with severe visual impairments (18--55 years old; 36 female, 16 male). 
 None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
 Each participant performed three sets of experiments each, with the two characterization experiments in \Cref{sec:participant_characterisation} preceding the final target-search experiment in \Cref{sec:target_search}. 
-Both groups were given some time before the target-search experiment to familiarize themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
-Furthermore, to minimize any potential speed/accuracy biases, we asked the participants to focus on finding the targets without worrying about the time it took to complete the task. 
+Both groups were given some time before the target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
+Furthermore, to minimise any potential speed/accuracy biases, we asked the participants to focus on finding the targets without worrying about the time it took to complete the task. 
 
 \section{Results}\label{sec:results}
 
@@ -422,7 +434,7 @@ It can also be used to improve the interface's frequency profile and performance
 
 The results from the target search experiment shown on the 2D histograms in \Cref{fig:target-errors}, where the angular errors in the pan and elevation dimensions are plotted against each other. 
 A set of box-plots of the angle errors are also given in \Cref{fig:target-boxplot-error} for each audio setting.
-The results are summarized in \Cref{tab:target-results}.
+The results are summarised in \Cref{tab:target-results}.
 
 \begin{figure}
   \centering
@@ -501,7 +513,7 @@ Based on the current data, it is impossible to conclude which setting produces t
 We also noted that there is a significant negative error bias in the elevation data for all the settings and groups, possibly caused by a cognitive constraint introduced by the floor, below which the participants believed the targets could not appear.
 Since this bias seems to be constant, it could be easily addressed in a future version of the audio interface by adjusting its frequency parameters to shift the bias upwards by a constant offset. 
 
-Comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarized in \Cref{tab:inter-group-results}).
+Comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \Cref{tab:inter-group-results}).
 This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar, and that groups from a different population can reasonably be expected to produce similar errors, under similar experimental conditions. 
 Consequently, we can conclude that the \textit{hi} setting, which generates the significantly smallest elevation error, is the best audio pitch level to guide a user in a pointing task, and that the pan error is completely independent of such setting choice. 
 
@@ -545,7 +557,7 @@ Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson c
 \end{figure}
 
 These results allows us to calculate and plot in \Cref{fig:fitts-ips} an index of performance, as given by \Cref{eq:fitts-performance}, for each audio setting.
-The results are summarized in \Cref{tab:fitts-results}.
+The results are summarised in \Cref{tab:fitts-results}.
 For Group~\textit{G1}, there is a fairly consistent level of performance between the three settings, with \textit{lo} producing the highest indices of performance overall (i.e.\ the participants found the targets with the smallest error and in the least amount of time).
 This is supported by the results from the Friedman test, showing that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections, which show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001,~p_{lo-hi} < 0.001$). The \textit{med} and \textit{hi}, instead, are not significantly different from each other ($p_{med-hi} = 0.85$).
 The results for Group~\textit{G2} show generally lower and inconsistent indices of performance for each setting, which is expected given the increased times to target observed in \Cref{fig:fitts-results}.
@@ -582,7 +594,7 @@ Since Fitts's model takes the angular error into account, one might reasonably e
 However, the Fitts model does not account for changing stimuli and different strategies.
 We therefore hypothesize that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
 This seems to indicate a speed/accuracy trade-off in finding the targets.
-With the Fitts model discussed here, we can modify the interface to prioritize different metrics and produce the correct output. 
+With the Fitts model discussed here, we can modify the interface to prioritise different metrics and produce the correct output. 
 
 Regarding target acquisition, the progressive improvement from the \textit{lo}, \textit{med} and \textit{hi} settings (see \Cref{tab:target-results}) seems to indicate that simply increasing the pitch gradient leads to better target-pointing performance.
 However, \Cref{fig:pitch-thresholds-hist} shows that the frequency difference between the ``on-target'' tone and the selected one with the \textit{hi} setting approaches the cut-off frequency of Group~\textit{G1}, indicating an inflection point where increasing the gradient reduces the final performance. 
