@@ -108,11 +108,10 @@ In particular, techniques from the active vision field are used to enable a mobi
 However, in literature, these techniques are typically limited to directing electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
 In previous work we developed a prototype system that uses active vision and machine learning models to gather information and help a person find objects within an unknown indoor environment, showing that these techniques can indeed successfully be applied to direct humans' attention as well\citep{lock2019active}.
 
-The hardware used for the guidance system prototype are a Google Project Tango device\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)}, along with a set of bone-conducting headphones.
-Both of these devices are shown in \cref{fig:tango-headphone}.
+The hardware used for the guidance system prototype are a Google Project Tango device\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)}, along with a set of bone-conducting headphones (both are shown in \cref{fig:tango-headphone}).
 This Tango device uses a set of embedded RGB-D cameras that provide access to powerful real-time localisation, through IMU measurements and landmark tracking, and image-processing capabilities.
 It also gives access to Android's full range of interface and I/O options.
-Bone-conducting headphones are placed on and conduct audio signals through a user's cheekbones, instead of their ear canal.
+Unlike normal headphones, bone-conducting headphones are placed on and conduct audio signals through a user's cheekbones, instead of their ear canal.
 These headphones have the benefit of not interfering with a user's normal hearing function.
 
 %The prototype is based on a Google Project Tango\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)} device, pictured in \cref{fig:tango-headphone}, that embeds a colour camera and provides access to powerful real-time localisation (through IMU measurements and landmark tracking) and image-processing facilities. 
@@ -124,7 +123,7 @@ These headphones have the benefit of not interfering with a user's normal hearin
   \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.5\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
 ~
   \subfloat[]{\label{fig:participant}\includegraphics[width=0.24\columnwidth]{figures/vi_participant.pdf}}
-  \caption{A Tango tablet and the bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right)~\citep{lock2019bone}.}
+  \caption{A Tango tablet and the bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right). Adapted from~\citet{lock2019bone}.}
   \Description{The Tango tablet and the bone-conduction headphones, the primary hardware components used in this work, and a participant with visual impairments using the system during an experiment.}
 \end{figure}
 
@@ -150,15 +149,15 @@ Finally, the paper concludes with a summary and discussions on future research p
 
 \section{Previous Work}\label{sec:prev-work}
 
-Over the years, commercial and academic parties have devised new and innovative mobile navigation and travel aids for people with visual impairments.
+Over the years, commercial and academic groups have devised new and innovative mobile navigation and travel aids for people with visual impairments.
 Many of these systems make use of one or a combination of vocal~\citep{mocanu2016when,chessa2016integrated,kanwal2015navigation}, audio~\citep{schwarze2015intuitive,rodriguez2012obstacle,katz2010navig} and haptic~\citep{rivera-rubio2015assistive,lee2015rgb,xiao2015assistive} feedback media to present a user with guidance instructions, each of which has its own set of features and limitations.
 Out of these three options, respondents with visual impairments typically prefer haptic and vocal feedback~\citep{arditi2013user}.
-However, from an ergonomic perspective, haptic feedback is a weak performer and require significant additional external hardware to transmit guidance instructions with sufficient resolution.
-Furthermore, both haptic and vocal feedback can present a significant cognitive burden and overwhelm a user's input bandwidth, particularly when high-resolution guidance is required.
+However, from an ergonomic perspective, haptic feedback has significant shortcomings and require additional external hardware to transmit guidance instructions with sufficient resolution.
+Furthermore, both haptic and vocal feedback can present a cognitive burden and overwhelm a user's input bandwidth, particularly when high-resolution guidance is required.
 Indeed, participants report that they prefer control over the vocal feedback channel and trigger guidance instructions, instead of being given constant guidance instructions~\citep{arditi2013user}.
 As an alternative, simple audio tones are less prone to these bandwidth and hardware limitations.
 However, such tones can potentially fatigue a user if there are too unpleasant.
-Researchers started using cameras and object detectors to determine what a user is looking at and then use simple audio tones and vocal feedback signals to indicate to the user where to find an object.
+Researchers have started using cameras and object detectors to determine what a user is looking at and then use simple audio tones and vocal feedback signals to indicate to the user where to find an object.
 They report favourable results with these systems~\citep{schauerte2012assistive,tian2013computer,fiannaca2014headlock,vazquez2012helping}.
 
 %\todo{edit start}
@@ -171,14 +170,14 @@ They report favourable results with these systems~\citep{schauerte2012assistive,
 %Simple audio tones are less affected by these bandwidth and hardware limitations, but they can potentially fatigue the user's senses if too unpleasant.
 %\todo{edit stop}
 
-Work has been done in an attempt to add complexity to these tones by spatialising them with a head-related transfer function (HRTF) that simulates a sound source being placed at some arbitrary 3D position.
+Work has been done in an attempt to spatialise these tones with a head-related transfer function (HRTF) that simulates a sound source being placed at some arbitrary 3D position.
 The authors generally report favourable results when using normal over-ear headphones or speakers~\citep{geronazzo2016interactive,wilson2007swan,katz2010navig,blum2013spatialized}.
 However, the audio transmission device used has a significant effect on performance.
 Indeed, research has shown that cheaper headphones and bone-conducting headphones have diminished performance in location perception with HRTFs when compared to over-ear or other expensive headphones~\citep{stanley2006lateralization}.
 However, this performance degradation seems limited to the elevation dimension, which is drastically improved when the HRTFs are adjusted for the bone-conduction pathway~\citep{stanley2006lateralization}.
 Another way around the performance issue in the elevation dimension is to transmit the elevation angle by adjusting the audio tone's pitch, such as in the work by~\citet{durette2008visuo}.
-We expanded upon the latter's work and investigated using spatialised audio and a varying pitch for guidance in an initial study~\cite{lock2019bone}.
-We found that participants are able to adequately determine a target's elevation with this approach with performance in both pan and elevation dimensions comparable to those of more expensive over-ear headphones.
+We expanded upon the latter's work and investigated using spatialised audio and a varying pitch for guidance in an initial study~\cite{lock2019bone}, and found that participants are able to adequately determine a target's elevation with this approach with performance in both pan and elevation dimensions.
+The measured performance is comparable to those of more expensive and over-ear headphones.
 
 %Simple audio tones and vocal feedback signals have been used in conjunction with cameras and object detectors to communicate their relative positions to the user with a reasonable level of accuracy~\citep{schauerte2012assistive,tian2013computer,fiannaca2014headlock,vazquez2012helping}.
 %Following this, researchers have investigated using audio signals that are spatialised with a head-related transfer function (HRTF), simulating a sound source located at some arbitrary 3D position~\citep{geronazzo2016interactive,wilson2007swan,katz2010navig,blum2013spatialized}.
