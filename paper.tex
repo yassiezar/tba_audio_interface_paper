@@ -146,13 +146,15 @@ The paper concludes with a summary of the work and discussions on future researc
 
 \section{Previous Work}\label{sec:prev-work}
 
-Over the years, commercial and academic groups have devised new and innovative mobile navigation and travel aids for people with visual impairments.
-Many of these systems make use of one or a combination of vocal~\citep{mocanu2016when,chessa2016integrated,kanwal2015navigation}, audio~\citep{schwarze2015intuitive,rodriguez2012obstacle,katz2010navig} and haptic~\citep{rivera-rubio2015assistive,lee2015rgb,xiao2015assistive} feedback media to present a user with guidance instructions, each of which has its own set of features and limitations.
-Out of these three options, respondents with visual impairments typically prefer haptic and vocal feedback~\citep{arditi2013user}.
+Over the years, commercial and academic groups have devised new and innovative mobile navigation and travel aids for people with visual impairments to address macro- and micro-navigation issues.
+The latter refer to the scale that navigation takes place on, with macro-navigation addressing directional guidance on a topographical map using turn-by-turn instructions, for example, while micro-navigation focusses on conveying information of the user's immediate surroundings. 
+Many of the proposed systems make use of one or a combination of vocal~\citep{mocanu2016when,chessa2016integrated,kanwal2015navigation,sato2019navcog}, audio~\citep{schwarze2015intuitive,rodriguez2012obstacle,kammoun2012navigation} and haptic~\citep{rivera-rubio2015assistive,lee2015rgb,xiao2015assistive} feedback media to present a user with macro- and/or micro-guidance instructions, each of which has its own set of features and limitations.
+The interface for this work is used to provide instructions to a stationary user to guide them to point a camera at a target location and we therefore are mainly concerned with micro-navigation tools. 
+In this context, respondents with visual impairments typically prefer haptic and vocal feedback over an audio tone~\citep{arditi2013user,golledge2004stated}.
 However, from an ergonomic perspective, haptic feedback has significant shortcomings and require additional external hardware to transmit guidance instructions with sufficient resolution.
-Furthermore, both haptic and vocal feedback can present a cognitive burden and overwhelm a user's input bandwidth, particularly when high-resolution guidance is required.
-
-Indeed, \citet{arditi2013user} reports that users prefer controlling the rate at which guidance signals are presented to them, instead of being given constant guidance. 
+Furthermore, in a micro-navigation task, high-resolution guidance and many adjustments are required to reach the target location.
+This this regard, both haptic and vocal feedback can present a cognitive burden and overwhelm a user's input bandwidth, which could have a detrimental effect on performance and the user experience~\citep{klatzky2006cognitive}.
+%Indeed, \citet{arditi2013user} reports that users prefer controlling the rate at which guidance signals are presented to them, instead of being given constant guidance. 
 As an alternative, simple audio tones are less prone to these bandwidth and hardware limitations.
 However, such tones can potentially fatigue a user if there are too unpleasant.
 Researchers have started using cameras and object detectors to determine what a user is looking at and then use simple audio tones and vocal feedback signals to indicate to the user where to find an object.
@@ -185,11 +187,11 @@ Current technological limitations include prohibitive costs, bulky hardware requ
 To address these issues, we implemented a handheld mobile system that is based on a concept proposed by~\citet{lock2019active} and tested by~\citet{lock2019bone} using a Google Tango device that is able to localise itself in real-time.
 This system has the benefit of minimal hardware requirements and a compact, familiar form-factor, which will help to overcome the hurdle of user-acceptance and usability.
 
-A set of bone-conduction headphones is used as the audio transmission medium.
-These headphones sit on a user's cheekbones and conduct the audio signals through the skull into the inner ear, instead of through the outer part like typical over-ear headphones. 
-This has the benefit of allowing the user access to ambient sounds and noise, so a person with limited vision can still rely on sound to detect oncoming vehicles and people, for example~\citep{lichtenstein2012headphone}.
-Alternative solutions that allow ambient noise through, such as open-back headphones, were also considered, but they still filter the incoming sound and were therefore disregarded.
-The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected for the aforementioned reasons of non-interference and increased discretion when compared to larger over-ear headphones. 
+People with visual impairments rely heavily on their hearing~\citep{golledge2004stated} and we wish to avoid blocking this information pathway, since this can have severe effects~\citep{lichtenstein2012headphone}.
+We there use a set of bone-conduction headphones that are placed on a user's cheekbones and conduct audio signals through the skull to the inner ear, completely avoiding the outer ear and therefore does not impede the user's ambient sound perception abilities. 
+Alternative, open-back headphones were also considered, but it was found that they still interfere with hearing and were therefore disregarded.
+The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected.
+These headphones have the added benefit of a more discreet form-factor when compared to other over-headphones, thereby addressing the issue of user acceptance. 
 
 \subsection{Audio Interface}
 
