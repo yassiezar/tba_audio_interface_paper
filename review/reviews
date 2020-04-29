@@ -1,0 +1,175 @@
+Editor
+
+Thank you for submitting your manuscript to ACM TACCESS. The reported work examines a topic that is highly related to the TACCESS journal. Your paper has been reviewed by three experts in this area. All reviewers acknowledged the potential value of the work. However, two reviewers have brought up major issues regarding the research methodology, the related research, and the data analysis. One reviewer commented on the inclusion of the blindfolded group, the variability in the result, and the small sample N for the group with visual impairments. The other reviewer also questioned the claim made about the two participant groups based on the Kruskal-Wallis test on page 14. Please provide additional demographical information about the 2 groups of participants and reexamine the data analysis as well as the conclusions drawn based on the statistical tests.  The 2nd reviewer provided detailed comments about the employment of Fitts’s Law in the evaluation. Additional references have been recommended by the reviewers to strengthen the ‘previous work’ section. Reviewer 3 had questions about several figures. In addition, the paper needs another round of thorough edits.
+Based on the reviewer feedback, your paper is accepted with major revisions required. Please fully address the concerns and comments raised by all the reviewers. Let me know if you have any questions about the reviews and the revision process. I look forward to reading the revised manuscript.
+
+
+
+Reviewer: 1
+
+Typos:
+
+-"The target’s are all positioned"
+-"Regarding Group G2Âÿ we"
+-"This results confirm"
+-Correlation scores on page 16 report P_{med} twice
+
+Additional references:
+
+% A more complete journal paper on the seminal Navig project
+@article{kammoun2012navigation,
+title={Navigation and space perception assistance for the visually impaired: The NAVIG project},
+author={Kammoun, Slim and Parseihian, Ga{\'e}tan and Gutierrez, Olivier and Brilhault, Adrien and Serpa, Antonio and Raynal, Mathieu and Oriola, Bernard and Mac{\'e}, MJ-M and Auvray, Malika and Denis, Michel and others},
+journal={Irbm},
+volume={33},
+number={2},
+pages={182--189},
+year={2012},
+publisher={Elsevier}
+}
+
+%Novel work on spatialized audio perception with bone conducting headphones
+@inproceedings{voong2019auditory,
+title={Auditory spatial perception using bone conduction headphones along with fitted head related transfer functions},
+author={Voong, Tray Minh and Oehler, Michael},
+booktitle={2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)},
+pages={1211--1212},
+year={2019},
+organization={IEEE}
+}
+
+%navigation assistance system using spatialized audio with bone conducting headphones
+@article{mascetti2016sonification,
+  title={Sonification of guidance data during road crossing for people with visual impairments or blindness},
+  author={Mascetti, Sergio and Picinali, Lorenzo and Gerino, Andrea and Ahmetovic, Dragan and Bernareggi, Cristian},
+  journal={International Journal of Human-Computer Studies},
+  year={2016},
+  issn = {1071-5819},
+  publisher={Elsevier}
+}
+
+%review chapter on “Naviton” and “Sound of Vision” projects which use spatialized audio for the mobility of people with visual impairments
+@incollection{strumillo2018different,
+  title={Different approaches to aiding blind persons in mobility and navigation in the “Naviton” and “Sound of Vision” projects},
+  author={Strumillo, Pawel and Bujacz, Michal and Baranski, Przemyslaw and Skulimowski, Piotr and Korbel, Piotr and Owczarek, Mateusz and Tomalczyk, Krzysztof and Moldoveanu, Alin and Unnthorsson, Runar},
+  booktitle={Mobility of Visually Impaired People},
+  pages={435--468},
+  year={2018},
+  publisher={Springer}
+}
+
+%minimum audible angle localization experiment similar to the one presented
+@inproceedings{wersenyi2003localization,
+  title={Localization in a HRTF-based minimum audible angle listening test on a 2D sound screen for GUIB applications},
+  author={Wersenyi, Gyorgy},
+  booktitle={Audio Engineering Society Convention 115},
+  year={2003},
+  organization={Audio Engineering Society}
+}
+
+%seminal work on the usage of spatialized audio to pinpoint GUI elements for blind computer users
+@inproceedings{crispien1994guib,
+  title={The'GUIB'spatial auditory display-generation of an audio-based interface for blind computer users},
+  author={Crispien, Kai and Petrie, Helen},
+  year={1994},
+  organization={Georgia Institute of Technology}
+}
+
+%sound localization performance between hrtf and non-hrtf spatialized audio
+@inproceedings{larsen2013differences,
+  title={Differences in human audio localization performance between a HRTF-and a non-HRTF audio system},
+  author={Larsen, Camilla H and Lauritsen, David S and Larsen, Jacob J and Pilgaard, Marc and Madsen, Jacob B},
+  booktitle={Proceedings of the 8th audio mostly conference},
+  pages={1--8},
+  year={2013}
+}
+
+%obstacle detection system using spatialized audio
+@inproceedings{presti2019watchout,
+  title={WatchOut: Obstacle Sonification for People with Visual Impairment or Blindness},
+  author={Presti, Giorgio and Ahmetovic, Dragan and Ducci, Mattia and Bernareggi, Cristian and Ludovico, Luca and Barat\`e, Adriano and Avanzini, Federico and Mascetti, Sergio},
+  booktitle={ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)},
+  year={2019},
+  organization={ACM}
+}
+
+%individual hrtf for auditory obstacle avoidance
+@inproceedings{pec2008individual,
+  title={Individual HRTF measurements for accurate obstacle sonification in an electronic travel aid for the blind},
+  author={Pec, Michal and Bujacz, Michal and Strumillo, Pawel and Materka, Andrzej},
+  booktitle={2008 International Conference on Signals and Electronic Systems},
+  pages={235--238},
+  year={2008},
+  organization={IEEE}
+}
+
+%mobile turn-by-turn navigation assistance using speech and auditory cues
+@article{sato2019navcog3,
+  title={NavCog3: Large-Scale Blind Indoor Navigation Assistant with Semantic Features in the Wild},
+  author={Sato, Daisuke and Oh, Uran and Guerreiro, Jo\~ao and Ahmetovic, Dragan and Naito,  Kakuya and Takagi, Hironobu and Kitani, Kris M. and Asakawa, Chieko},
+  journal={Transactions on Accessible Computing},
+  year={2019},
+  issn = {1936-7228},
+  publisher={ACM}
+}
+
+%micro vs macro navigation
+@article{petrie1997mobic,
+  title={MoBIC: An aid to increase the independent mobility of blind travellers},
+  author={Petrie, Helen and Johnson, Valerie and Strothotte, Thomas and Raab, Andreas and Michel, Rainer and Reichert, Lars and Schalt, Axel},
+  journal={British Journal of Visual Impairment},
+  volume={15},
+  number={2},
+  pages={63--66},
+  year={1997},
+  publisher={Sage Publications Sage CA: Thousand Oaks, CA}
+} 
+
+@book{millar1994understanding,
+  title={Understanding and representing space: Theory and evidence from studies with blind and sighted children.},
+  author={Millar, Susanna},
+  year={1994},
+  publisher={Clarendon Press/Oxford University Press}
+}
+
+@article{pring2008psychological,
+        title={Psychological characteristics of children with visual impairments: learning, memory and imagery},
+        author={Pring, Linda},
+        journal={British Journal of Visual Impairment},
+        year={2008},
+        publisher={Sage Publications}
+}
+
+- The claim that "...both haptic and vocal feedback can present a cognitive burden and overwhelm a user’s input bandwidth, particularly when high-resolution guidance is required."
+- Frame work in a micro-navigation context, i.e. space information vs. large-scale turn-by-turn navigation. Many bone-conduction systems exists, but accuracy not yet verified [kammoun2012navigation,petrie1997mobic,sato2019navcog3] 
+- Rephrase system description, Fig 1b, 2, 3
+- The paper states: "..differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation... This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar...". Retest with equavalence test (e.g. Kolmogorov-Smirnov)
+- Add demographics of participants to better explain high variance in their results [millar1994understanding, pring2008psychological] (age, impairment, onset, navigation expertise....)
+
+
+
+Reviewer: 2
+
+-3 main concerns: Methods, analysis, novelty
+- Mention Microsoft Soundscape as commercial system, https://www.microsoft.com/en-us/research/product/soundscape/
+- Paper to cite to justify We: Zhai, S., Kong, J., & Ren, X. (2004). Speed–accuracy tradeoff in Fitts’ law tasks—on the equivalency of actual and nominal pointing precision. International journal of human-computer studies, 61(6), 823-856.
+- Perhaps a better way to calculate We: Jacob O. Wobbrock, Kristen Shinohara, and Alex Jansen. 2011. The effects of task dimensionality, endpoint deviation, throughput calculation, and experiment design on pointing measures and models. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI ’11). Association for Computing Machinery, New York, NY, USA, 1639–1648.
+- Provide additional demographics, e.g. age, sex, etc.
+- Major concerns regarding Fitts Law use. Specifically, targets have no width, so already Fitts doesn't make sense. We assumes that there is some level of W, but we don't have that. We calculation needs to be clarified,.
+- Unclear why Fitts is used, since its overkill for what we show hewre. State that original plan for Fitts was to use as metric to iteratively improve interface to better match user
+- Check Marentakis & Brewster, 2006 to justify use of Fitts. Uses second audio signal to indicate target acquisition. However, we want to measure intuitive, uninformed error
+- Considers it LPU. Again, motivate in paper that this forms part of a larger project and briefly desxribe project details
+
+
+
+Reviewer: 3
+
+
+
+Comments:
+
+The contents in Fig. 6 and Fig. 7 are confusing. They both show the median cut-off. Since they have different units (one is semitone and the other is Hz), is the median cut-off the same? Explain this threshold more clearly.
+The contents in Fig 5 and Fig. 6 are confusing. Fig. 5 shows that the number of wrong guesses is much bigger than that of correct guesses. Does it mean that the pitch is hard to be distinguished? It also shows that the number of wrong guesses mostly locates in the area where the pitch difference is almost 0. Intuitively, with the increase of pitch difference, the correct guesses should be increased as well. But in Fig. 6, it shows that most of the samples (75% the correct guesses) are in the area with smaller pitch threshold e.g 0 to 0.5, rather than in the areas with larger pitch threshold e.g. 1.0-2.0.
+Before equation (3), the authors claim the targets have no width. So does it mean that the virtual objects are actually a virtual point randomly created in the Tango’s screen? Since the Tango has an RGB-D camera to measure both direction and distance, a more practical experiment design should use the real daily objects.
+Improve the resolution of Fig. 8 to make it more clear.
+Correct the typos at 5.4 “Regarding Group G2..”
