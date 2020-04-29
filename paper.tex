@@ -323,7 +323,7 @@ This app generates a set of virtual targets, one at a time, and presents their d
 These targets are generated at a constant distance from the participants with pan and elevation angles that are uniformly distributed across the four quadrants to avoid clustering.
 Each target's relative angular position is communicated to the participants in real-time as the device is moved around via the bone-conducting headphones.
 Every time a participant was confident that they were pointing at a target, i.e.\ hearing a signal that is placed at their front at a frequency of \SI{512}{\hertz}, they tapped the device's screen, marking the location and generating a new target.
-The target's are all positioned relative to the device's camera coordinate system, which is tracked by the Tango hardware and localisation API.\
+The targets are all positioned relative to the device's camera coordinate system, which is tracked by the Tango hardware and localisation API.\
 Each participant was tasked with finding 28 targets each.
 
 A similar experimental setup was used in~\cite{lock2019bone}.
@@ -497,7 +497,7 @@ The results are summarised in \cref{tab:target-results}.
 
 The Shapiro-Wilkes test for normality reveals that none of these distributions are normally spread. Therefore, the Pearson test is used to investigate the correlation between the actual target location and participants' pointing location.
 These results are included in \cref{tab:target-results}.
-The Pearson correlation scores for Group~\text{G1} indicate a moderate to strong positive correlation between the target and the selected locations ($r_{pan} \in [0.72, 0.77],~p < 0.001;~r_{elevation} \in [0.36, 0.49],~p < 0.001$), showing that both the pan and elevation cues in general worked as expected.
+The Pearson correlation scores for Group~\textit{G1} indicate a moderate to strong positive correlation between the target and the selected locations ($r_{pan} \in [0.72, 0.77],~p < 0.001;~r_{elevation} \in [0.36, 0.49],~p < 0.001$), showing that both the pan and elevation cues in general worked as expected.
 However, the correlation scores for Group~\textit{G2} are significantly weaker, with a pan angle correlation $r_{pan} \in [0.1, 0.21],~p < 0.03$.
 With the exception of the \textit{lo} setting ($p_{lo} = 0.48$), the elevation correlation is generally stronger, with $r_{elevation} \in [0.31, 0.40],~p < 0.001$.
 
@@ -528,7 +528,7 @@ We also noted that there is a significant negative error bias in the elevation d
 Since this bias seems to be constant, it could be easily addressed in a future version of the audio interface by adjusting its frequency parameters to shift the bias upwards by a constant offset. 
 
 Comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \cref{tab:inter-group-results}).
-This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar, and that groups from a different population can reasonably be expected to produce similar errors, under similar experimental conditions. 
+This result confirms that the performance of the blindfolded participants and those with severe sight impairments are statistically similar, and that groups from a different population can reasonably be expected to produce similar errors, under similar experimental conditions. 
 Consequently, we can conclude that the \textit{hi} setting, which generates the significantly smallest elevation error, is the best audio pitch level to guide a user in a pointing task, and that the pan error is completely independent of such setting choice. 
 
 \begin{table}
@@ -561,7 +561,7 @@ For Group~\textit{G1}, a Fitts relationship can be observed and the logarithmic 
 This is confirmed by strong Pearson correlation scores for each setting ($r_{lo} = 0.76,~p_{lo} = 0.045;~r_{med} = 0.96,~p_{med}<0.001;~r_{hi} = 0.86,~p_{hi} = 0.013$).
 Regarding Group~\textit{G2}¸ we observe larger spreads for each binned data plot, indicating less consistency in the time-to-target results for participants with severe sight impairments.
 This could be due to each participant's result being taken as a single datum and to the smaller population size in Group~\textit{G2}.
-Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88,~p_{med} = 0.008;~r_{hi} = 0.84,~p_{med} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08,~p_{lo} = 0.85$).
+Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88,~p_{med} = 0.008;~r_{hi} = 0.84,~p_{hi} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08,~p_{lo} = 0.85$).
 
 \begin{figure}
   \centering
