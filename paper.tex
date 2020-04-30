@@ -187,30 +187,45 @@ Current technological limitations include prohibitive costs, bulky hardware requ
 To address these issues, we implemented a handheld mobile system that is based on a concept proposed by~\citet{lock2019active} and tested by~\citet{lock2019bone} using a Google Tango device that is able to localise itself in real-time.
 This system has the benefit of minimal hardware requirements and a compact, familiar form-factor, which will help to overcome the hurdle of user-acceptance and usability.
 
-People with visual impairments rely heavily on their hearing~\citep{golledge2004stated} and we wish to avoid blocking this information pathway, since this can have severe effects~\citep{lichtenstein2012headphone}.
-We there use a set of bone-conduction headphones that are placed on a user's cheekbones and conduct audio signals through the skull to the inner ear, completely avoiding the outer ear and therefore does not impede the user's ambient sound perception abilities. 
+People with visual impairments rely heavily on their hearing~\citep{golledge2004stated} and we wish to avoid blocking this information pathway, since doing to can have severe undesirable effects~\citep{lichtenstein2012headphone}.
+We therefore use a set of bone-conduction headphones that are placed on a user's cheekbones and conduct audio signals through the skull to the inner ear, completely avoiding the outer ear and therefore does not impede the user's ambient sound perception abilities. 
 Alternative, open-back headphones were also considered, but it was found that they still interfere with hearing and were therefore disregarded.
 The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected.
 These headphones have the added benefit of a more discreet form-factor when compared to other over-headphones, thereby addressing the issue of user acceptance. 
 
-\subsection{Audio Interface}
+%\subsection{Audio Interface}
 
-Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\citep{blauert1997spatial,blauert1969sound}.
-The binaural cues include inter-aural time and level differences (ITD and ILD respectively) that help to determine a source's location on the horizontal plane.
-Monaural cues are taken from the interaction of the sound with the human anatomy, e.g.\ head, shoulders, outer ear, before it enters the ear canal.
-When the modified audio signal enters the inner ear canal, the human brain is able to analyse the frequency response and accurately determine the position of the sound source on the median plane. 
-The distance to the source is simply derived as the intensity, or volume, of the source, i.e.\ a louder sound would appear closer to the user than a softer one. 
+Humans are able to localise sounds in three dimensions by extracting different cues from the audio signal~\citep{blauert1969sound,blauert1997spatial}.
+These include binaural, where the user compares the signals received at both ears (e.g.\ inter-aural time and level differences , ITD and ILD respectively) and monaural cues, where a cue is extracted directly from each ear's audio signal (e.g.\ the spectral profile, audio intensity).
+The ITD and ILD extracted from binaural cues allow a user to localise a sound on the horizontal plane (e.g.\ a sound from the right will hit the right ear before left one), while monaural cues indicate a sound's distance (e.g. louder sounds appear closer than softer ones) and its position on the vertical plane (e.g.\ the spectral profile generated from the signal hitting the user's body).
+Prior to transmitting an audio signal to the user, it can be adjusted by an HRTF to mimic a natural sound source and make a user believe it is located at some arbitrary 3D location. 
+An HRTF is a mathematical function that simulates a human head and ear's response to an external sound and is derived by capturing key characteristics that affect the monaural and binaural responses at the user's ear, such as the hearing level and anatomy. 
+An HRTF will produce the most accurate results when it is customised to match a specific user, since each user's hearing response is unique, but this is a complex process and HRTFs generated with average values (head sizes, heights, ear shapes, etc.) produce acceptable results~\citep{gardner1995hrtf}.
 
-When an audio signal is transmitted via a set of speakers or headphones, it can be transformed with an HRTF to mimic the characteristics of a natural sound source before it is transmitted, making the brain believe a sound is located at some arbitrary position.
-An HRTF is a mathematical function that simulates the response signal of a human head and is derived by capturing key characteristics that affect the monaural and binaural responses, such as the user's hearing levels and head size.
-Since hearing responses are unique amongst different users, the best results would be observed if each user had their own customised HRTF.\
-However, given the complex process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\citep{gardner1995hrtf}.
+The interface presents the user with guidance instructions in the form of angular adjustments that are required in the pan and elevation dimensions to point a camera at the desired target (see \cref{fig:cam-coords}).
+Spatialised audio is well-suited to this micro-navigation task, displaying accuracy levels comparable to vocal feedback, but with less cognitive load at the high resolution of this task~\citep{klatzky2006cognitive}. 
+However, we propose a linear adjustment to the signal's pitch as a function of the elevation angle to overcome the limitations of bone-conduction headphones and spatialised audio stated previously.
+The pan angle can still be conveyed with a spatialised audio signal generated by an HRTF.
+Indeed, this dimension is unaffected by the use of bone-conduction headphones~\citep{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization,lock2019bone}. 
+This interface was implemented and evaluated in~\citet{lock2019bone}.
 
-The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \cref{fig:cam-coords}.
-Spatialised audio signals are well-suited to the task, displaying similar levels of performance to vocal feedback, but with less cognitive load and higher resolution~\citep{klatzky2006cognitive}.
-However, given the previously discussed limitations of bone-conduction and spatialised audio, we propose a simple linear adjustment to the signal's pitch as a function of the elevation angle. 
-The pan angle, instead, can be conveyed by transforming the audio signal with an HRTF, and indeed it has been found that this dimension is unaffected by using bone-conduction headphones~\citep{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization,lock2019bone}. 
-This interface was implemented and evaluated by~\citet{lock2019bone}.
+
+%Humans localise a sound source in three dimensions by considering cues recorded in one ear (monaural cues) and comparing cues received at both ears (binaural cues)~\citep{blauert1997spatial,blauert1969sound}.
+%The binaural cues include inter-aural time and level differences (ITD and ILD respectively) that help to determine a source's location on the horizontal plane.
+%Monaural cues are taken from the interaction of the sound with the human anatomy, e.g.\ head, shoulders, outer ear, before it enters the ear canal.
+%When the modified audio signal enters the inner ear canal, the human brain is able to analyse the frequency response and accurately determine the position of the sound source on the median plane. 
+%The distance to the source is simply derived as the intensity, or volume, of the source, i.e.\ a louder sound would appear closer to the user than a softer one. 
+
+%When an audio signal is transmitted via a set of speakers or headphones, it can be transformed with an HRTF to mimic the characteristics of a natural sound source before it is transmitted, making the brain believe a sound is located at some arbitrary position.
+%An HRTF is a mathematical function that simulates the response signal of a human head and is derived by capturing key characteristics that affect the monaural and binaural responses, such as the user's hearing levels and head size.
+%Since hearing responses are unique amongst different users, the best results would be observed if each user had their own customised HRTF.\
+%However, given the complex process involved to capture the required user characteristics, making unique HRTFs is often an untenable solution and using average values (e.g.\ head measurements, height, etc.) have shown to produce acceptable results~\citep{gardner1995hrtf}.
+
+%The guidance information is presented to the user in terms of pan and elevation angles, indicating the angular adjustments required to point the device camera at the target location, as shown in \cref{fig:cam-coords}.
+%Spatialised audio signals are well-suited to the task, displaying similar levels of performance to vocal feedback, but with less cognitive load and higher resolution~\citep{klatzky2006cognitive}.
+%However, given the previously discussed limitations of bone-conduction and spatialised audio, we propose a simple linear adjustment to the signal's pitch as a function of the elevation angle. 
+%The pan angle, instead, can be conveyed by transforming the audio signal with an HRTF, and indeed it has been found that this dimension is unaffected by using bone-conduction headphones~\citep{schonstein2008comparison,macdonald2006spatial,stanley2006lateralization,lock2019bone}. 
+%This interface was implemented and evaluated by~\citet{lock2019bone}.
 
 \begin{figure}
   \centering
@@ -221,33 +236,26 @@ This interface was implemented and evaluated by~\citet{lock2019bone}.
   \Description{The reference system used by the guidance interface showing the camera vector and pan and elevation angles and the pitch gain function used to convey the target's elevation angle. Note the logarithmic scale of the frequency axis. }
 \end{figure}
 
-\subsubsection{Pan Dimension}
+\subsection{Pan Dimension}
 
-The human audition system uses binaural comparison cues, such as ITD and ILD, to localise a sound source on the horizontal plane~\citep{blauert1969sound}.
-The ITD is the perceived time delay between the signal reaching both ears, while the ILD is the perceived volume difference in the signal.
-For example, a sound that comes from the individual's right will hit the right ear first with a slightly higher volume compared to the left ear.
+To localise a sound on the horizontal plane, the human audition system compares characteristics from the signals received at both ears (binaural cues), such as their volume difference and the time delay between the same sound reaching both ears~\citep{blauert1969sound}.
+For example, a sound placed at a person's right will hit their right ear first with a slightly higher volume compared to the left ear.
+Since the binaural cues are largely independent if the signal's spectral profile, it would be convenient to use a simple audio wave to transmit guidance instructions to the user.
+Therefore, in this work a pure sine wave was used, but can easily be replaced with a richer tone once the system's characteristics are better understood. 
+The since was was spatialised using OpenAL's default HRTF , based on the MIT's KEMAR dataset~\citep{hiebert2005openal}. %which uses the person and targets' positions as input, and outputs a transformed audio signal.
 
-In this work, a pure sinusoidal wave was used. 
-People typically have trouble localizing a pure tone without a sufficiently rich spectral signature.
-However, the ITD and ILD are independent of the tone's spectral make-up, while the elevation angle is given through a different mechanism.
-Therefore, a pure sine wave is suitable to convey the target's pan angle.
-To transform and spatialise the audio signal, we used OpenAL's default HRTF, based on the MIT's KEMAR dataset~\citep{hiebert2005openal}, which uses the person and targets' positions as input, and outputs a transformed audio signal.
+\subsection{Elevation Dimension}
 
-\subsubsection{Elevation Dimension}
+To compensate for the loss of elevation localisation performance when conveying spatialised audio via bone-conduction headphones~\citep{macdonald2006spatial,schonstein2008comparison}, we adjust the sine wave's frequency (i.e.\ audible pitch) as a linear function of the target's elevation angle, as shown in \cref{fig:cam-coords}.
+When the required elevation adjustment is above or below where the camera is currently pointed, the pitch is increased or lowered respectively. 
+This high/low scheme was selected based on humans' natural association of high-pitched sounds with elevated objects and vice-versa for low-lying objects~\citep{pratt1930spatial,blauert1997spatial}.
+The pitch is constantly adjusted and updated at \SI{10}{\hertz} in octave- and semitone-based intervals to ensure perceptible changes, while keeping the tone's timbre constant~\citep{shepard1964circularity}. 
 
-A generic HRTF implementation with bone-conduction headphones is not very effective in conveying the elevation angle of a sound source~\citep{macdonald2006spatial,schonstein2008comparison}.
-To compensate for this, we communicate the target's elevation angle by adjusting the tone's pitch (i.e.\ the sine wave's frequency) as a function of the elevation. 
-When the camera vector is at the correct elevation, the tone pitch is set to neutral.
-When the target is above or below the camera vector, the pitch is increased or decreased, respectively.
-This high/low association scheme is motivated by humans' natural association of high-pitched sounds with elevated sound sources, and low-pitched sounds with source's below the individual's earline~\citep{pratt1930spatial,blauert1997spatial}.
-An octave- and semitone-based function is used to adjust the tone's pitch to ensure perceptible changes, while keeping the timbre roughly constant~\citep{shepard1964circularity}.
-The pitch is updated at a rate of \SI{10}{\hertz} and changes as the user moves the device.
-
-The pitch is changed as a linear function of the elevation angle (see \cref{fig:pitch-gain}) and the gradient is determined by setting the angle and pitch limits.
+The pitch is changed as a linear function of the elevation angle (see \cref{fig:pitch-gain}), the gradient of which is determined by setting the angle and pitch limits.
+These limits are set at some number of octaves from the neutral pitch that is emitted when the camera is on-target. 
+This tone is heuristically set to \SI{512}{\hertz} following practical tests, which is comfortably audible for a large number of octaves changes.
 For this work, we only consider a \SI{180}{\degree} field of view in front of the user and limit the elevation angle to a range of \SI{\pm90}{\degree}, or $[-\frac{\pi}{2}, \frac{\pi}{2}]$.
-After practical tests with the interface, we set the neutral, on-target pitch the HMI emits to \SI{512}{\hertz}, which is comfortably audible and allows for a large number of suitable octave limits to be selected.
-The pitch limits are set at some integer number of octaves above and below the neutral, on-elevation pitch.
-In previous tests with this specific interface, its performance was comparable to normal over-ear headphones transmitting a spatialised signal that transmits the elevation angle~\cite{lock2019bone}.
+In previous tests with this specific interface, its performance was comparable to normal over-ear headphones transmitting a spatialised signal that transmits the elevation angle~\citep{lock2019bone}.
 
 \section{Experiments}\label{sec:experiments}
 
@@ -384,7 +392,9 @@ Fitts's index of performance, $IP$, can then be calculated using
 \subsection{Procedure}
 
 Two groups of participants were recruited for the experiments on a volunteer basis. 
-Group~\textit{G1} consisted of 42 young adults with normal eyesight who were blindfolded for the experiments, and group \textit{G2} contained 10 people with severe visual impairments (18--55 years old; 36 female, 16 male). 
+Group~\textit{G1} consisted of 42 undergraduate students (10 male, 32, female) with normal eyesight who were blindfolded for the experiments (mean age: $20\pm2$).
+Group \textit{G2} contained 10 people (7 male, 3 female) with severe visual impairments (mean age: $73\pm20$).
+Of the latter group, 3 are congenitally blind, while the rest were classified as severely sight impaired later in life and 3 had limited light perception.
 None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
 Each participant performed three sets of experiments each, with the two characterisation experiments in \cref{sec:participant_characterisation} preceding the final target-search experiment in \cref{sec:target_search}. 
 Both groups were given some time before the target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
@@ -526,16 +536,18 @@ Further analysis of the medians of the absolute elevation error with the Friedma
 A post-hoc analysis using the Wilcoxon signed rank test, with a Holm-Bonferroni correction applied to the commonly used 0.05 threshold, was used to investigate the setting relationships more closely. 
 This analysis reveals that there is a significant difference between the errors generated by the \textit{lo} and \textit{med} settings, as well as the \textit{lo} and \textit{hi} settings, for Group~\textit{G1} ($p_{lo-med} = 0.003,~p_{lo-hi} < 0.001$), showing that the \textit{lo} setting clearly produces the highest error, while it is not clear which one of the \textit{med} and \textit{hi} settings is better for Group~\textit{G1}. 
 Based on the current data, it is impossible to conclude which setting produces the smallest angular error for Group~\textit{G2}, but this may because of the relatively small sample size for each setting. 
-We also noted that there is a significant negative error bias in the elevation data for all the settings and groups, possibly caused by a cognitive constraint introduced by the floor, below which the participants believed the targets could not appear.
+Furthermore, the significant variance in the error results for group \textit{G2} could possibly be because of the higher mean age compared to group \textit{G1} and their general inexperience with mobile phones.
+However, comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \cref{tab:inter-group-results}).
+The similarity between the differences is further highlighted with non-significant results from the two-sided Kolmogorov-Smirnov test ($p > 0.05$ for both groups and all three test conditions).\todo{include these p-values in the table?}
+This result confirms that the performance of the blindfolded participants and those with severe sight impairments are statistically similar despite the seemingly clear differences in error performance.
+Therefore, groups from a different population can reasonably be expected to produce similar errors under similar experimental conditions. 
+We also note that there is a significant negative error bias in the elevation data for all the settings and groups, possibly caused by a cognitive constraint introduced by the floor, below which the participants believed the targets could not appear.
 Since this bias seems to be constant, it could be easily addressed in a future version of the audio interface by adjusting its frequency parameters to shift the bias upwards by a constant offset. 
-
-Comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \cref{tab:inter-group-results}).
-This result confirms that the performance of the blindfolded participants and those with severe sight impairments are statistically similar, and that groups from a different population can reasonably be expected to produce similar errors, under similar experimental conditions. 
-Consequently, we can conclude that the \textit{hi} setting, which generates the significantly smallest elevation error, is the best audio pitch level to guide a user in a pointing task, and that the pan error is completely independent of such setting choice. 
+Finally, we can conclude that the \textit{hi} setting, which generates the significantly smallest elevation error, is the best audio pitch level to guide a user in a pointing task, and that the pan error is completely independent of such setting choice. 
 
 \begin{table}
   \centering
-  \caption{A summary of the $p$-values comparing the distributions of the different settings' error data for each group in both the pan and elevation dimensions. }\label{tab:inter-group-results}
+  \caption{A summary of the $p$-values from the Kruskal-Wallis test comparing the distributions of the different settings' error data for each group in both the pan and elevation dimensions. }\label{tab:inter-group-results}
   \begin{tabular}{lll}
     \toprule
                    & Pan      & Elevation \\ \midrule
@@ -608,7 +620,7 @@ That is, the \textit{hi} pitch setting produces the lowest target acquisition er
 However, this trend is almost wholly reversed in the time-to-target results from the Fitts model, where the \textit{lo} setting gives the highest level of performance, followed by the \textit{hi} and \textit{med} settings respectively. 
 Since Fitts's model takes the angular error into account, one might reasonably expect that the results for both experiments follow a similar trend. 
 However, the Fitts model does not account for changing stimuli and different strategies.
-We therefore hypothesize that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
+We therefore hypothesise that the reason for this divergence in performance is due to the increased resolution of the \textit{hi} setting, which allows for finer adjustments of the device's orientation, getting it closer to the correct target, but at the cost of a higher average time-to-target. 
 This seems to indicate a speed/accuracy trade-off in finding the targets.
 With the Fitts model discussed here, we can modify the interface to prioritise different metrics and produce the correct output. 
 

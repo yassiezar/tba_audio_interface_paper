@@ -7,6 +7,9 @@ Based on the reviewer feedback, your paper is accepted with major revisions requ
 
 Reviewer: 1
 
+However, additional details on the problem and literature references would be useful (a number of seminal, updated and novel works are below). In particular, the claim that "...both haptic and vocal feedback can present a cognitive burden and overwhelm a user’s input bandwidth, particularly when high-resolution guidance is required." needs to be clarified. In essence, as suggested in [kammoun2012navigation,petrie1997mobic], there are two synergic classes of information to be conveyed: directions (or macro-navigation), which is commonly conveyed through turn-by-turn instructions (e.g., [sato2019navcog3]), and space-related information (or micro-navigation), which is better conveyed through spatialized audio. Indeed, Arditi and Tian refer to the task of "request information about environmental objects", which is a micro-navigation task, and for which the participants preferred on-demand information rather than continuous feedback.
+In this frame, the proposed analysis of the performance in localizing spatialized sound for micro navigation tasks using bone-conducting headphones is useful since many works already use bone conducting headphones for guidance, but their accuracy still needs to be validated.
+
 Additional references:
 
 % A more complete journal paper on the seminal Navig project
@@ -136,7 +139,7 @@ organization={IEEE}
 - The claim that "...both haptic and vocal feedback can present a cognitive burden and overwhelm a user’s input bandwidth, particularly when high-resolution guidance is required."
 - Frame work in a micro-navigation context, i.e. space information vs. large-scale turn-by-turn navigation. Many bone-conduction systems exists, but accuracy not yet verified [kammoun2012navigation,petrie1997mobic,sato2019navcog3] 
 - Rephrase system description, Fig 1b, 2, 3
-- The paper states: "..differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation... This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar...". Retest with equavalence test (e.g. Kolmogorov-Smirnov)
+- The paper states: "..differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation... This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar...". Retest with equavalence test (e.g.  )
 - Add demographics of participants to better explain high variance in their results [millar1994understanding, pring2008psychological] (age, impairment, onset, navigation expertise....)
 
 
