@@ -102,11 +102,18 @@
 
 \section{Introduction}
 
-This project aims to build an indoor mobile navigation aid for people with vision impairments that can guide them to their destination in the final part of their journey, addressing the so-called `last 10-yard problem'.
+The ActiVis project is an effort to create a fully mobile phone-based navigation aid for people with visual impairments to guide them towards a desired object or location within an unknown indoor environment. 
 Improvements to computer vision and machine learning techniques, as well as mobile computing hardware performance increases are exploited to make this system possible.
 In particular, techniques from the active vision field are used to enable a mobile device to gather information on the surrounding environment and use it to generate guidance instructions for a user with limited or no vision.
 However, in literature, these techniques are typically limited to directing electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
-In previous work we developed a prototype system that uses active vision and machine learning models to gather information and help a person find objects within an unknown indoor environment, showing that these techniques can indeed successfully be applied to direct humans' attention as well\citep{lock2019active}.
+The proposed system was introduced by~\citet{lock2017portable}, who describe the aforementioned autonomous guidance system paired with a co-adaptive human-machine interface that changes its own parameters over time to better match the advantages and limitations of its main user.
+In previous work we developed a prototype guidance system that uses active vision and machine learning models to gather information and help a person find objects within an unknown indoor environment, showing that these techniques can indeed successfully be applied to direct humans' attention~\citep{lock2019active}.
+However, in this work we examine the effectiveness of the proposed interface for a searching task and investigate a metric that can be used in the next phases of the project to enable the aforementioned co-adaptive paradigm that will possibly benefit the user experience and boost long-term navigation performance.
+
+%This project aims to build an indoor mobile navigation aid for people with vision impairments that can guide them to their destination in the final part of their journey, addressing the so-called `last 10-yard problem'.
+%Improvements to computer vision and machine learning techniques, as well as mobile computing hardware performance increases are exploited to make this system possible.
+%In particular, techniques from the active vision field are used to enable a mobile device to gather information on the surrounding environment and use it to generate guidance instructions for a user with limited or no vision.
+%However, in literature, these techniques are typically limited to directing electro-mechanical servos~\citep{bajcsy2018revisiting} and in this project, we attempt to find out if the same techniques can also be used to direct a user's attention to a certain point. 
 
 The hardware used for the guidance system prototype are a Google Project Tango device\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)}, along with a set of bone-conducting headphones (both are shown in \cref{fig:tango-headphone}).
 This Tango device uses a set of embedded RGB-D cameras and other hardware and software components to provide accurate real-time localisation estimates and has powerful image-processing capabilities.
@@ -135,7 +142,7 @@ The participants' hearing characteristics are also measured to determine if ther
 
 The main contributions of this paper are two-fold: 
 \begin{itemize}
-  \item we provide comprehensive experimental results, with two groups of participants with healthy and limited eyesight, on how well a tone with varying pitch can convey a target's tilt angle when using a mobile device with a bone-conducting headset; 
+  \item we provide comprehensive experimental results, with two groups of participants with healthy and limited eyesight, on how well a tone with varying pitch can convey a target's elevation angle when using a mobile device with a bone-conducting headset; 
   \item we show that this sound-based human-machine interface conforms to Fitts's Law and can provide a useful metric of performance for similar mobile user interfaces.
 \end{itemize}
 
@@ -178,7 +185,7 @@ Another group of researchers conducted experiments using a spatial audio interfa
 Here, participants pointed to where they thought the targets were, on their left or right, as they traversed a path.
 Their results show a good relation between target difficulty and search time, providing a strong argument that Fitts's Law can be used to describe the performance of a spatial audio interface.
 These results have since been supported by other authors, who found that Fitts's Law provided a good explanation for the results from an experiment using visual, limited visual and non-visual feedback cues~\citep{wu2010fitts}.
-However, Fitts's Law has not yet been shown to apply to a spatial tone that uses varying pitch to convey the target's tilt angle, as demonstrated in this paper.
+However, Fitts's Law has not yet been shown to apply to a spatial tone that uses varying pitch to convey the target's elevation angle, as demonstrated in this paper.
 
 \section{System Description}\label{sec:system-description}
 
@@ -352,10 +359,15 @@ We separate the results of the elevation and pan dimensions in order to see how 
 
 We also compare the performance of the three pitch gradient settings in terms of the time it takes each participant to find a target.
 However, since each participant was presented with a different, randomly generated set of targets, a direct time comparison is not possible.
-Instead, we use Fitts's Law~\citep{fitts1954information}, modified by MacKenzie for uncertain target sizes and noisy data~\citep{mackenzie1992fitts}, which states that there is a relation between the time it takes to find a target and its index of difficulty (the ratio between the distance to the target and its width).
-It also provides a so-called `index of performance' that we can use as a metric to compare the results between the three configurations. 
+Instead, we use Fitts's Law~\citep{fitts1954information}, modified by MacKenzie for uncertain target sizes and noisy data~\citep{mackenzie1992fitts}, which states that there is a relation between the time it takes to find a target and its index of difficulty ($ID$, the ratio between the distance to the target and its width).
+It also provides a so-called `index of performance' ($IP$), which can be used to compare the results between the three different configurations used in the experiments.
+Furthermore, if a Fitts-like relationship is indeed found, it can be used as an optimisation metric in the co-adaptive interface described by~\cite{lock2017portable}, where interface parameters (e.g.\ pitch gradient, volume setting, etc.) are automatically tweaked in order to maximise target finding performance.
 
-Here we briefly summarise the equations and quantities involved in our metric.
+\todo{mention limitations of Fitts, i.e. zero-width and not playing second tone to confirm target found}
+
+%that we can use as a metric to compare the results between the three configurations. 
+
+Here we briefly summarise the equations and quantities involved in this metric.
 Fitts's Law is given by  
 
 \begin{equation}
@@ -381,7 +393,13 @@ Here $\theta$ is the angular distance between subsequent target centres and $w_e
 \end{equation}
 
 \noindent
-where $\sigma$ is the standard deviation of the error data, taken as the angle between the participant's target selection and target's actual angular position.
+where $\sigma$ is the standard deviation of the combined pan and elevation error ($x, y$), calculated with
+
+\begin{equation}
+  \sigma = \sqrt{\frac{\sum_{i=1}^{N}\left(\sqrt{(x_i-\bar{x})^2 + (y_i - \bar{y})^2}\right)^2}{N-1}}
+\end{equation}
+
+\noindent as proposed by~\citet{wobbrock2011effects}, taken as the angle between the participant's target selection and target's actual angular position.
 Fitts's index of performance, $IP$, can then be calculated using 
 
 \begin{equation}
@@ -393,7 +411,7 @@ Fitts's index of performance, $IP$, can then be calculated using
 
 Two groups of participants were recruited for the experiments on a volunteer basis. 
 Group~\textit{G1} consisted of 42 undergraduate students (10 male, 32, female) with normal eyesight who were blindfolded for the experiments (mean age: $20\pm2$).
-Group \textit{G2} contained 10 people (7 male, 3 female) with severe visual impairments (mean age: $73\pm20$).
+Group \textit{G2} contained 10 people (7 male, 3 female) with severe visual impairments (mean age: $61\pm17$).
 Of the latter group, 3 are congenitally blind, while the rest were classified as severely sight impaired later in life and 3 had limited light perception.
 None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
 Each participant performed three sets of experiments each, with the two characterisation experiments in \cref{sec:participant_characterisation} preceding the final target-search experiment in \cref{sec:target_search}. 
@@ -573,10 +591,10 @@ A logarithmic line is fitted through the bins' median values by regression and a
 \end{figure}
 
 For Group~\textit{G1}, a Fitts relationship can be observed and the logarithmic line of best fit closely approximates the median values of the binned data for all three settings. 
-This is confirmed by strong Pearson correlation scores for each setting ($r_{lo} = 0.76,~p_{lo} = 0.045;~r_{med} = 0.96,~p_{med}<0.001;~r_{hi} = 0.86,~p_{hi} = 0.013$).
+This is confirmed by strong Pearson correlation scores for each setting ($r_{lo} = 0.98,~p_{lo}<0.001;~r_{med}=0.94,~p_{med}<0.001;~r_{hi} = 0.97,~p_{hi}<0.001$).
 Regarding Group~\textit{G2}¸ we observe larger spreads for each binned data interval, indicating less consistency in the time-to-target results for participants with severe sight impairments.
-This could be due to each participant's result being taken as a single datum and to the smaller population size in Group~\textit{G2}, as well as the mean age and general level expertise with mobile devices of this particular group.
-Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson correlation scores ($r_{med} = 0.88,~p_{med} = 0.008;~r_{hi} = 0.84,~p_{hi} = 0.017$), while the results for the \textit{lo} setting does not produce a statistically significant correlation ($r_{lo} = 0.08,~p_{lo} = 0.85$).
+This could be due to each participant's result being taken as a single datum and to the smaller population size in Group~\textit{G2}, as well as the mean age and general level of expertise with mobile devices of this particular group.
+Nevertheless, all three settings exhibit strong Pearson correlation scores ($r_{lo}=0.71,~p=0.005;r_{med}=0.85,~p_{med}<0.001;~r_{hi}=0.84,~p_{hi}<0.001$).
 
 \begin{figure}
   \centering
@@ -588,7 +606,8 @@ Nevertheless, the \textit{med} and \textit{hi} settings exhibit strong Pearson c
 These results allows us to calculate and plot in \cref{fig:fitts-ips} an index of performance, as given by \cref{eq:fitts-performance}, for each audio setting.
 The results are summarised in \cref{tab:fitts-results}.
 For Group~\textit{G1}, there is a fairly consistent level of performance between the three settings, with \textit{lo} producing the highest indices of performance overall (i.e.\ the participants found the targets with the smallest error and in the least amount of time).
-This is supported by the results from the Friedman test, showing that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections, which show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001,~p_{lo-hi} < 0.001$). The \textit{med} and \textit{hi}, instead, are not significantly different from each other ($p_{med-hi} = 0.85$).
+This is supported by the results from the Friedman test, showing that there is a significant difference in performance between the settings ($p < 0.001$), as well as post-hoc Wilcoxon tests with Holm-Bonferroni corrections, which show that the \textit{lo} setting is significantly different to the \textit{med} and \textit{hi} settings ($p_{lo-med} < 0.001,~p_{lo-hi} < 0.001$). 
+The \textit{med} and \textit{hi}, instead, are not significantly different from each other ($p_{med-hi} = 0.85$).
 The results for Group~\textit{G2} show generally lower and inconsistent indices of performance for each setting, which is expected given the increased times to target observed in \cref{fig:fitts-results}.
 Again, from the Friedman test ($p < 0.001$), the \textit{lo} setting produces the highest performance by a large margin, compared to the \textit{med} setting, with the Wilcoxon test and Holm-Bonferronni corrections ($p_{lo-med}=0.01$), followed by the \textit{hi} and \textit{med} settings' results, respectively.
 This seems to indicate that, for both groups, the \textit{lo} setting produces the highest level of performance, followed by the \textit{hi} setting.
