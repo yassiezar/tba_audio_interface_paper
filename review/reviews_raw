@@ -1,0 +1,256 @@
+Associate Editor
+Comments to the Author:
+Thank you for submitting your manuscript to ACM TACCESS. The reported work examines a topic that is highly related to the TACCESS journal. Your paper has been reviewed by three experts in this area. All reviewers acknowledged the potential value of the work. However, two reviewers have brought up major issues regarding the research methodology, the related research, and the data analysis. One reviewer commented on the inclusion of the blindfolded group, the variability in the result, and the small sample N for the group with visual impairments. The other reviewer also questioned the claim made about the two participant groups based on the Kruskal-Wallis test on page 14. Please provide additional demographical information about the 2 groups of participants and reexamine the data analysis as well as the conclusions drawn based on the statistical tests.  The 2nd reviewer provided detailed comments about the employment of Fitts’s Law in the evaluation. Additional references have been recommended by the reviewers to strengthen the ‘previous work’ section. Reviewer 3 had questions about several figures. In addition, the paper needs another round of thorough edits.
+Based on the reviewer feedback, your paper is accepted with major revisions required. Please fully address the concerns and comments raised by all the reviewers. Let me know if you have any questions about the reviews and the revision process. I look forward to reading the revised manuscript.
+
+
+Reviewer(s)' Comments to Author:
+
+Reviewer: 1
+
+Recommendation: Minor Revision
+
+Comments:
+(There are no comments.)
+
+Additional Questions:
+Is the paper relevant to TACCESS? If yes, is the paper understandable without requiring too much effort on the part of the reader? If no, can the paper be revised to make it appropriate for TACCESS?: This paper explores the ability to pinpoint a spatialized sound target, conveyed using bone conducting headphones, by participants with visual impairments and sighted participants. The exploration of the effectiveness and accuracy of sound feedback for conveying direction information is of relevance for TACCESS.
+
+The paper is also understandable and the presentation is clear. However, the paper should be thoroughly proofread as there are a number of typos:
+
+-"The target’s are all positioned"
+-"Regarding Group G2Âÿ we"
+-"This results confirm"
+-Correlation scores on page 16 report P_{med} twice
+
+Are the references comprehensive and appropriate?  If key references are missing, please list them.  If there are too many self-citations, please suggest alternatives.: The references are generally appropriate. However, additional details on the problem and literature references would be useful (a number of seminal, updated and novel works are below). In particular, the claim that "...both haptic and vocal feedback can present a cognitive burden and overwhelm a user’s input bandwidth, particularly when high-resolution guidance is required." needs to be clarified. In essence, as suggested in [kammoun2012navigation,petrie1997mobic], there are two synergic classes of information to be conveyed: directions (or macro-navigation), which is commonly conveyed through turn-by-turn instructions (e.g., [sato2019navcog3]), and space-related information (or micro-navigation), which is better conveyed through spatialized audio. Indeed, Arditi and Tian refer to the task of "request information about environmental objects", which is a micro-navigation task, and for which the participants preferred on-demand information rather than continuous feedback.
+In this frame, the proposed analysis of the performance in localizing spatialized sound for micro navigation tasks using bone-conducting headphones is useful since many works already use bone conducting headphones for guidance, but their accuracy still needs to be validated.
+
+% A more complete journal paper on the seminal Navig project
+@article{kammoun2012navigation,
+title={Navigation and space perception assistance for the visually impaired: The NAVIG project},
+author={Kammoun, Slim and Parseihian, Ga{\'e}tan and Gutierrez, Olivier and Brilhault, Adrien and Serpa, Antonio and Raynal, Mathieu and Oriola, Bernard and Mac{\'e}, MJ-M and Auvray, Malika and Denis, Michel and others},
+journal={Irbm},
+volume={33},
+number={2},
+pages={182--189},
+year={2012},
+publisher={Elsevier}
+}
+
+%Novel work on spatialized audio perception with bone conducting headphones
+@inproceedings{voong2019auditory,
+title={Auditory spatial perception using bone conduction headphones along with fitted head related transfer functions},
+author={Voong, Tray Minh and Oehler, Michael},
+booktitle={2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)},
+pages={1211--1212},
+year={2019},
+organization={IEEE}
+}
+
+%navigation assistance system using spatialized audio with bone conducting headphones
+@article{mascetti2016sonification,
+  title={Sonification of guidance data during road crossing for people with visual impairments or blindness},
+  author={Mascetti, Sergio and Picinali, Lorenzo and Gerino, Andrea and Ahmetovic, Dragan and Bernareggi, Cristian},
+  journal={International Journal of Human-Computer Studies},
+  year={2016},
+  issn = {1071-5819},
+  publisher={Elsevier}
+}
+
+%review chapter on “Naviton” and “Sound of Vision” projects which use spatialized audio for the mobility of people with visual impairments
+@incollection{strumillo2018different,
+  title={Different approaches to aiding blind persons in mobility and navigation in the “Naviton” and “Sound of Vision” projects},
+  author={Strumillo, Pawel and Bujacz, Michal and Baranski, Przemyslaw and Skulimowski, Piotr and Korbel, Piotr and Owczarek, Mateusz and Tomalczyk, Krzysztof and Moldoveanu, Alin and Unnthorsson, Runar},
+  booktitle={Mobility of Visually Impaired People},
+  pages={435--468},
+  year={2018},
+  publisher={Springer}
+}
+
+%minimum audible angle localization experiment similar to the one presented
+@inproceedings{wersenyi2003localization,
+  title={Localization in a HRTF-based minimum audible angle listening test on a 2D sound screen for GUIB applications},
+  author={Wersenyi, Gyorgy},
+  booktitle={Audio Engineering Society Convention 115},
+  year={2003},
+  organization={Audio Engineering Society}
+}
+
+%seminal work on the usage of spatialized audio to pinpoint GUI elements for blind computer users
+@inproceedings{crispien1994guib,
+  title={The'GUIB'spatial auditory display-generation of an audio-based interface for blind computer users},
+  author={Crispien, Kai and Petrie, Helen},
+  year={1994},
+  organization={Georgia Institute of Technology}
+}
+
+%sound localization performance between hrtf and non-hrtf spatialized audio
+@inproceedings{larsen2013differences,
+  title={Differences in human audio localization performance between a HRTF-and a non-HRTF audio system},
+  author={Larsen, Camilla H and Lauritsen, David S and Larsen, Jacob J and Pilgaard, Marc and Madsen, Jacob B},
+  booktitle={Proceedings of the 8th audio mostly conference},
+  pages={1--8},
+  year={2013}
+}
+
+%obstacle detection system using spatialized audio
+@inproceedings{presti2019watchout,
+  title={WatchOut: Obstacle Sonification for People with Visual Impairment or Blindness},
+  author={Presti, Giorgio and Ahmetovic, Dragan and Ducci, Mattia and Bernareggi, Cristian and Ludovico, Luca and Barat\`e, Adriano and Avanzini, Federico and Mascetti, Sergio},
+  booktitle={ACM SIGACCESS Conference on Computers and Accessibility (ASSETS)},
+  year={2019},
+  organization={ACM}
+}
+
+%individual hrtf for auditory obstacle avoidance
+@inproceedings{pec2008individual,
+  title={Individual HRTF measurements for accurate obstacle sonification in an electronic travel aid for the blind},
+  author={Pec, Michal and Bujacz, Michal and Strumillo, Pawel and Materka, Andrzej},
+  booktitle={2008 International Conference on Signals and Electronic Systems},
+  pages={235--238},
+  year={2008},
+  organization={IEEE}
+}
+
+%mobile turn-by-turn navigation assistance using speech and auditory cues
+@article{sato2019navcog3,
+  title={NavCog3: Large-Scale Blind Indoor Navigation Assistant with Semantic Features in the Wild},
+  author={Sato, Daisuke and Oh, Uran and Guerreiro, Jo\~ao and Ahmetovic, Dragan and Naito,  Kakuya and Takagi, Hironobu and Kitani, Kris M. and Asakawa, Chieko},
+  journal={Transactions on Accessible Computing},
+  year={2019},
+  issn = {1936-7228},
+  publisher={ACM}
+}
+
+%micro vs macro navigation
+@article{petrie1997mobic,
+  title={MoBIC: An aid to increase the independent mobility of blind travellers},
+  author={Petrie, Helen and Johnson, Valerie and Strothotte, Thomas and Raab, Andreas and Michel, Rainer and Reichert, Lars and Schalt, Axel},
+  journal={British Journal of Visual Impairment},
+  volume={15},
+  number={2},
+  pages={63--66},
+  year={1997},
+  publisher={Sage Publications Sage CA: Thousand Oaks, CA}
+}
+
+Is this new work?   If the authors have published on this topic previously (e.g., a conference paper), is there enough new content in this paper to warrant publication?: The authors published an initial paper on the system. With respect to that paper, here the experiments are extended, including also an analysis of the time-to-target fitting with respect to Fitts's Law.
+While the amount of novel content seems to be appropriate for a journal extension of the paper, the system description is copied verbatim from the previous paper, and Figures 1b, 2 and 3 are essentially identical. Content provided elsewhere should be summarized and readapted and not copied.
+
+What is the main contribution of the paper?  Is the work primarily theoretical, practical, or is it a survey?: This key contribution is mainly theoretical: specifically, it explores the accuracy of spatialized sound localization with bone-conducting headphones and the correspondence of time-to-target to Fitts's law.
+
+Is the content technically sound?  Please explain.: The work is generally technically sound. However, there is one critical issue. The paper states: "..differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation... This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar...".
+
+This statement is not valid. Difference testing detects difference, but the absence of statistically significant difference does not imply similarity. For that equivalence testing is needed.
+
+
+Another important consideration that should be discussed is the high variance in the results of the participants with visual impairments. As the authors suggest, this might be an artifact due to a lower number of participants. However, there is also an alternative interpretation: prior literature on spatial understanding in people with visual impairments suggests that visual impairment onset age, prior experience with spatialized information and other characteristics impact spatial performance capabilities [millar1994understanding, pring2008psychological]. Thus, it may be that the high variance in data for visually impaired participants is due to the high variance in participants' characteristics. As the number of visually impaired participants is low, I suggest adding a table presenting participants' demographic characteristics (age, impairment, onset, navigation expertise....)
+
+@book{millar1994understanding,
+  title={Understanding and representing space: Theory and evidence from studies with blind and sighted children.},
+  author={Millar, Susanna},
+  year={1994},
+  publisher={Clarendon Press/Oxford University Press}
+}
+
+@article{pring2008psychological,
+        title={Psychological characteristics of children with visual impairments: learning, memory and imagery},
+        author={Pring, Linda},
+        journal={British Journal of Visual Impairment},
+        year={2008},
+        publisher={Sage Publications}
+}
+
+How original and innovative is the work reported?  Describe how the submission advances the state of the art in the field. How might this work impact the research community? How might it impact the broader community?: The main result of the work is quite original and the contribution is timely as a lot of the work in the field is currently being done
+
+Please help ACM create a more efficient time-to-publication process: Using your best judgment, what amount of copy editing do you think this paper needs?: Light
+
+Most ACM journal papers are researcher-oriented. Is this paper of potential interest to developers and engineers?: Maybe
+
+
+Reviewer: 2
+
+Recommendation: Reject & Resubmit
+
+Comments:
+(There are no comments.)
+
+Additional Questions:
+Is the paper relevant to TACCESS? If yes, is the paper understandable without requiring too much effort on the part of the reader? If no, can the paper be revised to make it appropriate for TACCESS?: This paper is nominally relevant to TACCESS. The paper provides an experimental evaluation of a technique for providing spatialized (3D) audio localization for targets in space around an individual using bone conduction (non-occluding) headphones. The technique is intended to be used as part of a mobile guidance aid for blind/low-vision individuals. The paper is narrowly concerned with characterizing the use of different audio properties to convey pan and elevation angles when rendering an auditory virtual target: binaural cues using an average HRTF for pan angle, and a linear change in pitch to convey elevation angle. This last seems to be the principal novelty and driving justification for the paper. Since bone-conducting headphones tend to be poor for rendering average-HRTF-generated elevation cues, they want to find another cue that can work reasonably well when using these kinds of headphones. The main goal of the experiment is to compare three different pitch gradients for conveying elevation (one, two, & three octaves above and below the neutral tone). The experiment was carried out with a group of 42 blind-folded, sighted young adults (undergraduates?), and a group of 10 visually impaired adults.
+
+I have three main concerns regarding the manuscript detailed below. The first two relate to the methods and analysis. The third and most important reservation is that the contribution of the work just seems very limited.
+
+Are the references comprehensive and appropriate?  If key references are missing, please list them.  If there are too many self-citations, please suggest alternatives.: The authors might make mention of the Microsoft Soundscape system. While this system does not provide information about elevation, it is an example of a commercially available navigation aid that uses spatialized audio.
+
+https://www.microsoft.com/en-us/research/product/soundscape/
+
+While I have reservations about using Fitts’s Law in this paper, probably the single best citation for the justification for using We is:
+
+Zhai, S., Kong, J., & Ren, X. (2004). Speed–accuracy tradeoff in Fitts’ law tasks—on the equivalency of actual and nominal pointing precision. International journal of human-computer studies, 61(6), 823-856.
+
+Also not all that critical given my reservations, but JFYI. In two-dimensional directed pointing, the calculation of We is better calculated as described in:
+
+Jacob O. Wobbrock, Kristen Shinohara, and Alex Jansen. 2011. The effects of task dimensionality, endpoint deviation, throughput calculation, and experiment design on pointing measures and models. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI ’11). Association for Computing Machinery, New York, NY, USA, 1639–1648.
+
+Is this new work?   If the authors have published on this topic previously (e.g., a conference paper), is there enough new content in this paper to warrant publication?: To my knowledge the work presented here is new.
+
+What is the main contribution of the paper?  Is the work primarily theoretical, practical, or is it a survey?: The contribution of this paper is chiefly practical. As noted above, I believe the specific contribution is in the use of a pitch gradient for conveying elevation information for spatialized 3D audio, as well as a user study evaluating its effectiveness across some of the design space (three different pitch gradients). The authors also want to claim a (practical?) contribution related to the use of Fitts’s Law, but I believe this has problems.
+
+Is the content technically sound?  Please explain.: As noted above, I have two key methodological concerns with the paper.
+
+First, while it is good that the authors included visually impaired individuals in the study, it is hard to know what to make of the differences in performance (and patterns of performance) between the two groups. Since the whole point of the study is to inform a system intended to be used by visually impaired individuals, how should we interpret this? The two groups are VERY different in performance, N, and (I assume, though details are not provided) demography. While having a group of young blind-folded participants is fine as a baseline for a project like this, the apparent variability and small N in the VI group is problematic. This isn’t really a fatal flaw, but it makes the study much less robust. At a minimum, we need to know more detail about the demographic details of the two groups. Currently, the paper lumps the age range and gender together for the two groups. Because the behavior of the two groups is so different, these really need to be separated.
+
+Second, I have significant reservations with the way in which the authors attempt to employ Fitts’s Law in their evaluation. In short, the experiment and analysis that the authors use doesn’t really meet the requirements for a Fitts’s Law task (i.e., characterizing the speed-accuracy trade-off of pointing at a target with varying movement amplitudes (distance, D), and accuracy (target width, W). This isn’t necessarily a fatal flaw for the goals of the authors (i.e., comparing performance with different pitch gradients), but it’s weird and unnecessary.
+
+To expand on this: As I understand it, the task that participants were asked to perform is the following. Users would: 1) hear a (sustained) sound located at some pan/elevation; 2) move and point the camera (phone) at the perceived point of origin; and 3) tap the screen on the phone when they believe they have accurately acquired the target. This is an aimed, closed-loop pointing task at a point target. Targets were placed at various locations within 180 degrees to the front of participants with varying elevations. Participants repeated this task under 3 conditions for the different pitch gradients.
+
+The authors want to compare pointing performance for the 3 conditions, so they fall back on the venerable Fitts’s Law, which has a very long and storied history in HCI for characterizing different kinds of pointing techniques. The problem here is that Fitts’s Law is explicitly formulated to relate the speed of pointing to the amplitude or distance of the movement (D) *AND* the accuracy of target acquisition operationalized by the target width (W). The Index of Difficulty (ID) of a movement is a function of the amplitude and required accuracy. The Index of Performance (IP) is generated empirically by measuring the time it takes participants to point at targets with a range of ID (i.e., targets with a variety of distance (D) and accuracy (W)). A refinement of this process acknowledges that accuracy does not absolutely track with target width. This gave us the (somewhat controversial) concept of “effective width” or We (see Zhai, Kong, & Ren, 2004 referenced above).
+
+Because the targets in this task are point targets, there is no W, so the authors used the spread of hits around the target to manufacture an effective width We. The problem with this is that the whole concept of We (from Crossman and then later Welford) *assumes that participants have some level of W that they are targeting*. Without this, there is no external feedback as to whether a user has actually hit the target or not—it’s just their own subjective sense. That is, “accuracy” in this case is essentially determined by the average subjective impression of individual participants (i.e., “this seems right to me… click!”). And, as seen in Fig 8, there are huge differences in the distribution of “error” between the two groups (G1 & G2), and I suspect there may be even larger differences between users: different thresholds of “good enough” for different users. It’s also not clear to me if We is calculated for each level of Distance, or is it calculated across multiple amplitude of movements?
+
+So my skepticism of the whole exercise of using Fitts’s Law for comparing these conditions is that it feels weird to me to reconstitute some form of W (We) from the spread of hits around a point target when there’s no objective feedback for hitting it (i.e., no W). Since they mostly just use this to make comparisons between different elevation stimuli, it’s not clear that they NEED to do this anyway. I think they could probably just use speed & distance and be done with it, especially since there is no change in W. I guess if We were actually changing with different conditions (D or elevation), there might be some justification for this (though We in that case will be highly correlated with D, which would violate at least the spirit of the law), but this experiment seems way too small to detect this (and this detail isn’t reported anyway). Why go to all the trouble of doing the Fitt’s analysis when the only thing you’re varying is distance? Indeed, for the final take-aways that the authors provide, this seems like enormous overkill.
+
+I suspect that the authors want to engage in this whole Fitts’s exercise in order to tie the work more closely to the wider HCI pointing literature. However, if the authors really wanted to use Fitts’s Law for this task, there is certainly precedent in the Marentakis & Brewster, 2006 paper that they cite. Here, researchers used a second audio signal to indicate that a target was acquired.
+
+All the above notwithstanding, I’m not certain that this is *wrong* for the purposes they use here, it’s just very non-standard and violates much of the basic theory behind Fitts’s Law. So I don’t see this as a completely fatal flaw, but the authors would definitely need to modify the manuscript to address these issues if they want to engage with the Fitts’s Law discourse.
+
+How original and innovative is the work reported?  Describe how the submission advances the state of the art in the field. How might this work impact the research community? How might it impact the broader community?: To my mind, the paper is a bit of an “LPU” (least-publishable-unit), for a larger, more interesting project (which I would love to see!). The specific contribution here is in the use of a pitch gradient for conveying elevation information for spatialized 3D audio as well as a user study evaluating its effectiveness and some of the design space (three different pitch gradients). I’m not sure that I would consider this an adequate contribution for a shorter conference paper (such as ASSETS); for TACCESS, this seems weak. That is, I would say the contribution is not commensurate with the length of the paper.
+
+Please help ACM create a more efficient time-to-publication process: Using your best judgment, what amount of copy editing do you think this paper needs?: Light
+
+Most ACM journal papers are researcher-oriented. Is this paper of potential interest to developers and engineers?: Maybe
+
+
+Reviewer: 3
+
+Recommendation: Minor Revision
+
+Comments:
+This paper introduces an experimental study of the performance of an audio interface for the object finding task for visually impaired people. The interface consists of a set of bone-conduction headphones that are attached to the user’s cheekbones to convey the guidance instructions through audio signals. Since the direction of the target object is represented by the pan (horizontal direction) and the elevation (vertical direction) angles, the binaural cues and the pitch cues of the audio signals are extracted to indicate the pan and the elevation angles, respectively. Experiments with 42 human subjects have been conducted to show that both binaural cues and the pitch cues are useful to aid a blindfolded sighted or a visually impaired person to find the virtual targets. Also, three pitch-settings—high, median and low pitch intervals—have been designed and compared in terms of accuracy and efficiency (time used to reach the target). To better evaluate efficiency, a modified Fitts law model is used as a metric to score the performance of the audio interface with three different pitch-settings. The experiments show that the high pitch setting leads to the best accurate result but the longest time to target. The result reveals a speed/accuracy trade-off for the audio interface design in the target-finding task, benefiting the future work for the design of the assistive guidance system for the visually impaired people.
+The experimental design and study are new and reasonable. The paper can be improved by addressing the following concerns.
+The contents in Fig. 6 and Fig. 7 are confusing. They both show the median cut-off. Since they have different units (one is semitone and the other is Hz), is the median cut-off the same? Explain this threshold more clearly.
+The contents in Fig 5 and Fig. 6 are confusing. Fig. 5 shows that the number of wrong guesses is much bigger than that of correct guesses. Does it mean that the pitch is hard to be distinguished? It also shows that the number of wrong guesses mostly locates in the area where the pitch difference is almost 0. Intuitively, with the increase of pitch difference, the correct guesses should be increased as well. But in Fig. 6, it shows that most of the samples (75% the correct guesses) are in the area with smaller pitch threshold e.g 0 to 0.5, rather than in the areas with larger pitch threshold e.g. 1.0-2.0.
+Before equation (3), the authors claim the targets have no width. So does it mean that the virtual objects are actually a virtual point randomly created in the Tango’s screen? Since the Tango has an RGB-D camera to measure both direction and distance, a more practical experiment design should use the real daily objects.
+Improve the resolution of Fig. 8 to make it more clear.
+Correct the typos at 5.4 “Regarding Group G2..”
+
+
+Additional Questions:
+Is the paper relevant to TACCESS? If yes, is the paper understandable without requiring too much effort on the part of the reader? If no, can the paper be revised to make it appropriate for TACCESS?: YES
+
+Are the references comprehensive and appropriate?  If key references are missing, please list them.  If there are too many self-citations, please suggest alternatives.: YES
+
+Is this new work?   If the authors have published on this topic previously (e.g., a conference paper), is there enough new content in this paper to warrant publication?: YES
+
+What is the main contribution of the paper?  Is the work primarily theoretical, practical, or is it a survey?: It is an experimental study for an assistive audio interface for visually impaired people.
+
+Is the content technically sound?  Please explain.: The experimental analysis is reasonable.
+
+How original and innovative is the work reported?  Describe how the submission advances the state of the art in the field. How might this work impact the research community? How might it impact the broader community?: The experimental result reveals a speed/accuracy trade-off for the audio interface design in the target-finding task, benefiting the future work for the design of the assistive guidance system for the visually impaired people.
+
+Please help ACM create a more efficient time-to-publication process: Using your best judgment, what amount of copy editing do you think this paper needs?: Light
+
+Most ACM journal papers are researcher-oriented. Is this paper of potential interest to developers and engineers?: Maybe
+
+
