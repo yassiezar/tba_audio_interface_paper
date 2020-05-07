@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\begin{document}
+
+\noindent Dear associate editors and reviewers,
+
+I would first like to sincerely thank you for your honest and helpful feedback on our work.
+We have taken some time to go over and implement your suggestions and we believe that we can resubmit to you an improved version of the paper. 
+Please find below our responses to your comments and suggestions, where we point out how we addressed them.
+
+\section*{Reviewer 1} 
+
+\begin{itemize}
+  \item \textit{In particular, the claim that "...both haptic and vocal feedback can present a cognitive burden and overwhelm a user’s input bandwidth, particularly when high-resolution guidance is required." needs to be clarified.
+      In essence, as suggested in [kammoun2012navigation,petrie1997mobic], there are two synergic classes of information to be conveyed: directions (or macro-navigation), which is commonly conveyed through turn-by-turn instructions (e.g., [sato2019navcog3]), and space-related information (or micro-navigation), which is better conveyed through spatialized audio.
+      Indeed, Arditi and Tian refer to the task of "request information about environmental objects", which is a micro-navigation task, and for which the participants preferred on-demand information rather than continuous feedback.
+In this frame, the proposed analysis of the performance in localizing spatialized sound for micro navigation tasks using bone-conducting headphones is useful since many works already use bone conducting headphones for guidance, but their accuracy still needs to be validated.
+}
+  \item[] \noindent To address these concerns, we have added additional information to the introduction section that frames this as a micro-navigation task.
+    We have also added an additional reference at the line in question to support our argument for not using constant vocal or haptic feedback such a micro-navigation task context.
+    We also added a number of the works the reviewer kindly provided in the previous work section and throughout the rest of the paper. 
+
+  \item \textit{While the amount of novel content seems to be appropriate for a journal extension of the paper, the system description is copied verbatim from the previous paper, and Figures 1b, 2 and 3 are essentially identical. Content provided elsewhere should be summarized and readapted and not copied.}
+  \item []We have completely rewritten the system description section and further modified the figures in question.
+
+  \item \textit{However, there is one critical issue. The paper states: "..differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation... This results confirm that the performance of the blindfolded participants and those with severe sight impairments are statistically similar...".
+    This statement is not valid. Difference testing detects difference, but the absence of statistically significant difference does not imply similarity. For that equivalence testing is needed.}
+  \item[] This is addressed in section 5.3, where we confirm the statistical similarity with a Kolmogorov-Smirnov 2-sample test. 
+
+  \item \textit{Another important consideration that should be discussed is the high variance in the results of the participants with visual impairments. As the authors suggest, this might be an artifact due to a lower number of participants. However, there is also an alternative interpretation: prior literature on spatial understanding in people with visual impairments suggests that visual impairment onset age, prior experience with spatialized information and other characteristics impact spatial performance capabilities [millar1994understanding, pring2008psychological]. Thus, it may be that the high variance in data for visually impaired participants is due to the high variance in participants' characteristics. As the number of visually impaired participants is low, I suggest adding a table presenting participants' demographic characteristics (age, impairment, onset, navigation expertise....)}
+  \item[] This is a valid point. In Section 4.4 we have added additional information regarding the distributions of the participants' age, sex, age of impairment onset and level of impairment.
+\end{itemize}
+
+\section*{Reviewer 2}
+
+\begin{itemize}
+
+  \item \textit{While I have reservations about using Fitts's Law in this paper, probably the single best citation for the justification for using We is:
+Zhai, S., Kong, J., \& Ren, X. (2004). Speed–accuracy tradeoff in Fitts' law tasks—on the equivalency of actual and nominal pointing precision. International journal of human-computer studies, 61(6), 823-856.
+      Also not all that critical given my reservations, but JFYI. In two-dimensional directed pointing, the calculation of We is better calculated as described in:
+    Jacob O. Wobbrock, Kristen Shinohara, and Alex Jansen. 2011. The effects of task dimensionality, endpoint deviation, throughput calculation, and experiment design on pointing measures and models. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI '11). Association for Computing Machinery, New York, NY, USA, 1639–1648.}
+  \item[] These are indeed helpful references. We have integrated both into the paper, and the latter suggested method of calculating $w_e$ was used to generate the updated figure 11 and 12. This seemed to have generated a better fitting model, which led to improved correlation scores in section 5.4 and indices of performance in table 3.
+    
+  \item \textit{First, while it is good that the authors included visually impaired individuals in the study, it is hard to know what to make of the differences in performance (and patterns of performance) between the two groups. Since the whole point of the study is to inform a system intended to be used by visually impaired individuals, how should we interpret this? The two groups are VERY different in performance, N, and (I assume, though details are not provided) demography. While having a group of young blind-folded participants is fine as a baseline for a project like this, the apparent variability and small N in the VI group is problematic. This isn’t really a fatal flaw, but it makes the study much less robust. At a minimum, we need to know more detail about the demographic details of the two groups. Currently, the paper lumps the age range and gender together for the two groups. Because the behavior of the two groups is so different, these really need to be separated.}
+  \item We acknowledge that the small sample size is not ideal.
+    However, we attempted to alleviate concerns and make the results more robust by adding the statistical difference and similarity tests between the 2 groups.
+    These confirm that, at least statistically, the 2 groups performed similarly.
+    Our intention is that this is interpreted that if we repeat the experiment with another group of participants with visual impairments (perhaps a younger group with more experience with mobile devices and electronic navigation aids), we may collect results that fall closer to that of the blindfolded group.
+    The reviewer is correct in pointing out that the demographics for each group need to be separated and this was done in Section 4.4.
+    We also added observations in the Discussion section to hypothesise on the difference in mean demographics between the 2 groups may also have influenced the performance we recorded. 
+
+  \item \textit{Because the targets in this task are point targets, there is no W, so the authors used the spread of hits around the target to manufacture an effective width We. The problem with this is that the whole concept of We (from Crossman and then later Welford) *assumes that participants have some level of W that they are targeting*. Without this, there is no external feedback as to whether a user has actually hit the target or not—it’s just their own subjective sense. That is, “accuracy” in this case is essentially determined by the average subjective impression of individual participants (i.e., “this seems right to me… click!”). And, as seen in Fig 8, there are huge differences in the distribution of “error” between the two groups (G1 \& G2), and I suspect there may be even larger differences between users: different thresholds of “good enough” for different users. It’s also not clear to me if We is calculated for each level of Distance, or is it calculated across multiple amplitude of movements?
+    So my skepticism of the whole exercise of using Fitts’s Law for comparing these conditions is that it feels weird to me to reconstitute some form of W (We) from the spread of hits around a point target when there’s no objective feedback for hitting it (i.e., no W). Since they mostly just use this to make comparisons between different elevation stimuli, it’s not clear that they NEED to do this anyway. I think they could probably just use speed \& distance and be done with it, especially since there is no change in W. I guess if We were actually changing with different conditions (D or elevation), there might be some justification for this (though We in that case will be highly correlated with D, which would violate at least the spirit of the law), but this experiment seems way too small to detect this (and this detail isn’t reported anyway). Why go to all the trouble of doing the Fitt’s analysis when the only thing you’re varying is distance? Indeed, for the final take-aways that the authors provide, this seems like enormous overkill.}
+  \item[] We understand the reviewer's concerns regarding the use of Fitts's Law with an experiment where the targets have no physical width and have to rely on their own subjective senses to determine where the target was placed. 
+    Indeed, as the reviewer points out, every participant will have their own opinion on where the target is truly located.
+    The primary goal of this work is precisely to measure this difference, i.e. given some spatialised audio signal, how well does it convey a target location to a new user?
+    For this reason, we could not provide the participants with any more information to more objectively give the target's location (e.g. a second audio tone).
+    Since we did not do this in our experiments, Fitts's Law does not seem an appropriate model here. 
+    However, we respectfully disagree with this assertion for 2 reasons.
+    Firstly, we did not specify this in the text, but the app was coded such that it played back the 512Hz on-target tone when a participant was within 10cm of the target centre, effectively giving it a width (this information has been added in section 4.3).
+    This search is then similar to the work on the Prince method by~\cite{kabbash1995prince}, who showed that searching for a point-target with an oversized cursor (a 10cm radius 'searchlight' cursor in our case) is comparable to a normal Fitts-task with a target of known width being searched for with a point-cursor.
+    We refrained from using this 10cm radius as a target, given the subjective nature of the participants' estimates and opted to use the more conservative $w_e$ we calculated instead, which we found to be approximately 10\% higher for each participant.
+    We calculated the $w_e$ for each participant and setting to generate the plots in fig 11 and used the medians across the participants to generate the IPs for each setting.
+    For full transparency, we included the $w_e$ we calculated in the text.
+    Secondly, despite the experiment's apparent non-conformance to Fitts's requirements, it still provides a fairly robust fit for the movement data we recorded for both groups, which in and of itself is interesting given the significant performance differences between the two groups.
+    This latter point leads to the reviewer's other major concern, which is that using Fitts's Law for this work 'seems like enormous overkill'.
+    From the surface, tend to agree, but provided more context, we believe the reviewer will agree that there is logical reasoning for using Fitts here beyond the additional keywords.
+    This work forms part of a larger project where we initially looked into ways to create an interface for a guidance system that can autonomously adapt its own internal parameters to better match the user's limitations and capabilities, thereby boost overall guidance and target finding performance.
+  For this optimisation process, we needed a metric we can use to measure performance for different parameter settings to determine the effectiveness of a parameter adjustment.
+  This is why Fitts's Law came to mind: it provided a robust unifying metric between search time and accuracy.
+  At the time of writing, it was unclear whether Fitts is applicable to our interface and for this reason we sought to determine whether there such a relationship does indeed manifest itself.
+  Furthermore, any data we can collect on the expected perception limitations and abilities of the general population will enable us to select a good 'default' setting to start the optimisation from, as well as keep the parameters bounded to some effective range.
+  The characterisation experiments we conducted was to address the latter point.
+  These results provide us a) with a good metric to judge whether adjustments to the interface parameters increase performance and b) provide us with a 'good' starting point to start the optimisation process for a new user.
+  We opted to not include these details, since it is not directly pertinent to this work and did not wish to bog down the reader in details of work that is still in progress.
+  However, we agree that some additional detail will make the reasoning a bit clearer and alleviate some confusion on why we even bothered with Fitts's Law.
+  These details were added to the Introduction section and we also modified the terminology to not imply that we found an adherence to Fitts's Law, but rather an observation of a Fitts-like relationship.
+  We sincerely hope that these clarifications and modifications to the text address the reviewers concerns about us using Fitts's Law for these experiments. 
+
+  \item \textit{To my mind, the paper is a bit of an “LPU” (least-publishable-unit), for a larger, more interesting project (which I would love to see!). The specific contribution here is in the use of a pitch gradient for conveying elevation information for spatialized 3D audio as well as a user study evaluating its effectiveness and some of the design space (three different pitch gradients). I’m not sure that I would consider this an adequate contribution for a shorter conference paper (such as ASSETS); for TACCESS, this seems weak. That is, I would say the contribution is not commensurate with the length of the paper.}
+  \item[] On this front, we again have to respectfully disagree with the reviewer's opinion.
+    We pointed out in the previous work section that researchers have implemented different combinations of spatialised sound, frequency adjustments and headphones in their navigation systems for people with visual impairment with different levels of success.
+    However, to our knowledge, very little work has been done in quantifying these spatialised audio signals with varying pitch gains with a significant number of participants with or without visual impairments, as well as bone-conduction headphones.
+    Indeed, we believe that the experiment design, analysis and scale is a fairly novel contribution to other researchers that wish to know what level of perception they can expect from audio signals played back via bone-conduction headphones.
+    It is not our intention to minimise the work to an 'LPU' and indeed, this paper represents a phase of work that was completed for a larger overall project.
+    However, in our opinion it would be detrimental to the message we'd like to publish to the scientific community if we include too much detail on the overall project and bog the reader down in details that are not pertinent to this publication.
+
+\end{itemize}
+
+\section*{Reviewer 3}
+
+%\begin{itemize}
+%\end{itemize}
+
+\end{document}
