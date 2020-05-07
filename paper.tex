@@ -4,7 +4,7 @@
 \usepackage{graphicx}
 \usepackage[caption=false]{subfig}
 \usepackage{siunitx}
-\usepackage{cleveref}
+\usepackage[capitalise]{cleveref}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{array}
@@ -150,7 +150,7 @@ The participants' hearing characteristics are also measured to determine if ther
 The main contributions of this paper are two-fold: 
 \begin{itemize}
   \item we provide comprehensive experimental results, with two groups of participants with healthy and limited eyesight, on how well a tone with varying pitch can convey a target's elevation angle when using a mobile device with a bone-conducting headset; 
-  \item we show that this sound-based human-machine interface conforms to Fitts's Law and can provide a useful metric of performance for similar mobile user interfaces.
+  \item we show that this sound-based human-machine interface exhibits a response that is well-modelled by Fitts's Law which can provide a useful metric of performance for similar mobile user interfaces.
 \end{itemize}
 
 The rest of the paper starts by discussing relevant works and previous research in \cref{sec:prev-work}.
@@ -418,7 +418,9 @@ Here $\theta$ is the angular distance between subsequent target centres and $w_e
 \end{equation}
 
 \noindent as proposed by~\citet{wobbrock2011effects}, taken as the angle between the participant's target selection and target's actual angular position.
-\hlbreakable{The virtual targets have a programmed radius of approximately \SI{10}{\centi\metre}, but the participants were not explicitly informed when they were within this radius and had to use their own subjective judgement of the audio tone.
+\hlbreakable{The virtual targets have a programmed radius of approximately \SI{10}{\centi\metre} (equivalent to approximately \SI{0.1}{\radian}) and when the participant pointed the camera within this radius, the on-target tone was emitted.
+This is similar to the work by~\citet{kabbash1995prince}, where they had participants search for a point-target with an oversized cursor and found that this was similar to a Fitts-like response.
+However, the participants were not explicitly informed when they were within this radius and had to use their own subjective judgement of the audio tone.
 Since the judgement accuracy will vary across different participants, effectively giving different target sizes, it was necessary to use the effective width as an approximation for the actual target size.
 Previous authors have found this to capture the true performance metrics fairly well~\citep{zhai2004speed}.}
 Fitts's index of performance, $IP$, can then be calculated using 
@@ -473,8 +475,12 @@ We then used each CDF's parameters to determine a frequency cut-off threshold, w
 The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones. 
 It can also be used to improve the interface's frequency profile and performance. 
 \cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value, which was found to be approximately 0.4 semitones for each group. 
-\cref{fig:pitch-thresholds-hist} contains histograms of the cut-off frequency thresholds for each setting, which show that the settings can be grouped together.
-\hlbreakable{Note that the cut-off thresholds in \cref{fig:pitch-thresholds-hist} are transformed from the logarithmic semitone scale in \cref{fig:pitch-thresholds} to a linear Hertz-based scale for visualisation purposes to make the separation between the settings more clearly visible.}
+
+\begin{highlighted}
+For the target search experiment, the pitch differences between the \SI{512}{\hertz} on-target tone and the participants' selected tones were collected and their cut-off threshold were determined in a similar way.
+Each participant's median tone error for each setting was then plotted alongside the groups' median thresholds and plotted in \cref{fig:pitch-thresholds-hist}.
+These data are plotted on a linear Hertz-based scale instead of a semitone scale to highlight the grouping between the three settings.
+\end{highlighted}
 
 \begin{figure}
   \centering
@@ -522,11 +528,11 @@ The results are summarised in \cref{tab:target-results}.
   \caption{The average target acquisition error in the pan and elevation dimensions for each participant group. }\label{tab:target-results}
 	\begin{tabular}%
 	{>{\centering\arraybackslash}p{0.5cm}%
-	 >{\centering\arraybackslash}p{1.5cm}%
-	 >{\centering\arraybackslash}p{1.1cm}%
- 	 >{\raggedleft\arraybackslash}p{2.6cm}%
- 	 >{\raggedleft\arraybackslash}p{3.0cm}%
-	 >{\raggedleft\arraybackslash}p{3.0cm}}
+	 >{\centering\arraybackslash}p{1.2cm}%
+	 >{\centering\arraybackslash}p{0.9cm}%
+ 	 >{\raggedleft\arraybackslash}p{2.2cm}%
+ 	 >{\raggedright\arraybackslash}p{2.6cm}%
+	 >{\raggedright\arraybackslash}p{2.6cm}}
     \toprule
     &           & Setting      & Mean Angle Error [rad] & Mean Absolute Angle Error [rad] &  Pearson Correlation \\ \midrule
     \multirow{6}{*}{\textit{G1}}
