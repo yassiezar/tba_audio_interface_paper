@@ -298,6 +298,9 @@ The audio generator then produces a tone based on the difference between the dev
 The tone is sent to the audio output channel, which plays it back to the user.
 A WiFi recording module is constantly monitoring the different values of the device's parameters and of the target's position, as well as the system's output, recording everything in a remotely stored datafile. 
 
+Even though the Tango is able to detect distances to object, we opted to use virtual targets given the added ability to place targets at any random location without physical manipulation while without losing the ability to determine its exact position relative to the device.
+When this interface is used with a real navigation system, it will be extended to work with real targets.
+
 \begin{figure}
   \centering
   \includegraphics[clip=true, trim=0 120 80 50, width=0.8\columnwidth]{figures/pipeline.pdf}
@@ -418,7 +421,7 @@ Here $\theta$ is the angular distance between subsequent target centres and $w_e
 \end{equation}
 
 \noindent as proposed by~\citet{wobbrock2011effects}, taken as the angle between the participant's target selection and target's actual angular position.
-\hlbreakable{The virtual targets have a programmed radius of approximately \SI{10}{\centi\metre} (equivalent to approximately \SI{0.1}{\radian}) and when the participant pointed the camera within this radius, the on-target tone was emitted.
+\hlbreakable{The virtual targets have a programmed radius of approximately \SI{10}{\centi\metre} (equivalent to approximately \SI{0.1}{\radian}) and when the participant pointed the camera within this radius, \SI{512}{\hertz} on-target tone was emitted.
 This is similar to the work by~\citet{kabbash1995prince}, where they had participants search for a point-target with an oversized cursor and found that this was similar to a Fitts-like response.
 However, the participants were not explicitly informed when they were within this radius and had to use their own subjective judgement of the audio tone.
 Since the judgement accuracy will vary across different participants, effectively giving different target sizes, it was necessary to use the effective width as an approximation for the actual target size.
@@ -467,14 +470,15 @@ These results are in line previous literature, confirming that humans are very a
 \subsection{Characterisation of Pitch Discrimination}
 
 The results of the pitch discrimination experiment are shown in \cref{fig:pitch-discrimination}, where bar plots are used to show the proportion of correct to incorrect guesses of which tone was higher pitched for different tone difference intervals. 
-For Group~\textit{G1}, we see that their guesses are normally spread around the 0 semitone-difference interval and, as expected, the highest proportion of incorrect guesses occurs in the $[-0.25, 0.25]$ semitone-difference interval. 
+For Group~\textit{G1}, we see that their guesses are normally spread around the 0 semitone-difference interval and the highest proportion of incorrect guesses occurs in the $[-0.25, 0.25]$ semitone-difference interval. 
 The guesses from Group~\textit{G2} are more concentrated around the centre and the majority of incorrect guesses also occurs in the $[-0.25, 0.25]$ semitone-difference interval.
+\hl{The concentration of incorrect guesses around the centre is expected, given the experiment process's progressive increase in difficulty.}
 
 Assuming these differences are normally distributed, we fit a cumulative distribution function (CDF) over each participant's set of results for their correct guesses.
-We then used each CDF's parameters to determine a frequency cut-off threshold, where the participant could not longer reliably tell tones apart, which is set to contain 75\% of each participant's correct guesses.
+We then used each CDF's parameters to determine a frequency cut-off threshold, where the participant could not longer reliably tell tones apart, which is set to contain 75\% of each participant's correct guesses starting from the easiest to distinguish tones with large frequency differences, to the hardest to distinguish with the smallest differences. 
 The median of these threshold values can then be used to estimate the frequency difference at which the entire participant population can no longer tell the difference between two tones. 
 It can also be used to improve the interface's frequency profile and performance. 
-\cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value, which was found to be approximately 0.4 semitones for each group. 
+\cref{fig:pitch-thresholds} shows the threshold distribution, along with the median value, which was found to be 0.29 for Group \textit{G1} and 0.35 for Group \textit{G2}. 
 
 \begin{highlighted}
 For the target search experiment, the pitch differences between the \SI{512}{\hertz} on-target tone and the participants' selected tones were collected and their cut-off threshold were determined in a similar way.
@@ -585,7 +589,7 @@ Based on the current data, it is impossible to conclude which setting produces t
 \hlbreakable{Furthermore, the significant variance in the error results for Group \textit{G2} could possibly be because of the higher mean age compared to Group \textit{G1} and their general inexperience with mobile phones.
 Indeed, previous works have suggested that these demographics may have a measurable effect on target-finding performance~\citep{millar1994understanding,pring2008psychological}.
 However, comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \cref{tab:inter-group-results}).}
-The similarity between the differences is further highlighted with non-significant results from the two-sided Kolmogorov-Smirnov test, where none of the $p$-values are significant.
+The similarity between the distributions is further highlighted with non-significant results from the two-sided Kolmogorov-Smirnov test, where none of the $p$-values are significant.
 The $p$-values for this test are also listed in~\cref{tab:inter-group-results}.
 \hlbreakable{This result confirms that the performance of the blindfolded participants and those with severe sight impairments are statistically similar despite the seemingly clear differences in error performance.
 Therefore, groups from a different population can reasonably be expected to produce similar errors under similar experimental conditions. 
