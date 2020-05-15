@@ -125,7 +125,7 @@ The proposed system was introduced by~\citet{lock2017portable}, who describe the
 In previous work we developed a prototype guidance system that uses active vision and machine learning models to gather information and help a person find objects within an unknown indoor environment, showing that these techniques can indeed successfully be applied to direct humans' attention~\citep{lock2019active}.
 However, in this work we examine the effectiveness of the proposed interface for a searching task and investigate a metric that can be used in the next phases of the project to enable the aforementioned co-adaptive paradigm that could benefit the user experience and boost long-term navigation performance.}
 
-The hardware used for the guidance system prototype are a Google Project Tango device\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)}, along with a set of bone-conducting headphones (both are shown in \cref{fig:tango-headphone}).
+The hardware used for the guidance system prototype are a Google Project Tango device\footnote{https://en.wikipedia.org/wiki/Tango\_(platform)}, along with a set of bone-conducting headphones (both are shown in \cref{fig:participant}).
 This Tango device uses a set of embedded RGB-D cameras and other hardware and software components to provide accurate real-time localisation estimates and has powerful image-processing capabilities.
 It also gives access to Android's full range of interface and I/O options.
 Unlike normal headphones, bone-conducting headphones are placed on and conduct audio signals through a user's cheekbones, instead of their ear canal.
@@ -133,10 +133,11 @@ These headphones have the benefit of not interfering with a user's normal hearin
 
 \begin{figure}
   \centering
-  \subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.5\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
-~
-  \subfloat[]{\label{fig:participant}\includegraphics[width=0.24\columnwidth]{figures/vi_participant.pdf}}
-  \caption{A Tango tablet and bone-conduction headphones, the primary hardware components used in this work (left), and a participant with visual impairments using the system during an experiment (right). Adapted from~\citet{lock2019bone}.}
+  %\subfloat[]{\label{fig:tango-headphone}\includegraphics[width=0.5\columnwidth]{figures/tango_tablet_headphone_edit.pdf}}
+%~
+  %\subfloat[]{\label{fig:participant}\includegraphics[width=0.8\columnwidth]{figures/vi_participant_e.png}}
+  \includegraphics[width=0.8\columnwidth]{figures/vi_participant_e.png}
+  \caption{The Tango tablet and bone-conduction headphones in use during an experiment. The angle reference system that the guidance instructions are based on is also included , showing the camera vector, $C$, and the pan and elevation angles to the target. Adapted from~\citet{lock2019bone}.}\label{fig:participant}
   \Description{The Tango tablet and the bone-conduction headphones, the primary hardware components used in this work, and a participant with visual impairments using the system during an experiment.}
 \end{figure}
 
@@ -207,7 +208,7 @@ This system has the benefit of minimal hardware requirements and a compact, fami
 \hl{People with visual impairments rely heavily on their hearing~\citep{golledge2004stated} and we wish to avoid blocking this information pathway, since doing to can have severe undesirable effects~\citep{lichtenstein2012headphone}.
 We therefore use a set of bone-conduction headphones that are placed on a user's cheekbones and conduct audio signals through the skull to the inner ear, completely avoiding the outer ear and therefore does not impede the user's ambient sound perception abilities. 
 Alternative, open-back headphones were also considered, but it was found that they still interfere with hearing and were therefore disregarded.
-The AfterShockz headphones (\cref{fig:tango-headphone}) were ultimately selected.
+The AfterShockz headphones (\cref{fig:participant}) were ultimately selected.
 These headphones have the added benefit of a more discreet form-factor when compared to other over-headphones, thereby addressing the issue of user acceptance.}
 
 %\subsection{Audio Interface}
@@ -219,7 +220,7 @@ Prior to transmitting an audio signal to the user, it can be adjusted by an HRTF
 An HRTF is a mathematical function that simulates a human head and ear's response to an external sound and is derived by capturing key characteristics that affect the monaural and binaural responses at the user's ear, such as the hearing level and anatomy. 
 An HRTF will produce the most accurate results when it is customised to match a specific user, since each user's hearing response is unique, but this is a complex process and HRTFs generated with average values (head sizes, heights, ear shapes, etc.) produce acceptable results~\citep{gardner1995hrtf}.}
 
-\hl{The interface presents the user with guidance instructions in the form of angular adjustments that are required in the pan and elevation dimensions to point a camera at the desired target (see \cref{fig:cam-coords}).
+\hl{The interface presents the user with guidance instructions in the form of angular adjustments that are required in the pan and elevation dimensions to point a camera at the desired target (see \cref{fig:participant}).
 Spatialised audio is well-suited to this micro-navigation task, displaying accuracy levels comparable to vocal feedback, but with less cognitive load at the high resolution of this task~\citep{klatzky2006cognitive}. 
 However, we propose a linear adjustment to the signal's pitch as a function of the elevation angle to overcome the limitations of bone-conduction headphones and spatialised audio stated previously.
 The pan angle can still be conveyed with a spatialised audio signal generated by an HRTF.
@@ -245,10 +246,11 @@ This interface was implemented and evaluated in~\citet{lock2019bone}.}
 
 \begin{figure}
   \centering
-  \subfloat[]{\label{fig:cam-coords}\includegraphics[width=0.3\columnwidth]{figures/camera_coordinate.pdf}}
-~
-  \subfloat[]{\label{fig:pitch-gain}\includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}}
-  \caption{The reference system used by the guidance interface showing the camera vector and pan and elevation angles (left) and the pitch gain function used to convey the target's elevation angle (right). Note the logarithmic scale of the frequency axis. Adapted from~\citet{lock2019bone}. }
+  %\subfloat[]{\label{fig:cam-coords}\includegraphics[width=0.3\columnwidth]{figures/camera_coordinate.pdf}}
+%~
+  %\subfloat[]{\label{fig:pitch-gain}\includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}}
+  \includegraphics[clip, trim=0 0 0 40, width=0.7\columnwidth]{figures/pitch_gain_function.png}
+  \caption{A plot depicting the pitch gain function used to convey the target's elevation angle. Note the logarithmic scale of the frequency axis. Adapted from~\citet{lock2019bone}. }\label{fig:pitch-gain}
   \Description{The reference system used by the guidance interface showing the camera vector and pan and elevation angles and the pitch gain function used to convey the target's elevation angle. Note the logarithmic scale of the frequency axis. }
 \end{figure}
 
@@ -262,12 +264,12 @@ The since was was spatialised using OpenAL's default HRTF , based on the MIT's K
 
 \subsection{Elevation Dimension}
 
-\hl{To compensate for the loss of elevation localisation performance when conveying spatialised audio via bone-conduction headphones~\citep{macdonald2006spatial,schonstein2008comparison}, we adjust the sine wave's frequency (i.e.\ audible pitch) as a linear function of the target's elevation angle, as shown in \cref{fig:cam-coords}.
+\hl{To compensate for the loss of elevation localisation performance when conveying spatialised audio via bone-conduction headphones~\citep{macdonald2006spatial,schonstein2008comparison}, we adjust the sine wave's frequency (i.e.\ audible pitch) as a linear function of the target's elevation angle, as shown in \cref{fig:pitch-gain}.
 When the required elevation adjustment is above or below where the camera is currently pointed, the pitch is increased or lowered respectively. 
 This high/low scheme was selected based on humans' natural association of high-pitched sounds with elevated objects and vice-versa for low-lying objects~\citep{pratt1930spatial,blauert1997spatial}.
 The pitch is constantly adjusted and updated at \SI{10}{\hertz} in octave- and semitone-based intervals to ensure perceptible changes, while keeping the tone's timbre constant~\citep{shepard1964circularity}. }
 
-\hl{The pitch is changed as a linear function of the elevation angle (see \cref{fig:pitch-gain}), the gradient of which is determined by setting the angle and pitch limits.
+\hl{The pitch is changed as a linear function of the elevation angle, the gradient of which is determined by setting the angle and pitch limits.
 These limits are set at some number of octaves from the neutral pitch that is emitted when the camera is on-target. 
 This tone is heuristically set to \SI{512}{\hertz} following practical tests, which is comfortably audible for a large number of octaves changes.
 For this work, we only consider a \SI{180}{\degree} field of view in front of the user and limit the elevation angle to a range of \SI{\pm90}{\degree}, or $[-\frac{\pi}{2}, \frac{\pi}{2}]$.
@@ -396,8 +398,7 @@ In our case, the targets have no width, since they are points in space, and we t
 Here $\theta$ is the angular distance between subsequent target centres and $w_e$ is the targets' effective angular width~\citep{welford1968fundamentals}, given by
 
 \begin{equation}
-  \label{eq:fitts-we}
-  w_e = \sqrt{2\pi e}~\sigma = 4.133~\sigma,
+  \label{eq:fitts-we} w_e = \sqrt{2\pi e}~\sigma = 4.133~\sigma,
 \end{equation}
 
 \noindent \hl{where $\sigma$ is the standard deviation of the combined pan and elevation error ($x, y$), calculated with}
@@ -424,11 +425,28 @@ Fitts's index of performance, $IP$, can then be calculated using
 Two groups of participants were recruited for the experiments on a volunteer basis. 
 \hl{Group~\textit{G1} consisted of 42 undergraduate students (10 male, 32, female) with normal eyesight who were blindfolded for the experiments (mean age: $20\pm2$).
 Group \textit{G2} contained 10 people (7 male, 3 female) with severe visual impairments (mean age: $61\pm17$).
-Of the latter group, 3 are congenitally blind, while the rest were classified as severely sight impaired later in life and 3 had limited light perception and none reported any significant prior experience with electronic navigation aids. }
-None of the participants had any hearing or other disabilities that could have influenced their performance in the experiments.
+Of the latter group, 3 are congenitally blind, while the rest were classified as severely sight impaired later in life.
+Of these, 3 participants still have limited light perception with no ability to reliably discern shapes and objects. 
+Nevertheless, they were asked to close their eyes during the experiment to. 
+None of the participants reported any significant prior experience with electronic navigation aids and none had any hearing or other disabilities that could have influenced their performance in the experiments.
+These demographics are summarised in \cref{tab:demographics}.}
 Each participant performed three sets of experiments each, with the two characterisation experiments in \cref{sec:participant_characterisation} preceding the final target-search experiment in \cref{sec:target_search}. 
 Both groups were given some time before the target-search experiment to familiarise themselves with the system, the audio signal's behaviour and the \SI{512}{\hertz} on-level tone. 
 Furthermore, to minimise any potential speed/accuracy biases, we asked the participants to focus on finding the targets without worrying about the time it took to complete the task. 
+
+\begin{table}
+  \centering
+  \caption{}\label{tab:demographics}
+  \begin{tabular}{p{2.7cm}p{1.8cm}p{6cm}}
+    \toprule
+                                 & Group \textit{G1} & Group \textit{G2} \\\midrule
+    Gender [M/F]                 & 10/32    & 7/3 \\
+    Age [years]                  & $20\pm2$ & $61\pm17$ \\
+    Degrees of Vision Impairment & N/A      & 3 totally blind, 7 severely sight impaired (3 with very limited light perception) \\
+    Experience with ETAs         & None     & None \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \section{Results}\label{sec:results}
 
@@ -571,8 +589,7 @@ Based on the current data, it is impossible to conclude which setting produces t
 \hl{Furthermore, the significant variance in the error results for Group \textit{G2} could possibly be because of the higher mean age compared to Group \textit{G1} and their general inexperience with mobile phones.
 Indeed, previous works have suggested that these demographics may have a measurable effect on target-finding performance~\citep{millar1994understanding,pring2008psychological}.
 However, comparing the distributions for each setting between the two groups with the Kruskal-Wallis test for non-parametric data, we see that the differences between the distributions for all three settings are not significantly different, for both groups and both pan and elevation (the $p$-values are summarised in \cref{tab:inter-group-results}).}
-The similarity between the distributions is further highlighted with non-significant results from the two-sided Kolmogorov-Smirnov test, where none of the $p$-values are significant.
-The $p$-values for this test are also listed in~\cref{tab:inter-group-results}.
+The similarity between the distributions is further highlighted by a two-sample Kolmogorov-Smirnov test (the $p$-values are listed in~\cref{tab:inter-group-results}).
 \hl{This result confirms that the performance of the blindfolded participants and those with severe sight impairments are statistically similar despite the seemingly clear differences in error performance.
 Therefore, groups from a different population can reasonably be expected to produce similar errors under similar experimental conditions. 
 We also note that there is a significant negative error bias in the elevation data for all the settings and groups, possibly caused by a cognitive constraint introduced by the floor, below which the participants believed the targets could not appear.
@@ -686,8 +703,8 @@ These include questions such as what caused the observed difference in time perf
 Furthermore, casual post-experiment conversations with the participants revealed that some felt that one setting was easier to understand than the others and it can therefore be beneficial to investigate the possibility of adding an auto-adaptation component to the audio signal.
 For example, the pitch gradient can be automatically adjusted over time by the device to provide a better match between the human and computer and increase overall target-finding performance.
 Indeed, the work by~\citet{gallina2015progressive} may serve as a good guideline for such a system.
-Additional feedback modes may also be added to allow for clearer guidance experience for the user, e.g.\ vibration signals to inform them when they point to the target or adjusting the volume to expand the system to three dimensions.
-With this kind of audio interface now better understood, it is ready to be implemented into a fully packaged guidance system for people with visual impairments.
+Additional feedback modes may also be added to allow for a clearer guidance experience for the user, e.g.\ vibration signals or another tone~\citep{marentakis2006effects}, to explicitly inform them when they are pointing to the target or by adjusting the volume to expand the system to three dimensions.
+With this kind of audio interface now better understood, it is ready to be implemented into a fully implemented guidance system for people with visual impairments.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{bib}

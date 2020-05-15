@@ -5,7 +5,7 @@
 \title{Experimental Analysis of a Spatialised Audio Interface for People with Visual Impairments}
 \subtitle{Rebuttal to Reviewers}
 
-\author{JC Lock; G. Cielniak; ID Gilchrist; N Bellotto}
+\author{JC Lock; ID Gilchrist; G. Cielniak; N Bellotto}
 
 \maketitle
 
@@ -40,12 +40,12 @@ In this frame, the proposed analysis of the performance in localizing spatialize
     This statement is not valid. Difference testing detects difference, but the absence of statistically significant difference does not imply similarity. For that equivalence testing is needed.}
   \item[] Thank you for pointing out this error.
     This is addressed in Section 5.3, where we confirm the statistical similarity between the 2 groups with a 2-sample Kolmogorov-Smirnov test. 
-    These results are listed in Table 2.
+    These results are listed in Table 3.
 
   \item R1.5 \textit{Another important consideration that should be discussed is the high variance in the results of the participants with visual impairments. As the authors suggest, this might be an artifact due to a lower number of participants. However, there is also an alternative interpretation: prior literature on spatial understanding in people with visual impairments suggests that visual impairment onset age, prior experience with spatialized information and other characteristics impact spatial performance capabilities [millar1994understanding, pring2008psychological]. Thus, it may be that the high variance in data for visually impaired participants is due to the high variance in participants' characteristics. As the number of visually impaired participants is low, I suggest adding a table presenting participants' demographic characteristics (age, impairment, onset, navigation expertise....)}
   \item[] We thank the reviewer for this helpful suggestion.
     To address this, we added in Section 4.4 additional demographic information regarding the distributions of the participants' age, sex, age of impairment onset and level of impairment.
-    This is summarised in Table meme
+    This is summarised in Table 1. 
 
   \item R1.6 \textit{The main result of the work is quite original and the contribution is timely as a lot of the work in the field is currently being done}
   \item[] We'd thank the reviewer for this kind comment. 
@@ -62,11 +62,11 @@ In this frame, the proposed analysis of the performance in localizing spatialize
     We have added the reference from~\cite{zhai2004speed}, as well as a paper by~\cite{kabbash1995prince}, in Section 4.3 to support our use of $w_e$ in this work.
     We have also revised the way we calculate $w_e$ based on the recommendations from the reviewer and~\cite{wobbrock2011effects} recommendations and made mention of this in Section 4.3. 
     These changes have led to modifications to Fig. 11 and 12 and have improved the overall model fit.
-    The updated results are discussed in Sections 5.4 and 5.5. and Table 3.
+    The updated results are discussed in Sections 5.4 and 5.5. and listed in Table 4.
     
   \item R2.2 \textit{First, while it is good that the authors included visually impaired individuals in the study, it is hard to know what to make of the differences in performance (and patterns of performance) between the two groups. Since the whole point of the study is to inform a system intended to be used by visually impaired individuals, how should we interpret this? The two groups are VERY different in performance, N, and (I assume, though details are not provided) demography. While having a group of young blind-folded participants is fine as a baseline for a project like this, the apparent variability and small N in the VI group is problematic. This isn’t really a fatal flaw, but it makes the study much less robust. At a minimum, we need to know more detail about the demographic details of the two groups. Currently, the paper lumps the age range and gender together for the two groups. Because the behavior of the two groups is so different, these really need to be separated.}
   \item[] We'd like to thank the reviewer for pointing this out. 
-    We have addressed these concerns by reporting the participant demographics separately for each group in Section 4.4 and Table meme. 
+    We have addressed these concerns by reporting the participant demographics separately for each group in Section 4.4 and Table 1. 
     We have also added comments in Section 5.3 to point out that these underlying demographic differences may be the cause of the divergences between the groups.  
     Furthermore, we added an additional Kolmogorov-Smirnov test in Section 5.3 to show the statistical similarity between the groups' results, which we hope alleviates concerns about robustness.
 
@@ -88,14 +88,14 @@ In this frame, the proposed analysis of the performance in localizing spatialize
     To address these concerns, we have added text in Section 1, where additional context behind the reason for these experiments and how their results will be used is provided. 
     In summary, for this project we were looking into ways to automate an optimisation process where an audio interface changes its own audio parameters to boost the user's target-finding performance.
     For this, we required a robust model that can provide a quantifiable measure of performance (Fitts Index of Performance).
-    At the time this work was conducted, it was not clear that Fitts's model could provide us with a useful measure based on the literature we had at hand and is the main reason we conducted this analysis.
-    We acknowledge the reviewer's valid comment about not strictly conforming to the law and we amended the wording in the Introduction (Section 1) to use less absolute language and say that we found that the interface 'exhibits a response that is well-modelled by Fitts’s Law'n instead of 'conforms to Fitts' Law'.
+    %At the time this work was conducted, it was not clear that Fitts's model could provide us with a useful measure based on the literature we had at hand and is the main reason we conducted this analysis.
+    We acknowledge the reviewer's valid comment about not strictly conforming to the law and we amended the wording in the Introduction (Section 1) to use less absolute language and say that we found that the interface `exhibits a response that is well-modelled by Fitts’s Law'  instead of `conforms to Fitts' Law'.
 
   \item R2.6 \textit{I suspect that the authors want to engage in this whole Fitts’s exercise in order to tie the work more closely to the wider HCI pointing literature. However, if the authors really wanted to use Fitts’s Law for this task, there is certainly precedent in the Marentakis \& Brewster, 2006 paper that they cite. Here, researchers used a second audio signal to indicate that a target was acquired.
     All the above notwithstanding, I’m not certain that this is *wrong* for the purposes they use here, it’s just very non-standard and violates much of the basic theory behind Fitts’s Law. So I don’t see this as a completely fatal flaw, but the authors would definitely need to modify the manuscript to address these issues if they want to engage with the Fitts’s Law discourse.}
-  \item We appreciate this feedback.
+  \item[] We appreciate this feedback.
     As we mention in R2.3, we could not indicate that the user was on-target any more explicitly than we did, since we would not be able to measure the target position estimation error.
-    However, we agree that from a practical perspective, a more explicit signal (such as the one from~\cite{marentakis2005comparison}) would be advantageous for a real guidance system.
+    However, we agree that from a practical perspective, a more explicit signal (such as the one from~\cite{marentakis2005comparison}) would be advantageous for a real guidance system and we make mention of this in the concluding lines.
     Regarding Fitts's Law not being used correctly in this work, we hope that the points in R2.3-2.4 sufficiently address the reviewer's concerns.
 
   \item R2.7 \textit{To my mind, the paper is a bit of an ``LPU'' (least-publishable-unit), for a larger, more interesting project (which I would love to see!). The specific contribution here is in the use of a pitch gradient for conveying elevation information for spatialized 3D audio as well as a user study evaluating its effectiveness and some of the design space (three different pitch gradients). I’m not sure that I would consider this an adequate contribution for a shorter conference paper (such as ASSETS); for TACCESS, this seems weak. That is, I would say the contribution is not commensurate with the length of the paper.}
@@ -104,7 +104,7 @@ In this frame, the proposed analysis of the performance in localizing spatialize
     However, we think that the paper contains enough contributory work to justify its publication for a couple of reasons.
     Firstly, the experiments with a sizable sample of both partially-sighted blindfolded individuals provides compelling results on the expected accuracy of a modified spatialised audio signal played via bone-conduction headphones.
     Indeed, it adds to a relatively sparse body of knowledge on the matter.
-    Furthermore, while not necessarily strictly proving conformance to Fitts's Law, we do show a consistent and reasonably strong fit for a non-visual search task with an audio interface with both partially-sighted and blindfolded individuals that, in our opinion, is interesting and merits further exploration.
+    Furthermore, while not necessarily strictly proving conformance to Fitts's Law, we do show a consistent and reasonably strong fit for a non-visual search task with an audio interface with both partially-sighted and blindfolded individuals that, in our opinion, is interesting and merits publication.
 
 \end{itemize}
 
